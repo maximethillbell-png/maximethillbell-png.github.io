@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF Organizer Pro</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0d0f1a; --s1:#141728; --s2:#1c2038; --s3:#252a45;
+  --bd:#2a3050; --ac:#6c63ff; --ac2:#ff6584; --gr:#43e97b;
+  --tx:#e8eaf6; --mu:#7c85b0; --dg:#ff6584; --yw:#ffd166;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;display:flex;flex-direction:column;}
+
+/* HEADER */
+header{background:var(--s1);border-bottom:1px solid var(--bd);padding:13px 22px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;}
+.logo{display:flex;align-items:center;gap:10px;font-size:1.2rem;font-weight:800;}
+.logo-icon{width:30px;height:30px;background:linear-gradient(135deg,var(--ac),var(--ac2));border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;}
+.hdr{display:flex;align-items:center;gap:10px;}
+.pcnt{font-size:.82rem;color:var(--mu);background:var(--s2);padding:5px 12px;border-radius:20px;border:1px solid var(--bd);}
+.pcnt b{color:var(--tx);}
+
+/* BUTTONS */
+.btn{padding:7px 16px;border-radius:8px;border:none;cursor:pointer;font-size:.85rem;font-weight:700;transition:all .18s;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;}
+.btn:disabled{opacity:.35;cursor:not-allowed;}
+.btn-pr{background:linear-gradient(135deg,var(--ac),#8b84ff);color:#fff;box-shadow:0 4px 14px rgba(108,99,255,.3);}
+.btn-pr:not(:disabled):hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(108,99,255,.45);}
+.btn-ex{background:linear-gradient(135deg,var(--gr),#38f9d7);color:#062010;box-shadow:0 4px 14px rgba(67,233,123,.3);}
+.btn-ex:not(:disabled):hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(67,233,123,.45);}
+.btn-gh{background:transparent;color:var(--mu);border:1px solid var(--bd);}
+.btn-gh:not(:disabled):hover{background:var(--s2);color:var(--tx);border-color:var(--mu);}
+.btn-yw{background:rgba(255,209,102,.12);color:var(--yw);border:1px solid rgba(255,209,102,.3);}
+.btn-yw:hover{background:rgba(255,209,102,.22);}
+
+/* TOOLBAR */
+.toolbar{padding:10px 22px;background:var(--s1);border-bottom:1px solid var(--bd);display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.tsep{width:1px;height:22px;background:var(--bd);flex-shrink:0;}
+.zoom-ctl{display:flex;align-items:center;gap:6px;margin-left:auto;}
+.zoom-lbl{font-size:.78rem;color:var(--mu);}
+input[type=range]{-webkit-appearance:none;width:88px;height:4px;border-radius:2px;background:var(--bd);outline:none;cursor:pointer;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:var(--ac);cursor:pointer;}
+input[type=file]{display:none;}
+
+/* UPLOAD ZONE */
+#uploadZone{margin:32px auto;max-width:520px;border:2px dashed var(--bd);border-radius:16px;padding:52px 36px;text-align:center;cursor:pointer;transition:all .25s;background:var(--s1);}
+#uploadZone:hover,#uploadZone.dov{border-color:var(--ac);background:rgba(108,99,255,.07);}
+.uico{font-size:3.2rem;margin-bottom:14px;}
+#uploadZone h2{font-size:1.2rem;font-weight:700;margin-bottom:6px;}
+#uploadZone p{color:var(--mu);font-size:.88rem;line-height:1.5;}
+.uhint{margin-top:14px;display:inline-block;padding:5px 14px;background:rgba(108,99,255,.15);border:1px solid rgba(108,99,255,.3);border-radius:20px;font-size:.78rem;color:var(--ac);font-weight:700;}
+
+/* ── MAIN GRID ── */
+/* Groups and expanded panels stack vertically; within each group, cards are in a flex-wrap grid */
+#main{padding:20px 22px;display:flex;flex-direction:column;gap:16px;}
+
+/* ── COLLAPSED GROUP CARD ── */
+/* In collapsed state, the group is shown as a compact card in the GRID row.
+   Multiple collapsed groups on the same "row" → we put groups in a flex-wrap row-container. */
+#groupsWrap{display:flex;flex-wrap:wrap;gap:12px;align-content:flex-start;}
+
+.gc{
+  background:var(--s1);
+  border:2px solid var(--bd);
+  border-radius:14px;
+  overflow:hidden;
+  width:var(--cw,170px);
+  transition:border-color .18s,box-shadow .18s;
+  position:relative;
+  /* NO draggable here — only the drag handle inside */
+}
+.gc:hover{border-color:var(--ac);box-shadow:0 8px 24px rgba(0,0,0,.35);}
+.gc.drop-on{border-color:var(--gr)!important;box-shadow:0 0 0 3px rgba(67,233,123,.25)!important;}
+.gc.dragging{opacity:.3;}
+
+/* Drag handle — the ONLY draggable part */
+.gc-drag{cursor:grab;position:relative;}
+.gc-drag:active{cursor:grabbing;}
+
+/* Thumbnail area */
+.gc-thumb{width:100%;background:#fff;min-height:100px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+.gc-thumb img{width:100%;height:auto;display:block;pointer-events:none;}
+.gc-thumb-ph{width:100%;min-height:100px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:.75rem;flex-direction:column;gap:6px;}
+.mini-spin{width:20px;height:20px;border:3px solid #ddd;border-top-color:var(--ac);border-radius:50%;animation:spin .7s linear infinite;}
+
+/* Badge on thumb */
+.gc-badge{position:absolute;top:5px;right:5px;background:rgba(108,99,255,.88);color:#fff;font-size:.6rem;font-weight:800;padding:2px 7px;border-radius:20px;pointer-events:none;max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.gc-order-badge{position:absolute;top:5px;left:5px;background:rgba(10,12,25,.85);color:var(--mu);font-size:.6rem;font-weight:800;padding:2px 7px;border-radius:20px;pointer-events:none;border:1px solid var(--bd);}
+
+/* Info row */
+.gc-info{padding:7px 10px 4px;}
+.gc-name{font-size:.78rem;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--tx);}
+.gc-meta{font-size:.65rem;color:var(--mu);margin-top:1px;}
+
+/* Action buttons row — NOT inside the draggable element */
+.gc-actions{display:flex;gap:4px;padding:4px 7px 7px;}
+.gab{flex:1;padding:5px 3px;border-radius:6px;border:1px solid transparent;cursor:pointer;font-size:.62rem;font-weight:700;transition:all .15s;text-align:center;}
+.gab-rev{background:rgba(108,99,255,.12);color:var(--ac);border-color:rgba(108,99,255,.22);}
+.gab-rev:hover{background:rgba(108,99,255,.26);}
+.gab-expl{background:rgba(255,209,102,.1);color:var(--yw);border-color:rgba(255,209,102,.25);}
+.gab-expl:hover{background:rgba(255,209,102,.22);}
+.gab-tog{background:rgba(255,255,255,.05);color:var(--mu);border-color:var(--bd);}
+.gab-tog:hover{background:var(--s3);color:var(--tx);}
+.gab-del{background:rgba(255,101,132,.1);color:var(--dg);border-color:rgba(255,101,132,.22);}
+.gab-del:hover{background:rgba(255,101,132,.22);}
+
+/* ── DROP PLACEHOLDER (compact card) ── */
+.drop-ph-group{
+  width:var(--cw,170px);
+  border:2px dashed var(--gr);
+  border-radius:14px;
+  background:rgba(67,233,123,.07);
+  pointer-events:none;
+  flex-shrink:0;
+}
+
+/* ── EXPANDED PANEL ── */
+/* When a group is expanded, it shows as a full-width panel below the grid */
+.exp-panel{
+  background:var(--s1);
+  border:2px solid var(--ac);
+  border-radius:14px;
+  overflow:hidden;
+  width:100%;
+}
+.exp-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:11px 16px;
+  background:rgba(108,99,255,.08);
+  border-bottom:1px solid var(--bd);
+}
+.exp-drag-handle{
+  font-size:1.1rem;
+  color:var(--mu);
+  cursor:grab;
+  padding:4px 6px;
+  border-radius:6px;
+  flex-shrink:0;
+}
+.exp-drag-handle:hover{background:var(--s3);color:var(--tx);}
+.exp-drag-handle:active{cursor:grabbing;}
+.exp-thumb{width:36px;height:46px;border-radius:5px;overflow:hidden;background:#fff;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.4);}
+.exp-thumb img{width:100%;height:100%;object-fit:cover;}
+.exp-info{flex:1;min-width:0;}
+.exp-name{font-size:.92rem;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.exp-meta{font-size:.72rem;color:var(--mu);margin-top:2px;}
+.exp-badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.62rem;font-weight:700;background:rgba(108,99,255,.18);color:var(--ac);border:1px solid rgba(108,99,255,.3);margin-top:3px;}
+.exp-btns{display:flex;gap:6px;flex-shrink:0;}
+.eab{padding:5px 10px;border-radius:7px;border:1px solid transparent;cursor:pointer;font-size:.72rem;font-weight:700;transition:all .15s;white-space:nowrap;}
+.eab-rev{background:rgba(108,99,255,.12);color:var(--ac);border-color:rgba(108,99,255,.25);}
+.eab-rev:hover{background:rgba(108,99,255,.26);}
+.eab-expl{background:rgba(255,209,102,.1);color:var(--yw);border-color:rgba(255,209,102,.25);}
+.eab-expl:hover{background:rgba(255,209,102,.22);}
+.eab-tog{background:rgba(255,255,255,.05);color:var(--mu);border-color:var(--bd);}
+.eab-tog:hover{background:var(--s3);color:var(--tx);}
+.eab-del{background:rgba(255,101,132,.1);color:var(--dg);border-color:rgba(255,101,132,.22);}
+.eab-del:hover{background:rgba(255,101,132,.22);}
+
+/* Pages grid inside expanded panel */
+.exp-pages{padding:14px;display:flex;flex-wrap:wrap;gap:10px;background:rgba(0,0,0,.12);}
+
+/* ── PAGE CARD (inside expanded panel) ── */
+.pg-card{
+  background:var(--s2);
+  border:2px solid var(--bd);
+  border-radius:10px;
+  overflow:hidden;
+  width:var(--cw,170px);
+  flex-shrink:0;
+  position:relative;
+  transition:border-color .15s,transform .15s,box-shadow .15s;
+}
+.pg-card:hover{border-color:var(--ac);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.3);}
+.pg-card.pg-dragging{opacity:.25;}
+.pg-card.pg-drop{border-color:var(--gr);box-shadow:0 0 0 2px rgba(67,233,123,.3);}
+/* drag handle for page */
+.pg-drag{cursor:grab;position:relative;}
+.pg-drag:active{cursor:grabbing;}
+.pg-order{position:absolute;top:4px;left:4px;background:rgba(5,7,20,.85);color:var(--mu);font-size:.58rem;font-weight:800;padding:2px 6px;border-radius:12px;border:1px solid var(--bd);z-index:2;pointer-events:none;}
+.pg-thumb{width:100%;background:#fff;min-height:90px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.pg-thumb img{width:100%;height:auto;display:block;pointer-events:none;}
+.pg-info{padding:6px 8px 3px;}
+.pg-label{font-size:.68rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pg-sub{font-size:.6rem;color:var(--mu);margin-top:1px;}
+.pg-actions{display:flex;gap:4px;padding:4px 7px 7px;}
+.pg-actions button{flex:1;padding:4px;border-radius:5px;border:1px solid transparent;cursor:pointer;font-size:.62rem;font-weight:700;transition:all .14s;}
+.pa-dup{background:rgba(108,99,255,.12);color:var(--ac);border-color:rgba(108,99,255,.22);}
+.pa-dup:hover{background:rgba(108,99,255,.24);}
+.pa-del{background:rgba(255,101,132,.1);color:var(--dg);border-color:rgba(255,101,132,.22);}
+.pa-del:hover{background:rgba(255,101,132,.22);}
+/* page drop placeholder */
+.pg-drop-ph{border:2px dashed var(--gr);border-radius:10px;background:rgba(67,233,123,.07);flex-shrink:0;pointer-events:none;}
+
+
+/* LOADING */
+#ldOv{position:fixed;inset:0;background:rgba(5,7,18,.85);backdrop-filter:blur(6px);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:999;}
+#ldOv.on{display:flex;}
+.ld-card{background:var(--s1);border:1px solid var(--bd);border-radius:16px;padding:32px 44px;text-align:center;}
+.spinner{width:46px;height:46px;border:4px solid var(--bd);border-top-color:var(--ac);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 15px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+#ldTxt{font-size:.95rem;font-weight:700;}
+#ldSub{margin-top:4px;font-size:.78rem;color:var(--mu);}
+.ld-track{margin-top:14px;height:4px;background:var(--bd);border-radius:2px;overflow:hidden;width:190px;}
+.ld-fill{height:100%;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width .2s;}
+
+#emptyState{display:none;text-align:center;padding:60px;color:var(--mu);}
+#emptyState h3{color:var(--tx);margin-bottom:5px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><div class="logo-icon">📄</div>PDF Organizer Pro</div>
+  <div class="hdr">
+    <div class="pcnt"><b id="pcNum">0</b> page(s) · <b id="grpNum">0</b> groupe(s)</div>
+    <button class="btn btn-ex" id="exportBtn" onclick="exportPDF()" disabled>↓ Exporter le PDF</button>
+  </div>
+</header>
+
+<div class="toolbar">
+  <button class="btn btn-pr" onclick="document.getElementById('fi').click()">+ Ajouter des PDFs</button>
+  <button class="btn btn-gh" id="clearBtn" onclick="clearAll()" disabled>🗑 Tout effacer</button>
+  <div class="tsep"></div>
+  <span style="font-size:.78rem;color:var(--mu)">Glissez les groupes · Dépliez pour éditer les pages</span>
+  <div class="zoom-ctl">
+    <span class="zoom-lbl">Taille :</span>
+    <input type="range" id="zoomSlider" min="110" max="240" value="170" oninput="setZoom(this.value)">
+  </div>
+</div>
+<input type="file" id="fi" accept=".pdf" multiple onchange="handleFiles(this.files)">
+
+<div id="uploadZone">
+  <div class="uico">📂</div>
+  <h2>Déposez vos fichiers PDF ici</h2>
+  <p>Importez un ou plusieurs PDFs — les pages seront groupées<br>par fichier et organisables librement</p>
+  <span class="uhint">Cliquer ou glisser-déposer</span>
+</div>
+
+<!-- MAIN: alternates between groupsWrap (grid of compact cards) and exp-panels (full-width expanded) -->
+<div id="main" style="display:none">
+  <!-- rendered dynamically -->
+</div>
+<div id="emptyState"><h3>Aucune page</h3><p>Ajoutez un PDF pour commencer.</p></div>
+
+<!-- LOADING -->
+<div id="ldOv">
+  <div class="ld-card">
+    <div class="spinner"></div>
+    <div id="ldTxt">Chargement…</div>
+    <div id="ldSub"></div>
+    <div class="ld-track"><div class="ld-fill" id="ldBar" style="width:0%"></div></div>
+  </div>
+</div>
+
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+// ══════════════════════════════
+// STATE
+// ══════════════════════════════
+const pdfStore = {};      // name → { bytes, pageCount, pdfjs }
+let pages = [];           // [{ id, pdfName, pageIndex, thumb }]
+const expanded = new Set(); // Set of String(firstId) for expanded groups
+let uid = 0;
+const nid = () => String(++uid);
+
+// drag state
+let gDragId = null;       // firstId (string) of group being dragged (collapsed)
+let pgDragInfo = null;    // { groupId, localIdx }
+let gDropPh = null;
+let pgDropPh = null;
+
+
+// ══════════════════════════════
+// UPLOAD ZONE
+// ══════════════════════════════
+const UZ = document.getElementById('uploadZone');
+UZ.addEventListener('click', () => document.getElementById('fi').click());
+UZ.addEventListener('dragover', e => { e.preventDefault(); UZ.classList.add('dov'); });
+UZ.addEventListener('dragleave', () => UZ.classList.remove('dov'));
+UZ.addEventListener('drop', e => {
+  e.preventDefault(); UZ.classList.remove('dov');
+  const fs = [...e.dataTransfer.files].filter(f => f.name.toLowerCase().endsWith('.pdf'));
+  if (fs.length) handleFiles(fs);
+});
+
+// ══════════════════════════════
+// HANDLE FILES
+// ══════════════════════════════
+async function handleFiles(raw) {
+  const files = [...raw];
+  if (!files.length) return;
+  showLd('Lecture des PDFs…', '', 0);
+  for (let fi = 0; fi < files.length; fi++) {
+    const f = files[fi];
+    let name = f.name.replace(/\.pdf$/i, '');
+    let base = name, c = 1;
+    while (pdfStore[name]) name = `${base} (${c++})`;
+    setLd(`Lecture : ${name}`, `${fi+1}/${files.length}`, Math.round(fi/files.length*35));
+    const bytes = new Uint8Array(await f.arrayBuffer());
+    const pdfjs = await pdfjsLib.getDocument({ data: bytes }).promise;
+    pdfStore[name] = { bytes, pageCount: pdfjs.numPages, pdfjs };
+    for (let pi = 0; pi < pdfjs.numPages; pi++)
+      pages.push({ id: nid(), pdfName: name, pageIndex: pi, thumb: null, groupId: name });
+  }
+  const missing = pages.filter(p => !p.thumb);
+  for (let i = 0; i < missing.length; i++) {
+    const p = missing[i];
+    setLd('Génération des aperçus…', `${i+1}/${missing.length}`, 35+Math.round(i/missing.length*63));
+    p.thumb = await renderThumb(p.pdfName, p.pageIndex);
+  }
+  hideLd();
+  render();
+}
+
+// ══════════════════════════════
+// THUMBNAIL
+// ══════════════════════════════
+async function renderThumb(pdfName, pageIndex, scale=0.55) {
+  try {
+    const page = await pdfStore[pdfName].pdfjs.getPage(pageIndex+1);
+    const vp = page.getViewport({ scale });
+    const c = document.createElement('canvas');
+    c.width = vp.width; c.height = vp.height;
+    await page.render({ canvasContext: c.getContext('2d'), viewport: vp }).promise;
+    return c.toDataURL('image/webp', 0.8);
+  } catch { return null; }
+}
+
+// ══════════════════════════════
+// GROUP COMPUTATION
+// ══════════════════════════════
+function computeGroups() {
+  const gs = [];
+  let i = 0;
+  while (i < pages.length) {
+    const gKey = pages[i].groupId;
+    const name = pages[i].pdfName;
+    const start = i;
+    while (i < pages.length && pages[i].groupId === gKey) i++;
+    const slice = pages.slice(start, i);
+    gs.push({ id: slice[0].id, pdfName: name, groupId: gKey, startIdx: start, count: i-start, pages: slice });
+  }
+  return gs;
+}
+
+// ══════════════════════════════
+// RENDER
+// ══════════════════════════════
+function render() {
+  const main = document.getElementById('main');
+  main.innerHTML = '';
+  const groups = computeGroups();
+  if (!groups.length) { updateUI(groups); return; }
+
+  // We render groups in sequence.
+  // Consecutive collapsed groups share a flex-wrap row.
+  // Each expanded group gets its own full-width panel.
+  // Strategy: accumulate collapsed groups into a wrap div, flush it when we hit an expanded group.
+
+  let wrapDiv = null;
+
+  groups.forEach((g, gi) => {
+    const isExp = expanded.has(g.id);
+
+    if (!isExp) {
+      // Collapsed → add to current wrap row
+      if (!wrapDiv) {
+        wrapDiv = document.createElement('div');
+        wrapDiv.id = 'gw';
+        wrapDiv.style.cssText = 'display:flex;flex-wrap:wrap;gap:12px;align-content:flex-start;';
+        main.appendChild(wrapDiv);
+      }
+      wrapDiv.appendChild(buildCollapsed(g, gi, groups.length));
+    } else {
+      // Expanded → flush wrap, then add full-width panel
+      wrapDiv = null;
+      main.appendChild(buildExpanded(g, gi, groups.length));
+    }
+  });
+
+  // Make the groups-wrap a drop target zone too (for dropping between cards)
+  setupGroupWrapDrop();
+  updateUI(groups);
+}
+
+// ══════════════════════════════
+// BUILD COLLAPSED GROUP CARD
+// ══════════════════════════════
+function buildCollapsed(g, gi, total) {
+  const card = document.createElement('div');
+  card.className = 'gc';
+  card.dataset.gid = g.id;
+
+  const sn = g.pdfName.length > 14 ? g.pdfName.slice(0,13)+'…' : g.pdfName;
+  const fp = g.pages[0];
+
+  // ── Drag handle (thumb + info) — this is the ONLY draggable part
+  const dragEl = document.createElement('div');
+  dragEl.className = 'gc-drag';
+  dragEl.draggable = true;
+  dragEl.innerHTML = `
+    <div class="gc-thumb">
+      ${fp.thumb ? `<img src="${fp.thumb}" alt="">` : '<div class="gc-thumb-ph"><div class="mini-spin"></div></div>'}
+      <span class="gc-order-badge">#${gi+1}</span>
+      <span class="gc-badge" title="${g.pdfName}">${sn}</span>
+    </div>
+    <div class="gc-info">
+      <div class="gc-name" title="${g.pdfName}">${sn}</div>
+      <div class="gc-meta">${g.count} page${g.count>1?'s':''}</div>
+    </div>
+  `;
+
+  // ── Buttons — OUTSIDE draggable element ──
+  const actions = document.createElement('div');
+  actions.className = 'gc-actions';
+
+  const btnRev = document.createElement('button');
+  btnRev.className = 'gab gab-rev'; btnRev.textContent = '↕';
+  btnRev.title = 'Inverser';
+  btnRev.addEventListener('click', () => reverseGroup(g.id));
+
+  const btnExpl = document.createElement('button');
+  btnExpl.className = 'gab gab-expl'; btnExpl.textContent = '⚡';
+  btnExpl.title = 'Éclater en pages individuelles';
+  btnExpl.addEventListener('click', () => explodeGroup(g.id));
+
+  const btnTog = document.createElement('button');
+  btnTog.className = 'gab gab-tog'; btnTog.textContent = '▼ Déplier';
+  btnTog.addEventListener('click', () => toggleGroup(g.id));
+
+  const btnDel = document.createElement('button');
+  btnDel.className = 'gab gab-del'; btnDel.textContent = '✕';
+  btnDel.title = 'Supprimer groupe';
+  btnDel.addEventListener('click', () => deleteGroup(g.id));
+
+  actions.append(btnRev, btnExpl, btnTog, btnDel);
+  card.append(dragEl, actions);
+
+  // ── Drag events on the drag handle ──
+  dragEl.addEventListener('dragstart', e => {
+    gDragId = g.id;
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', g.id);
+    setTimeout(() => card.classList.add('dragging'), 0);
+
+    gDropPh = document.createElement('div');
+    gDropPh.className = 'drop-ph-group';
+    gDropPh.style.height = card.offsetHeight + 'px';
+  });
+
+  dragEl.addEventListener('dragend', () => {
+    card.classList.remove('dragging');
+    gDropPh?.parentNode?.removeChild(gDropPh);
+    gDropPh = null;
+    document.querySelectorAll('.gc.drop-on').forEach(c => c.classList.remove('drop-on'));
+    gDragId = null;
+  });
+
+  // ── This card as drop target ──
+  card.addEventListener('dragover', e => {
+    if (!gDragId || gDragId === g.id) return;
+    e.preventDefault();
+    e.stopPropagation();
+    document.querySelectorAll('.gc.drop-on').forEach(c => c.classList.remove('drop-on'));
+    card.classList.add('drop-on');
+    if (gDropPh) {
+      const rect = card.getBoundingClientRect();
+      const before = e.clientX < rect.left + rect.width/2;
+      card.parentNode?.insertBefore(gDropPh, before ? card : card.nextSibling);
+    }
+  });
+
+  card.addEventListener('drop', e => {
+    if (!gDragId || gDragId === g.id) return;
+    e.preventDefault();
+    e.stopPropagation();
+    moveGroup(gDragId, g.id, e);
+  });
+
+  return card;
+}
+
+// ══════════════════════════════
+// BUILD EXPANDED PANEL
+// ══════════════════════════════
+function buildExpanded(g, gi, total) {
+  const panel = document.createElement('div');
+  panel.className = 'exp-panel';
+  panel.dataset.gid = g.id;
+
+  const sn = g.pdfName.length > 24 ? g.pdfName.slice(0,23)+'…' : g.pdfName;
+  const fp = g.pages[0];
+
+  // Header with drag handle
+  const header = document.createElement('div');
+  header.className = 'exp-header';
+
+  // Drag handle (only this is draggable for groups)
+  const dh = document.createElement('div');
+  dh.className = 'exp-drag-handle';
+  dh.draggable = true;
+  dh.textContent = '⠿';
+  dh.title = 'Déplacer ce groupe';
+
+  dh.addEventListener('dragstart', e => {
+    gDragId = g.id;
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', g.id);
+    setTimeout(() => panel.style.opacity = '0.35', 0);
+    gDropPh = document.createElement('div');
+    gDropPh.className = 'drop-ph-group';
+    gDropPh.style.cssText = 'height:80px;width:100%;';
+  });
+  dh.addEventListener('dragend', () => {
+    panel.style.opacity = '';
+    gDropPh?.parentNode?.removeChild(gDropPh);
+    gDropPh = null;
+    gDragId = null;
+  });
+
+  const thumb = document.createElement('div');
+  thumb.className = 'exp-thumb';
+  if (fp.thumb) { const img = new Image(); img.src = fp.thumb; thumb.appendChild(img); }
+
+  const info = document.createElement('div');
+  info.className = 'exp-info';
+  info.innerHTML = `
+    <div class="exp-name" title="${g.pdfName}">${sn}</div>
+    <div class="exp-meta">${g.count} page${g.count>1?'s':''} · groupe ${gi+1}/${total}</div>
+    <span class="exp-badge">${g.pdfName}</span>
+  `;
+
+  // Buttons (NOT draggable, in a separate div)
+  const btns = document.createElement('div');
+  btns.className = 'exp-btns';
+
+  const bRev = document.createElement('button'); bRev.className='eab eab-rev'; bRev.textContent='↕ Inverser';
+  bRev.addEventListener('click', () => reverseGroup(g.id));
+
+  const bExp = document.createElement('button'); bExp.className='eab eab-expl'; bExp.textContent='⚡ Éclater';
+  bExp.addEventListener('click', () => explodeGroup(g.id));
+
+  const bTog = document.createElement('button'); bTog.className='eab eab-tog'; bTog.textContent='▲ Replier';
+  bTog.addEventListener('click', () => toggleGroup(g.id));
+
+  const bDel = document.createElement('button'); bDel.className='eab eab-del'; bDel.textContent='✕ Supprimer';
+  bDel.addEventListener('click', () => deleteGroup(g.id));
+
+  btns.append(bRev, bExp, bTog, bDel);
+  header.append(dh, thumb, info, btns);
+
+  // Pages grid
+  const pagesDiv = document.createElement('div');
+  pagesDiv.className = 'exp-pages';
+
+  g.pages.forEach((page, localIdx) => {
+    pagesDiv.appendChild(buildPageCard(page, localIdx, g));
+  });
+  if (!g.pages.length) {
+    pagesDiv.innerHTML = '<span style="color:var(--mu);font-size:.82rem;">Groupe vide</span>';
+  }
+
+  // Panel as drop target too
+  panel.addEventListener('dragover', e => {
+    if (!gDragId || gDragId === g.id) return;
+    e.preventDefault();
+    if (gDropPh) panel.parentNode?.insertBefore(gDropPh, panel);
+  });
+  panel.addEventListener('drop', e => {
+    if (!gDragId || gDragId === g.id) return;
+    e.preventDefault();
+    moveGroup(gDragId, g.id, e);
+  });
+
+  panel.append(header, pagesDiv);
+  return panel;
+}
+
+// ══════════════════════════════
+// SETUP EXTRA DROP ZONE on wrap divs
+// ══════════════════════════════
+function setupGroupWrapDrop() {
+  // Already handled per-card; this is a no-op for now
+}
+
+// ══════════════════════════════
+// BUILD PAGE CARD (inside expanded)
+// ══════════════════════════════
+function buildPageCard(page, localIdx, group) {
+  const card = document.createElement('div');
+  card.className = 'pg-card';
+  card.dataset.lid = localIdx;
+
+  // Drag handle (thumb area)
+  const drag = document.createElement('div');
+  drag.className = 'pg-drag';
+  drag.draggable = true;
+  drag.innerHTML = `
+    <div class="pg-order">#${localIdx+1}</div>
+    <div class="pg-thumb">${page.thumb ? `<img src="${page.thumb}" alt="">` : ''}</div>
+    <div class="pg-info">
+      <div class="pg-label">${page.pdfName} — Page ${page.pageIndex+1}</div>
+      <div class="pg-sub">Position: ${localIdx+1}</div>
+    </div>
+  `;
+
+  // Buttons (NOT in drag element)
+  const acts = document.createElement('div');
+  acts.className = 'pg-actions';
+
+  const bDup = document.createElement('button'); bDup.className='pa-dup'; bDup.textContent='⧉ Dup.';
+  bDup.addEventListener('click', () => duplicatePage(page.id));
+
+  const bDel = document.createElement('button'); bDel.className='pa-del'; bDel.textContent='✕ Suppr.';
+  bDel.addEventListener('click', () => deletePage(page.id));
+
+  acts.append(bDup, bDel);
+  card.append(drag, acts);
+
+  // Page drag events
+  drag.addEventListener('dragstart', e => {
+    e.stopPropagation(); // don't trigger group drag
+    pgDragInfo = { groupId: group.id, localIdx, pageId: page.id };
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', 'page');
+    setTimeout(() => card.classList.add('pg-dragging'), 0);
+
+    pgDropPh = document.createElement('div');
+    pgDropPh.className = 'pg-drop-ph';
+    pgDropPh.style.width = card.offsetWidth + 'px';
+    pgDropPh.style.height = card.offsetHeight + 'px';
+  });
+
+  drag.addEventListener('dragend', () => {
+    card.classList.remove('pg-dragging');
+    pgDropPh?.parentNode?.removeChild(pgDropPh);
+    pgDropPh = null;
+    document.querySelectorAll('.pg-card.pg-drop').forEach(c => c.classList.remove('pg-drop'));
+    pgDragInfo = null;
+  });
+
+  card.addEventListener('dragover', e => {
+    if (!pgDragInfo || pgDragInfo.groupId !== group.id || pgDragInfo.localIdx === localIdx) return;
+    e.preventDefault();
+    e.stopPropagation();
+    document.querySelectorAll('.pg-card.pg-drop').forEach(c => c.classList.remove('pg-drop'));
+    card.classList.add('pg-drop');
+    if (pgDropPh) {
+      const rect = card.getBoundingClientRect();
+      const before = e.clientX < rect.left + rect.width/2;
+      card.parentNode?.insertBefore(pgDropPh, before ? card : card.nextSibling);
+    }
+  });
+
+  card.addEventListener('drop', e => {
+    if (!pgDragInfo || pgDragInfo.groupId !== group.id || pgDragInfo.localIdx === localIdx) return;
+    e.preventDefault();
+    e.stopPropagation();
+
+    const gs = computeGroups();
+    const grp = gs.find(g2 => g2.id === group.id);
+    if (!grp) return;
+
+    const fromG = grp.startIdx + pgDragInfo.localIdx;
+    const rect = card.getBoundingClientRect();
+    let toLocal = e.clientX < rect.left + rect.width/2 ? localIdx : localIdx+1;
+    let toG = grp.startIdx + toLocal;
+    if (toG > fromG) toG--;
+
+    const [moved] = pages.splice(fromG, 1);
+    pages.splice(toG, 0, moved);
+    pgDragInfo = null;
+    render();
+  });
+
+  return card;
+}
+
+// ══════════════════════════════
+// MOVE GROUP
+// ══════════════════════════════
+function moveGroup(srcId, tgtId, e) {
+  const gs = computeGroups();
+  const src = gs.find(g => g.id === srcId);
+  const tgt = gs.find(g => g.id === tgtId);
+  if (!src || !tgt) return;
+
+  const tgtEl = document.querySelector(`[data-gid="${tgtId}"]`);
+  let before = true;
+  if (tgtEl) {
+    const rect = tgtEl.getBoundingClientRect();
+    // For collapsed cards side-by-side use X; for expanded panels use Y
+    before = expanded.has(tgtId)
+      ? e.clientY < rect.top + rect.height/2
+      : e.clientX < rect.left + rect.width/2;
+  }
+
+  const srcPages = pages.splice(src.startIdx, src.count);
+  const gs2 = computeGroups();
+  const tgt2 = gs2.find(g => g.id === tgtId);
+  const insertAt = before ? tgt2.startIdx : tgt2.endIdx+1;
+  pages.splice(insertAt, 0, ...srcPages);
+
+  gDragId = null;
+  render();
+}
+
+// ══════════════════════════════
+// GROUP ACTIONS
+// ══════════════════════════════
+function toggleGroup(id) {
+  if (expanded.has(id)) expanded.delete(id);
+  else expanded.add(id);
+  render();
+}
+
+function reverseGroup(id) {
+  const gs = computeGroups();
+  const g = gs.find(x => x.id === id);
+  if (!g) return;
+  const chunk = pages.splice(g.startIdx, g.count);
+  chunk.reverse();
+  pages.splice(g.startIdx, 0, ...chunk);
+  render();
+}
+
+function deleteGroup(id) {
+  const gs = computeGroups();
+  const g = gs.find(x => x.id === id);
+  if (!g) return;
+  if (!confirm(`Supprimer les ${g.count} page(s) de "${g.pdfName}" ?`)) return;
+  pages.splice(g.startIdx, g.count);
+  expanded.delete(id);
+  render();
+}
+
+// ══════════════════════════════
+// PAGE ACTIONS
+// ══════════════════════════════
+function duplicatePage(pageId) {
+  const idx = pages.findIndex(p => p.id === pageId);
+  if (idx === -1) return;
+  const p = pages[idx];
+  pages.splice(idx+1, 0, { id: nid(), pdfName: p.pdfName, pageIndex: p.pageIndex, thumb: p.thumb, groupId: p.groupId });
+  render();
+}
+
+function deletePage(pageId) {
+  const idx = pages.findIndex(p => p.id === pageId);
+  if (idx === -1) return;
+  pages.splice(idx, 1);
+  render();
+}
+
+function clearAll() {
+  if (!confirm('Tout réinitialiser ?')) return;
+  pages = []; expanded.clear();
+  Object.keys(pdfStore).forEach(k => delete pdfStore[k]);
+  render();
+}
+
+// ══════════════════════════════
+// ÉCLATER — sépare en pages individuelles
+// ══════════════════════════════
+function explodeGroup(id) {
+  const gs = computeGroups();
+  const g = gs.find(x => x.id === id);
+  if (!g) return;
+  if (g.count <= 1) return; // déjà une seule page
+  // Donner à chaque page de ce groupe son propre groupId unique
+  for (let i = g.startIdx; i < g.startIdx + g.count; i++) {
+    pages[i] = { ...pages[i], groupId: nid() };
+  }
+  expanded.delete(id);
+  render();
+}
+
+// ══════════════════════════════
+// EXPORT PDF
+// ══════════════════════════════
+async function exportPDF() {
+  if (!pages.length) return;
+  showLd('Assemblage du PDF…', '', 0);
+  try {
+    const { PDFDocument } = PDFLib;
+    const out = await PDFDocument.create();
+    const cache = {};
+    for (let i = 0; i < pages.length; i++) {
+      const p = pages[i];
+      setLd('Assemblage…', `Page ${i+1}/${pages.length}`, Math.round(i/pages.length*92));
+      if (!cache[p.pdfName]) cache[p.pdfName] = await PDFDocument.load(pdfStore[p.pdfName].bytes);
+      const [cp] = await out.copyPages(cache[p.pdfName], [p.pageIndex]);
+      out.addPage(cp);
+    }
+    setLd('Finalisation…', '', 96);
+    const bytes = await out.save();
+    const blob = new Blob([bytes], { type: 'application/pdf' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'pdf-organise.pdf';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
+    setLd('✅ Exporté !', '', 100);
+    setTimeout(hideLd, 1200);
+  } catch(err) {
+    hideLd(); alert('Erreur export : ' + err.message); console.error(err);
+  }
+}
+
+// ══════════════════════════════
+// UI STATE
+// ══════════════════════════════
+function updateUI(groups) {
+  if (!groups) groups = computeGroups();
+  const n = pages.length;
+  document.getElementById('pcNum').textContent = n;
+  document.getElementById('grpNum').textContent = groups.length;
+  document.getElementById('exportBtn').disabled = n === 0;
+  document.getElementById('clearBtn').disabled = n === 0;
+
+  const uz = document.getElementById('uploadZone');
+  const es = document.getElementById('emptyState');
+  const main = document.getElementById('main');
+
+  if (n === 0 && !Object.keys(pdfStore).length) {
+    uz.style.display = ''; es.style.display = 'none'; main.style.display = 'none';
+  } else if (n === 0) {
+    uz.style.display = 'none'; es.style.display = 'block'; main.style.display = 'none';
+  } else {
+    uz.style.display = 'none'; es.style.display = 'none'; main.style.display = 'flex';
+  }
+}
+
+function setZoom(v) {
+  document.documentElement.style.setProperty('--cw', v+'px');
+}
+
+// ══════════════════════════════
+// LOADING
+// ══════════════════════════════
+function showLd(t, s, p) { document.getElementById('ldOv').classList.add('on'); setLd(t,s,p); }
+function setLd(t, s, p) {
+  document.getElementById('ldTxt').textContent = t;
+  document.getElementById('ldSub').textContent = s||'';
+  document.getElementById('ldBar').style.width = (p||0)+'%';
+}
+function hideLd() { document.getElementById('ldOv').classList.remove('on'); }
+
+// Init
+updateUI([]);
+</script>
+</body>
+</html>

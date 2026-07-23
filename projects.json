@@ -1,19 +1,58 @@
 [
   {
+    "title": "MaxPlay",
+    "emoji": "🎬",
+    "description": "Lecteur vidéo local (Electron + mpv), interface soignée.",
+    "category": "app",
+    "date": "2026-07-23",
+    "url": "projects/maxplay/index.html"
+  },
+  {
+    "title": "PDF Organizer",
+    "emoji": "📄",
+    "description": "Réorganiser, fusionner et trier des PDF, directement dans le navigateur.",
+    "category": "outil",
+    "date": "2026-07-23",
+    "url": "projects/pdf-organizer/app.html"
+  },
+  {
+    "title": "Video Downloader",
+    "emoji": "⬇️",
+    "description": "Télécharger vidéo/audio depuis YouTube, TikTok, X… (yt-dlp).",
+    "category": "outil",
+    "date": "2026-07-23",
+    "url": "projects/ytdl/index.html"
+  },
+  {
+    "title": "ImgViewer",
+    "emoji": "🖼️",
+    "description": "Visionneuse d'image flottante, toujours au-dessus, coller au presse-papier.",
+    "category": "outil",
+    "date": "2026-07-23",
+    "url": "projects/imgviewer/index.html"
+  },
+  {
+    "title": "Keyboard Cleaner",
+    "emoji": "⌨️",
+    "description": "Désactive le clavier le temps de le nettoyer tranquillement.",
+    "category": "outil",
+    "date": "2026-07-23",
+    "url": "projects/keyboard-cleaner/index.html"
+  },
+  {
+    "title": "YouTube Clean Subscriptions",
+    "emoji": "🧹",
+    "description": "Extension Chrome : nettoie la page Abonnements (Shorts, sections « Pertinentes »).",
+    "category": "extension",
+    "date": "2026-07-23",
+    "url": "projects/youtube-clean-subs/index.html"
+  },
+  {
     "title": "Bienvenue dans le Cabinet",
     "emoji": "🗄️",
     "description": "Comment ça marche, et comment on ajoute des trucs ici.",
     "category": "meta",
-    "date": "2026-07-23",
+    "date": "2026-07-22",
     "url": "projects/bienvenue/index.html"
-  },
-  {
-    "title": "Un premier truc",
-    "emoji": "✨",
-    "description": "Une page de démo pour montrer à quoi ressemble une tuile.",
-    "category": "démo",
-    "date": "2026-07-23",
-    "url": "projects/premier-truc/index.html",
-    "wip": true
   }
 ]

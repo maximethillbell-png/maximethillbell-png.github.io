@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Clean Subscriptions",
+  "version": "1.0",
+  "description": "Supprime les sections Pertinentes et les Shorts de la page Abonnements YouTube",
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": []
+}

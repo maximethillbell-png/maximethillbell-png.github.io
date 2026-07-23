@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ImgViewer · Le Cabinet</title>
+<link rel="stylesheet" href="../_page.css" />
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../../index.html">← retour au cabinet</a>
+    <div class="emoji">🖼️</div>
+    <h1>ImgViewer</h1>
+    <div class="tag">outil · desktop</div>
+    <p class="lead">Une petite visionneuse d'image flottante, sans bordure, toujours au-dessus des autres fenêtres. Parfaite pour garder une référence à l'écran (une capture, un mockup) pendant qu'on travaille ailleurs.</p>
+
+    <h2>Ce que ça fait</h2>
+    <ul>
+      <li>Fenêtre sans bordure, épinglée au-dessus de tout.</li>
+      <li>Colle une image directement depuis le presse-papier (<code>Ctrl+V</code>).</li>
+      <li>Se déplace, se redimensionne, opacité réglable, verrouillage.</li>
+    </ul>
+
+    <h2>Lancer</h2>
+    <p>C'est une app Python (Tkinter + Pillow). Depuis le dossier du projet :</p>
+    <pre>pip install pillow
+python imgviewer.py</pre>
+    <p>Une version <code>.exe</code> existe aussi dans le dossier <code>dist/</code> du projet sur ta machine.</p>
+
+    <div class="btns">
+      <a class="btn ghost" href="imgviewer.py" download>Télécharger le script</a>
+    </div>
+  </div>
+</body>
+</html>
