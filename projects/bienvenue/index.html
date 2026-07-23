@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bienvenue · Le Cabinet</title>
+<style>
+  :root { --bg:#0b0c0f; --text:#e7e9ee; --dim:#8b909b; --accent:#6ee7b7; --tile:#141619; --border:#23262d; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; line-height:1.65; }
+  .wrap { max-width:680px; margin:0 auto; padding:56px 24px 96px; }
+  a.back { color:var(--dim); font-size:14px; text-decoration:none; }
+  a.back:hover { color:var(--text); }
+  h1 { font-size:34px; letter-spacing:-0.02em; margin:28px 0 8px; }
+  h2 { font-size:19px; margin:34px 0 10px; letter-spacing:-0.01em; }
+  p, li { color:#c8ccd4; font-size:15.5px; }
+  ul { margin:8px 0 0 20px; }
+  li { margin:6px 0; }
+  code { background:var(--tile); border:1px solid var(--border); padding:2px 7px; border-radius:6px; font-size:13.5px; color:var(--accent); }
+  pre { background:var(--tile); border:1px solid var(--border); border-radius:10px; padding:16px; overflow:auto; margin:12px 0; font-size:13px; color:#c8ccd4; }
+  .accent { color:var(--accent); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../../index.html">← retour au cabinet</a>
+    <h1>Bienvenue <span class="accent">·</span></h1>
+    <p>Ceci est <strong>Le Cabinet</strong> : une petite bibliothèque perso, en ligne, où chaque « truc » qu'on fait devient une tuile cliquable sur la page d'accueil. Accessible depuis n'importe quel appareil via son URL.</p>
+
+    <h2>Comment ajouter un truc</h2>
+    <p>Deux étapes :</p>
+    <ul>
+      <li>Créer un dossier dans <code>projects/</code> avec un <code>index.html</code> (ou n'importe quelle page/jeu/outil).</li>
+      <li>Ajouter une entrée dans <code>projects.json</code> pour qu'une tuile apparaisse.</li>
+    </ul>
+    <p>Exemple d'entrée :</p>
+    <pre>{
+  "title": "Nom du truc",
+  "emoji": "🎲",
+  "description": "Une phrase de description.",
+  "category": "jeu",
+  "date": "2026-07-23",
+  "url": "projects/mon-truc/index.html",
+  "wip": false
+}</pre>
+    <p>La page d'accueil trie automatiquement par date (le plus récent en haut), génère les filtres par catégorie, et gère la recherche. Le badge <span class="accent">« en cours »</span> apparaît si <code>wip</code> vaut <code>true</code>.</p>
+
+    <h2>Le plus simple</h2>
+    <p>Tu n'as même pas à toucher au code : dis-moi juste « ajoute tel truc au cabinet » et je m'occupe des fichiers et du push. 🙂</p>
+  </div>
+</body>
+</html>

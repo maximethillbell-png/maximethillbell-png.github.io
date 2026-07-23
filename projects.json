@@ -1,0 +1,19 @@
+[
+  {
+    "title": "Bienvenue dans le Cabinet",
+    "emoji": "🗄️",
+    "description": "Comment ça marche, et comment on ajoute des trucs ici.",
+    "category": "meta",
+    "date": "2026-07-23",
+    "url": "projects/bienvenue/index.html"
+  },
+  {
+    "title": "Un premier truc",
+    "emoji": "✨",
+    "description": "Une page de démo pour montrer à quoi ressemble une tuile.",
+    "category": "démo",
+    "date": "2026-07-23",
+    "url": "projects/premier-truc/index.html",
+    "wip": true
+  }
+]
