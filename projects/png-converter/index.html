@@ -17,6 +17,7 @@
   .sub { color:var(--dim); font-size:15px; margin-top:8px; max-width:52ch; }
 
   .drop {
+    display:block;
     border:2px dashed var(--border); border-radius:16px; padding:44px 24px; text-align:center;
     background:var(--tile); transition:all .18s; cursor:pointer; position:relative;
   }
@@ -27,6 +28,7 @@
   .drop input { display:none; }
 
   .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:22px 0 8px; }
+  .bar[hidden] { display:none; }
   .bar .count { color:var(--dim); font-size:13px; margin-right:auto; }
   .btn { font-family:inherit; font-size:13.5px; font-weight:600; padding:9px 16px; border-radius:10px; cursor:pointer; border:1px solid var(--border); background:var(--tile); color:var(--text); transition:all .15s; }
   .btn:hover { border-color:var(--border-h); }
