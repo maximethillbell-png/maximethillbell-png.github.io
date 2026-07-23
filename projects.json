@@ -8,6 +8,14 @@
     "url": "projects/maxplay/index.html"
   },
   {
+    "title": "PNG Converter",
+    "emoji": "🌇",
+    "description": "N'importe quelle image → PNG. Glisser-déposer ou coller (Ctrl+V), dans le navigateur.",
+    "category": "outil",
+    "date": "2026-07-24",
+    "url": "projects/png-converter/index.html"
+  },
+  {
     "title": "PDF Organizer",
     "emoji": "📄",
     "description": "Réorganiser, fusionner et trier des PDF, directement dans le navigateur.",

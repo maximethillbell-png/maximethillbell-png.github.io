@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PNG Converter · Le Cabinet</title>
+<style>
+  :root { --bg:#0b0c0f; --tile:#141619; --tile2:#1c1f24; --border:#23262d; --border-h:#3a3f48; --text:#e7e9ee; --dim:#8b909b; --accent:#6ee7b7; --danger:#f87171; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; line-height:1.6; min-height:100vh; }
+  .wrap { max-width:820px; margin:0 auto; padding:48px 24px 96px; }
+  a.back { color:var(--dim); font-size:14px; text-decoration:none; }
+  a.back:hover { color:var(--text); }
+  header { margin:24px 0 28px; }
+  .emoji { font-size:40px; }
+  h1 { font-size:32px; letter-spacing:-0.02em; margin-top:4px; }
+  .sub { color:var(--dim); font-size:15px; margin-top:8px; max-width:52ch; }
+
+  .drop {
+    border:2px dashed var(--border); border-radius:16px; padding:44px 24px; text-align:center;
+    background:var(--tile); transition:all .18s; cursor:pointer; position:relative;
+  }
+  .drop:hover, .drop.over { border-color:var(--accent); background:var(--tile2); }
+  .drop .big { font-size:34px; }
+  .drop h2 { font-size:18px; margin:12px 0 4px; font-weight:600; }
+  .drop p { color:var(--dim); font-size:13.5px; }
+  .drop input { display:none; }
+
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:22px 0 8px; }
+  .bar .count { color:var(--dim); font-size:13px; margin-right:auto; }
+  .btn { font-family:inherit; font-size:13.5px; font-weight:600; padding:9px 16px; border-radius:10px; cursor:pointer; border:1px solid var(--border); background:var(--tile); color:var(--text); transition:all .15s; }
+  .btn:hover { border-color:var(--border-h); }
+  .btn.primary { background:var(--accent); color:#06281d; border-color:var(--accent); }
+  .btn:disabled { opacity:.4; cursor:not-allowed; }
+
+  .list { display:grid; gap:12px; margin-top:14px; }
+  .item { display:flex; gap:14px; align-items:center; background:var(--tile); border:1px solid var(--border); border-radius:12px; padding:12px; }
+  .thumb { width:56px; height:56px; border-radius:8px; object-fit:cover; background:#000; flex:none; border:1px solid var(--border); }
+  .info { min-width:0; flex:1; }
+  .info .name { font-size:14px; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .info .meta { font-size:12px; color:var(--dim); margin-top:2px; }
+  .status { font-size:12px; padding:3px 9px; border-radius:999px; border:1px solid var(--border); color:var(--dim); flex:none; }
+  .status.ok { color:var(--accent); border-color:rgba(110,231,183,.4); }
+  .status.err { color:var(--danger); border-color:rgba(248,113,113,.4); }
+  .item a.dl { text-decoration:none; }
+  .item .x { background:none; border:none; color:var(--dim); cursor:pointer; font-size:18px; padding:4px 8px; }
+  .item .x:hover { color:var(--danger); }
+
+  .note { margin-top:26px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); padding-top:16px; }
+  .note code { background:var(--tile); border:1px solid var(--border); padding:1px 6px; border-radius:5px; color:var(--accent); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../../index.html">← retour au cabinet</a>
+    <header>
+      <div class="emoji">🌇</div>
+      <h1>PNG Converter</h1>
+      <p class="sub">Glisse n'importe quelle image, récupère un PNG. Tout se passe dans ton navigateur — aucune image n'est envoyée nulle part.</p>
+    </header>
+
+    <label class="drop" id="drop">
+      <div class="big">📥</div>
+      <h2>Dépose, colle ou choisis tes images</h2>
+      <p>glisser-déposer · <b>Ctrl+V</b> pour coller · ou clique — JPG, WEBP, GIF, BMP, SVG, AVIF…</p>
+      <input type="file" id="file" accept="image/*" multiple />
+    </label>
+
+    <div class="bar" id="bar" hidden>
+      <span class="count" id="count"></span>
+      <button class="btn" id="clear">Tout effacer</button>
+      <button class="btn primary" id="dlAll">Tout télécharger</button>
+    </div>
+
+    <div class="list" id="list"></div>
+
+    <p class="note">Fonctionne pour tous les formats que ton navigateur sait décoder (JPG, WEBP, GIF, BMP, SVG, souvent AVIF). Les formats plus exotiques comme <code>HEIC</code> (photos iPhone) ne sont pas toujours supportés nativement — si une image échoue, c'est probablement ça. La transparence est préservée.</p>
+  </div>
+
+<script>
+const drop = document.getElementById('drop');
+const fileInput = document.getElementById('file');
+const list = document.getElementById('list');
+const bar = document.getElementById('bar');
+const countEl = document.getElementById('count');
+let items = [];
+
+['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
+['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('over'); }));
+drop.addEventListener('drop', e => handleFiles(e.dataTransfer.files));
+fileInput.addEventListener('change', e => handleFiles(e.target.files));
+
+// Coller une image depuis le presse-papier (Ctrl+V)
+window.addEventListener('paste', e => {
+  const files = [];
+  const items = (e.clipboardData || window.clipboardData).items || [];
+  for (const it of items){
+    if (it.kind === 'file' && it.type.startsWith('image/')){
+      const f = it.getAsFile();
+      if (f) files.push(f);
+    }
+  }
+  if (files.length){
+    e.preventDefault();
+    handleFiles(files);
+  }
+});
+document.getElementById('clear').addEventListener('click', () => { items = []; render(); });
+document.getElementById('dlAll').addEventListener('click', downloadAll);
+
+function baseName(name){ const b = (name||'').replace(/\.[^.]+$/, '').trim(); return b || 'image-collee'; }
+function human(b){ return b<1024 ? b+' o' : b<1048576 ? (b/1024).toFixed(0)+' Ko' : (b/1048576).toFixed(1)+' Mo'; }
+
+async function handleFiles(fileList){
+  const files = Array.from(fileList).filter(f => f.type.startsWith('image/') || /\.(jpe?g|png|gif|bmp|webp|svg|avif|tiff?)$/i.test(f.name));
+  for (const f of files){
+    const item = { id: Math.random().toString(36).slice(2), name: f.name, size: f.size, status:'wait', png:null, url:null };
+    items.push(item);
+    render();
+    await convert(f, item);
+    render();
+  }
+}
+
+function convert(file, item){
+  return new Promise(resolve => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth || img.width;
+        canvas.height = img.naturalHeight || img.height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        canvas.toBlob(blob => {
+          URL.revokeObjectURL(url);
+          if (!blob){ item.status='err'; return resolve(); }
+          item.png = blob;
+          item.url = URL.createObjectURL(blob);
+          item.w = canvas.width; item.h = canvas.height;
+          item.status = 'ok';
+          resolve();
+        }, 'image/png');
+      } catch(e){ URL.revokeObjectURL(url); item.status='err'; resolve(); }
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); item.status='err'; resolve(); };
+    img.src = url;
+  });
+}
+
+function remove(id){ items = items.filter(i => i.id !== id); render(); }
+
+function downloadOne(item){
+  const a = document.createElement('a');
+  a.href = item.url; a.download = baseName(item.name) + '.png';
+  document.body.appendChild(a); a.click(); a.remove();
+}
+async function downloadAll(){
+  for (const it of items.filter(i => i.status==='ok')){ downloadOne(it); await new Promise(r=>setTimeout(r,180)); }
+}
+
+function render(){
+  bar.hidden = items.length === 0;
+  const done = items.filter(i => i.status==='ok').length;
+  countEl.textContent = `${items.length} image${items.length>1?'s':''} · ${done} prête${done>1?'s':''}`;
+  document.getElementById('dlAll').disabled = done === 0;
+  list.innerHTML = '';
+  items.forEach(it => {
+    const row = document.createElement('div');
+    row.className = 'item';
+    const statusHtml = it.status==='ok' ? '<span class="status ok">PNG prêt</span>'
+      : it.status==='err' ? '<span class="status err">échec</span>'
+      : '<span class="status">conversion…</span>';
+    const dlHtml = it.status==='ok' ? `<a class="dl" data-dl="${it.id}"><button class="btn primary">PNG ↓</button></a>` : '';
+    row.innerHTML = `
+      <img class="thumb" src="${it.url || ''}" alt="" ${it.url?'':'style="visibility:hidden"'} />
+      <div class="info">
+        <div class="name">${it.name}</div>
+        <div class="meta">${human(it.size)}${it.w?` · ${it.w}×${it.h}`:''}</div>
+      </div>
+      ${statusHtml}
+      ${dlHtml}
+      <button class="x" data-x="${it.id}" title="Retirer">✕</button>`;
+    list.appendChild(row);
+  });
+  list.querySelectorAll('[data-x]').forEach(b => b.onclick = () => remove(b.dataset.x));
+  list.querySelectorAll('[data-dl]').forEach(a => a.onclick = () => downloadOne(items.find(i=>i.id===a.dataset.dl)));
+}
+</script>
+</body>
+</html>
