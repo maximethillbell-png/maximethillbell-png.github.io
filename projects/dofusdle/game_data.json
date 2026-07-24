@@ -1613,8 +1613,7 @@
   "categorie": "Mob de base",
   "invulnerabilite": "Non",
   "zone": [
-   "Amakna",
-   "Expéditions"
+   "Amakna"
   ],
   "niveau": 36,
   "tranche": "lvl 1 à 50",
@@ -5183,8 +5182,7 @@
   "categorie": "Boss",
   "invulnerabilite": "Non",
   "zone": [
-   "Île du Minotoror",
-   "Expéditions"
+   "Île du Minotoror"
   ],
   "niveau": 120,
   "tranche": "lvl 100 à 150",
@@ -5893,8 +5891,7 @@
   "categorie": "Boss",
   "invulnerabilite": "Non",
   "zone": [
-   "Enutrosor",
-   "Expéditions"
+   "Enutrosor"
   ],
   "niveau": 150,
   "tranche": "lvl 100 à 150",
@@ -6006,8 +6003,7 @@
   "categorie": "Mob de base",
   "invulnerabilite": "Non",
   "zone": [
-   "Xélorium",
-   "Expéditions"
+   "Xélorium"
   ],
   "niveau": 162,
   "tranche": "lvl 150 à 199",
@@ -6119,8 +6115,7 @@
   "categorie": "Boss",
   "invulnerabilite": "Non",
   "zone": [
-   "Xélorium",
-   "Expéditions"
+   "Xélorium"
   ],
   "niveau": 170,
   "tranche": "lvl 150 à 199",
@@ -6252,8 +6247,7 @@
   "categorie": "Mob de base",
   "invulnerabilite": "Non",
   "zone": [
-   "Srambad",
-   "Expéditions"
+   "Srambad"
   ],
   "niveau": 172,
   "tranche": "lvl 150 à 199",
@@ -6296,8 +6290,7 @@
   "categorie": "Boss",
   "invulnerabilite": "Non",
   "zone": [
-   "Sidimote",
-   "Expéditions"
+   "Sidimote"
   ],
   "niveau": 180,
   "tranche": "lvl 150 à 199",
@@ -6433,8 +6426,7 @@
   "categorie": "Boss",
   "invulnerabilite": "Non",
   "zone": [
-   "Srambad",
-   "Expéditions"
+   "Srambad"
   ],
   "niveau": 180,
   "tranche": "lvl 150 à 199",
@@ -6611,8 +6603,7 @@
   "categorie": "Mob de base",
   "invulnerabilite": "Non",
   "zone": [
-   "Dimension Obscure",
-   "Expéditions"
+   "Dimension Obscure"
   ],
   "niveau": 182,
   "tranche": "lvl 150 à 199",
@@ -6678,8 +6669,7 @@
   "categorie": "Boss",
   "invulnerabilite": "Non",
   "zone": [
-   "Île de Sakaï",
-   "Expéditions"
+   "Île de Sakaï"
   ],
   "niveau": 190,
   "tranche": "lvl 150 à 199",
@@ -6717,28 +6707,6 @@
   "gfx": 1655,
   "img": "https://api.dofusdb.fr/img/monsters/1655.png",
   "hintSpell": "Rage Avide"
- },
- {
-  "nom": "Abrakne Sombre Irascible",
-  "type": "Abraknydiens Irascibles",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Terre"
-  ],
-  "resistance": [
-   "Feu",
-   "Eau",
-   "Air"
-  ],
-  "gfx": 346,
-  "img": "https://api.dofusdb.fr/img/monsters/346.png",
-  "hintSpell": "Bond affaiblissant"
  },
  {
   "nom": "Bandleth",
@@ -6807,48 +6775,6 @@
   "hintSpell": "Mise en situation"
  },
  {
-  "nom": "Branche Invocatrice",
-  "type": "Abraknydiens Irascibles",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Aucune"
-  ],
-  "resistance": [
-   "Feu",
-   "Eau"
-  ],
-  "gfx": 148,
-  "img": "https://api.dofusdb.fr/img/monsters/148.png",
-  "hintSpell": "Appel Sylvestre"
- },
- {
-  "nom": "Branche Soignante",
-  "type": "Abraknydiens Irascibles",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Aucune"
-  ],
-  "resistance": [
-   "Terre",
-   "Air"
-  ],
-  "gfx": 150,
-  "img": "https://api.dofusdb.fr/img/monsters/150.png",
-  "hintSpell": "Graine Vitalisante"
- },
- {
   "nom": "Brikoglours",
   "type": "Brikoléreux",
   "categorie": "Mob de base",
@@ -6893,29 +6819,6 @@
   "hintSpell": "Festin Ardent"
  },
  {
-  "nom": "Buveur",
-  "type": "Corbacs",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Aucune"
-  ],
-  "resistance": [
-   "Terre",
-   "Feu",
-   "Eau",
-   "Air"
-  ],
-  "gfx": 457,
-  "img": "https://api.dofusdb.fr/img/monsters/457.png",
-  "hintSpell": "Daudoh"
- },
- {
   "nom": "Calarmure",
   "type": "Abyssaux du Gigalodon",
   "categorie": "Mob de base",
@@ -6937,94 +6840,6 @@
   "gfx": 2641,
   "img": "https://api.dofusdb.fr/img/monsters/2641.png",
   "hintSpell": "Armucus"
- },
- {
-  "nom": "Chafer Draugr",
-  "type": "Chafers",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Terre",
-   "Feu"
-  ],
-  "resistance": [
-   "Eau",
-   "Air"
-  ],
-  "gfx": 697,
-  "img": "https://api.dofusdb.fr/img/monsters/697.png",
-  "hintSpell": "Mjöllnir"
- },
- {
-  "nom": "Chafer Fantassin",
-  "type": "Chafers",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Terre",
-   "Feu"
-  ],
-  "resistance": [
-   "Eau",
-   "Air"
-  ],
-  "gfx": 193,
-  "img": "https://api.dofusdb.fr/img/monsters/193.png",
-  "hintSpell": "Fantassassinat"
- },
- {
-  "nom": "Chafer Invisible",
-  "type": "Chafers",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Terre",
-   "Feu"
-  ],
-  "resistance": [
-   "Eau",
-   "Air"
-  ],
-  "gfx": 57,
-  "img": "https://api.dofusdb.fr/img/monsters/57.png",
-  "hintSpell": "Camouflage"
- },
- {
-  "nom": "Chafer Primitif",
-  "type": "Chafers",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Terre",
-   "Feu"
-  ],
-  "resistance": [
-   "Eau",
-   "Air"
-  ],
-  "gfx": 917,
-  "img": "https://api.dofusdb.fr/img/monsters/917.png",
-  "hintSpell": "Curare"
  },
  {
   "nom": "Chakanoubis",
@@ -7054,8 +6869,7 @@
   "categorie": "Mob de base",
   "invulnerabilite": "Non",
   "zone": [
-   "Frigost",
-   "Expéditions"
+   "Frigost"
   ],
   "niveau": 200,
   "tranche": "Lvl 200+",
@@ -7092,28 +6906,6 @@
   "gfx": 980,
   "img": "https://api.dofusdb.fr/img/monsters/980.png",
   "hintSpell": "Rafraîchissement"
- },
- {
-  "nom": "Corbac Apprivoisé",
-  "type": "Corbacs",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Air"
-  ],
-  "resistance": [
-   "Terre",
-   "Feu",
-   "Eau"
-  ],
-  "gfx": 456,
-  "img": "https://api.dofusdb.fr/img/monsters/456.png",
-  "hintSpell": "Plumeau Déstabilisant"
  },
  {
   "nom": "Culbutœuf",
@@ -7204,50 +6996,6 @@
   "hintSpell": "Langue Démoniaque"
  },
  {
-  "nom": "Don Dorgan",
-  "type": "Porcos",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Terre"
-  ],
-  "resistance": [
-   "Feu",
-   "Eau",
-   "Air"
-  ],
-  "gfx": 333,
-  "img": "https://api.dofusdb.fr/img/monsters/333.png",
-  "hintSpell": "Menottage"
- },
- {
-  "nom": "Don Duss Ang",
-  "type": "Porcos",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Terre",
-   "Feu"
-  ],
-  "resistance": [
-   "Eau",
-   "Air"
-  ],
-  "gfx": 332,
-  "img": "https://api.dofusdb.fr/img/monsters/332.png",
-  "hintSpell": "Perfusion"
- },
- {
   "nom": "Doublure",
   "type": "Cour Sombre",
   "categorie": "Mob de base",
@@ -7268,29 +7016,6 @@
   "gfx": 1163,
   "img": "https://api.dofusdb.fr/img/monsters/1163.png",
   "hintSpell": "Doublage"
- },
- {
-  "nom": "Déminoboule",
-  "type": "Minos",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Aucune"
-  ],
-  "resistance": [
-   "Terre",
-   "Feu",
-   "Eau",
-   "Air"
-  ],
-  "gfx": 464,
-  "img": "https://api.dofusdb.fr/img/monsters/464.png",
-  "hintSpell": "Boulet Magique"
  },
  {
   "nom": "Désosseur",
@@ -7403,28 +7128,6 @@
   "gfx": 2126,
   "img": "https://api.dofusdb.fr/img/monsters/2126.png",
   "hintSpell": "Souffle artistique"
- },
- {
-  "nom": "Gamino",
-  "type": "Minos",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Air"
-  ],
-  "resistance": [
-   "Terre",
-   "Feu",
-   "Eau"
-  ],
-  "gfx": 357,
-  "img": "https://api.dofusdb.fr/img/monsters/357.png",
-  "hintSpell": "Torokiri"
  },
  {
   "nom": "Ganos",
@@ -7874,29 +7577,6 @@
   "hintSpell": "Envol de mort"
  },
  {
-  "nom": "Mominotor",
-  "type": "Minos",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Aucune"
-  ],
-  "resistance": [
-   "Terre",
-   "Feu",
-   "Eau",
-   "Air"
-  ],
-  "gfx": 463,
-  "img": "https://api.dofusdb.fr/img/monsters/463.png",
-  "hintSpell": "En bandelette organisée"
- },
- {
   "nom": "Momistik",
   "type": "Maudits",
   "categorie": "Mob de base",
@@ -8008,116 +7688,6 @@
   "hintSpell": "Dégage limite"
  },
  {
-  "nom": "Pichon Blanc",
-  "type": "Pichons",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Terre",
-   "Feu"
-  ],
-  "resistance": [
-   "Eau",
-   "Air"
-  ],
-  "gfx": 508,
-  "img": "https://api.dofusdb.fr/img/monsters/508.png",
-  "hintSpell": "Bouffée d'Air"
- },
- {
-  "nom": "Pichon Bleu",
-  "type": "Pichons",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Terre",
-   "Feu"
-  ],
-  "resistance": [
-   "Eau",
-   "Air"
-  ],
-  "gfx": 507,
-  "img": "https://api.dofusdb.fr/img/monsters/507.png",
-  "hintSpell": "Résistivité"
- },
- {
-  "nom": "Pichon Kloune",
-  "type": "Pichons",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Terre",
-   "Feu"
-  ],
-  "resistance": [
-   "Eau",
-   "Air"
-  ],
-  "gfx": 510,
-  "img": "https://api.dofusdb.fr/img/monsters/510.png",
-  "hintSpell": "____rie"
- },
- {
-  "nom": "Pichon Orange",
-  "type": "Pichons",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Terre",
-   "Feu"
-  ],
-  "resistance": [
-   "Eau",
-   "Air"
-  ],
-  "gfx": 506,
-  "img": "https://api.dofusdb.fr/img/monsters/506.png",
-  "hintSpell": "Sel Marin"
- },
- {
-  "nom": "Pichon Vert",
-  "type": "Pichons",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Terre",
-   "Feu"
-  ],
-  "resistance": [
-   "Eau",
-   "Air"
-  ],
-  "gfx": 509,
-  "img": "https://api.dofusdb.fr/img/monsters/509.png",
-  "hintSpell": "Reflux"
- },
- {
   "nom": "Psikopompe",
   "type": "Avis de recherche de Frigost",
   "categorie": "Avis de recherche",
@@ -8138,28 +7708,6 @@
   "gfx": 990,
   "img": "https://api.dofusdb.fr/img/monsters/990.png",
   "hintSpell": "Coupe-Jatte"
- },
- {
-  "nom": "Renarbo",
-  "type": "Corbacs",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Eau"
-  ],
-  "resistance": [
-   "Terre",
-   "Feu",
-   "Air"
-  ],
-  "gfx": 458,
-  "img": "https://api.dofusdb.fr/img/monsters/458.png",
-  "hintSpell": "Croassement"
  },
  {
   "nom": "Rokoram",
@@ -8204,132 +7752,6 @@
   "gfx": 1545,
   "img": "https://api.dofusdb.fr/img/monsters/1545.png",
   "hintSpell": "Remplacement ____"
- },
- {
-  "nom": "Scarafeuille Blanc",
-  "type": "Scarafeuilles",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Terre"
-  ],
-  "resistance": [
-   "Air"
-  ],
-  "gfx": 136,
-  "img": "https://api.dofusdb.fr/img/monsters/136.png",
-  "hintSpell": "Elemental Dispersion"
- },
- {
-  "nom": "Scarafeuille Bleu",
-  "type": "Scarafeuilles",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Feu"
-  ],
-  "resistance": [
-   "Eau"
-  ],
-  "gfx": 105,
-  "img": "https://api.dofusdb.fr/img/monsters/105.png",
-  "hintSpell": "Scaraforce"
- },
- {
-  "nom": "Scarafeuille Immature",
-  "type": "Scarafeuilles",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Aucune"
-  ],
-  "resistance": [
-   "Terre",
-   "Feu",
-   "Eau",
-   "Air"
-  ],
-  "gfx": 444,
-  "img": "https://api.dofusdb.fr/img/monsters/444.png",
-  "hintSpell": "Empoisonnement"
- },
- {
-  "nom": "Scarafeuille Rouge",
-  "type": "Scarafeuilles",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Eau"
-  ],
-  "resistance": [
-   "Feu"
-  ],
-  "gfx": 104,
-  "img": "https://api.dofusdb.fr/img/monsters/104.png",
-  "hintSpell": "Scaraforce"
- },
- {
-  "nom": "Scarafeuille Vert",
-  "type": "Scarafeuilles",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Air"
-  ],
-  "resistance": [
-   "Terre"
-  ],
-  "gfx": 135,
-  "img": "https://api.dofusdb.fr/img/monsters/135.png",
-  "hintSpell": "Scaraforce"
- },
- {
-  "nom": "Scaratos",
-  "type": "Minos",
-  "categorie": "Mob de base",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 200,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Aucune"
-  ],
-  "resistance": [
-   "Terre",
-   "Feu",
-   "Eau",
-   "Air"
-  ],
-  "gfx": 462,
-  "img": "https://api.dofusdb.fr/img/monsters/462.png",
-  "hintSpell": "Scaracornos"
  },
  {
   "nom": "Shinlam",
@@ -8404,8 +7826,7 @@
   "categorie": "Mob de base",
   "invulnerabilite": "Non",
   "zone": [
-   "Frigost",
-   "Expéditions"
+   "Frigost"
   ],
   "niveau": 200,
   "tranche": "Lvl 200+",
@@ -8427,8 +7848,7 @@
   "categorie": "Mob de base",
   "invulnerabilite": "Non",
   "zone": [
-   "Frigost",
-   "Expéditions"
+   "Frigost"
   ],
   "niveau": 200,
   "tranche": "Lvl 200+",
@@ -8513,35 +7933,12 @@
   "hintSpell": "Enfourchage"
  },
  {
-  "nom": "Blop Coco Royal",
-  "type": "Blops",
-  "categorie": "Boss",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 220,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Terre"
-  ],
-  "resistance": [
-   "Feu",
-   "Eau",
-   "Air"
-  ],
-  "gfx": 645,
-  "img": "https://api.dofusdb.fr/img/monsters/645.png",
-  "hintSpell": "Blotection"
- },
- {
   "nom": "Capitaine Meno",
   "type": "Mobs des ruines sous-marines",
   "categorie": "Boss",
   "invulnerabilite": "Non",
   "zone": [
-   "Profondeurs de Sufokia",
-   "Expéditions"
+   "Profondeurs de Sufokia"
   ],
   "niveau": 220,
   "tranche": "Lvl 200+",
@@ -8559,59 +7956,12 @@
   "hintSpell": "Crystalisation"
  },
  {
-  "nom": "Chafer Rōnin",
-  "type": "Chafers",
-  "categorie": "Boss",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 220,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Aucune"
-  ],
-  "resistance": [
-   "Terre",
-   "Feu",
-   "Eau",
-   "Air"
-  ],
-  "gfx": 916,
-  "img": "https://api.dofusdb.fr/img/monsters/916.png",
-  "hintSpell": "Ostracisme"
- },
- {
-  "nom": "Chêne Mou",
-  "type": "Abraknydiens Irascibles",
-  "categorie": "Boss",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 220,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Aucune"
-  ],
-  "resistance": [
-   "Terre",
-   "Feu",
-   "Eau",
-   "Air"
-  ],
-  "gfx": 147,
-  "img": "https://api.dofusdb.fr/img/monsters/147.png",
-  "hintSpell": "Tornade de Branches"
- },
- {
   "nom": "Comte Harebourg",
   "type": "Sinistros",
   "categorie": "Boss",
   "invulnerabilite": "Non",
   "zone": [
-   "Frigost",
-   "Expéditions"
+   "Frigost"
   ],
   "niveau": 220,
   "tranche": "Lvl 200+",
@@ -8634,8 +7984,7 @@
   "categorie": "Boss",
   "invulnerabilite": "Oui",
   "zone": [
-   "Frigost",
-   "Expéditions"
+   "Frigost"
   ],
   "niveau": 220,
   "tranche": "Lvl 200+",
@@ -8658,8 +8007,7 @@
   "categorie": "Boss",
   "invulnerabilite": "Non",
   "zone": [
-   "Frigost",
-   "Expéditions"
+   "Frigost"
   ],
   "niveau": 220,
   "tranche": "Lvl 200+",
@@ -8675,29 +8023,6 @@
   "gfx": 1628,
   "img": "https://api.dofusdb.fr/img/monsters/1628.png",
   "hintSpell": "Hantâme"
- },
- {
-  "nom": "Maître Corbac",
-  "type": "Corbacs",
-  "categorie": "Boss",
-  "invulnerabilite": "Non",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 220,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Aucune"
-  ],
-  "resistance": [
-   "Terre",
-   "Feu",
-   "Eau",
-   "Air"
-  ],
-  "gfx": 177,
-  "img": "https://api.dofusdb.fr/img/monsters/177.png",
-  "hintSpell": "Sanction Ténébreuse"
  },
  {
   "nom": "Misère",
@@ -8722,29 +8047,6 @@
   "gfx": 1966,
   "img": "https://api.dofusdb.fr/img/monsters/1966.png",
   "hintSpell": "Balance-Fléau"
- },
- {
-  "nom": "Mob l'Éponge",
-  "type": "Pichons",
-  "categorie": "Boss",
-  "invulnerabilite": "Oui",
-  "zone": [
-   "Expéditions"
-  ],
-  "niveau": 220,
-  "tranche": "Lvl 200+",
-  "faiblesse": [
-   "Aucune"
-  ],
-  "resistance": [
-   "Terre",
-   "Feu",
-   "Eau",
-   "Air"
-  ],
-  "gfx": 513,
-  "img": "https://api.dofusdb.fr/img/monsters/513.png",
-  "hintSpell": "Dégraissage"
  },
  {
   "nom": "Reine Amirukam",
