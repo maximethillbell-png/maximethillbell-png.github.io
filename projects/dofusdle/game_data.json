@@ -17,7 +17,7 @@
   ],
   "gfx": 1088,
   "img": "https://api.dofusdb.fr/img/monsters/1088.png",
-  "hintSpell": ""
+  "hintSpell": "Tuerie"
  },
  {
   "nom": "Poutch Hyperscampe",
@@ -37,7 +37,7 @@
   ],
   "gfx": 1086,
   "img": "https://api.dofusdb.fr/img/monsters/1086.png",
-  "hintSpell": ""
+  "hintSpell": "Tuerie"
  },
  {
   "nom": "Poutch Ombre",
@@ -57,7 +57,7 @@
   ],
   "gfx": 1085,
   "img": "https://api.dofusdb.fr/img/monsters/1085.png",
-  "hintSpell": ""
+  "hintSpell": "Tuerie"
  },
  {
   "nom": "Poutch Sylargh",
@@ -77,7 +77,7 @@
   ],
   "gfx": 1087,
   "img": "https://api.dofusdb.fr/img/monsters/1087.png",
-  "hintSpell": ""
+  "hintSpell": "Tuerie"
  },
  {
   "nom": "Poutch Vil Smisse",
@@ -97,7 +97,7 @@
   ],
   "gfx": 1084,
   "img": "https://api.dofusdb.fr/img/monsters/1084.png",
-  "hintSpell": ""
+  "hintSpell": "Tuerie"
  },
  {
   "nom": "Sousouris Grise",
@@ -117,7 +117,7 @@
   ],
   "gfx": 71,
   "img": "https://api.dofusdb.fr/img/monsters/71.png",
-  "hintSpell": ""
+  "hintSpell": "Morsure"
  },
  {
   "nom": "Tiboufton Céleste",
@@ -137,7 +137,7 @@
   ],
   "gfx": 542,
   "img": "https://api.dofusdb.fr/img/monsters/542.png",
-  "hintSpell": ""
+  "hintSpell": "Mâchouillage ____"
  },
  {
   "nom": "Tofu Chimérique",
@@ -158,7 +158,7 @@
   ],
   "gfx": 540,
   "img": "https://api.dofusdb.fr/img/monsters/540.png",
-  "hintSpell": ""
+  "hintSpell": "Béco du ____"
  },
  {
   "nom": "Pissenlit Miroitant",
@@ -180,7 +180,7 @@
   ],
   "gfx": 547,
   "img": "https://api.dofusdb.fr/img/monsters/547.png",
-  "hintSpell": ""
+  "hintSpell": "Herbe Sauvage"
  },
  {
   "nom": "Rose Vaporeuse",
@@ -203,7 +203,7 @@
   ],
   "gfx": 548,
   "img": "https://api.dofusdb.fr/img/monsters/548.png",
-  "hintSpell": ""
+  "hintSpell": "Empoisonnement"
  },
  {
   "nom": "Boufton Orageux",
@@ -226,7 +226,7 @@
   ],
   "gfx": 543,
   "img": "https://api.dofusdb.fr/img/monsters/543.png",
-  "hintSpell": ""
+  "hintSpell": "Mordillement"
  },
  {
   "nom": "Boufton Pâlichon",
@@ -248,7 +248,7 @@
   ],
   "gfx": 542,
   "img": "https://api.dofusdb.fr/img/monsters/542.png",
-  "hintSpell": ""
+  "hintSpell": "Bavouille"
  },
  {
   "nom": "Tournesol Nébuleux",
@@ -269,7 +269,7 @@
   ],
   "gfx": 549,
   "img": "https://api.dofusdb.fr/img/monsters/549.png",
-  "hintSpell": ""
+  "hintSpell": "Racine Barbelée"
  },
  {
   "nom": "Bouftou Nuageux",
@@ -290,7 +290,7 @@
   ],
   "gfx": 541,
   "img": "https://api.dofusdb.fr/img/monsters/541.png",
-  "hintSpell": ""
+  "hintSpell": "Morsure"
  },
  {
   "nom": "Chakrobat",
@@ -312,7 +312,7 @@
   ],
   "gfx": 550,
   "img": "https://api.dofusdb.fr/img/monsters/550.png",
-  "hintSpell": ""
+  "hintSpell": "Souffle Céleste"
  },
  {
   "nom": "Bouftor Éthéré",
@@ -334,7 +334,7 @@
   ],
   "gfx": 551,
   "img": "https://api.dofusdb.fr/img/monsters/551.png",
-  "hintSpell": ""
+  "hintSpell": "Morsure du ____"
  },
  {
   "nom": "Arakmuté",
@@ -355,7 +355,7 @@
   ],
   "gfx": 1269,
   "img": "https://api.dofusdb.fr/img/monsters/1269.png",
-  "hintSpell": ""
+  "hintSpell": "Jet de Poussière"
  },
  {
   "nom": "Arakne Malade",
@@ -377,7 +377,7 @@
   ],
   "gfx": 261,
   "img": "https://api.dofusdb.fr/img/monsters/261.png",
-  "hintSpell": ""
+  "hintSpell": "Frappe Morveuse"
  },
  {
   "nom": "Araknosé",
@@ -398,7 +398,7 @@
   ],
   "gfx": 1578,
   "img": "https://api.dofusdb.fr/img/monsters/1578.png",
-  "hintSpell": ""
+  "hintSpell": "Toile Fragile"
  },
  {
   "nom": "Larve Bleue Solitaire",
@@ -420,7 +420,7 @@
   ],
   "gfx": 544,
   "img": "https://api.dofusdb.fr/img/monsters/544.png",
-  "hintSpell": ""
+  "hintSpell": "____ment"
  },
  {
   "nom": "Tofu Malade",
@@ -440,7 +440,7 @@
   ],
   "gfx": 260,
   "img": "https://api.dofusdb.fr/img/monsters/260.png",
-  "hintSpell": ""
+  "hintSpell": "Béco Morveux"
  },
  {
   "nom": "Campagnoll",
@@ -462,7 +462,7 @@
   ],
   "gfx": 188,
   "img": "https://api.dofusdb.fr/img/monsters/188.png",
-  "hintSpell": ""
+  "hintSpell": "Gnoll Haut"
  },
  {
   "nom": "Gardienne Champêtre",
@@ -484,7 +484,7 @@
   ],
   "gfx": 1580,
   "img": "https://api.dofusdb.fr/img/monsters/1580.png",
-  "hintSpell": ""
+  "hintSpell": "Désherbant"
  },
  {
   "nom": "Larve Bleue",
@@ -507,7 +507,7 @@
   ],
   "gfx": 1,
   "img": "https://api.dofusdb.fr/img/monsters/1.png",
-  "hintSpell": ""
+  "hintSpell": "Postillon Handicapant"
  },
  {
   "nom": "Larve Orange",
@@ -530,7 +530,7 @@
   ],
   "gfx": 12,
   "img": "https://api.dofusdb.fr/img/monsters/12.png",
-  "hintSpell": ""
+  "hintSpell": "Bave Collante"
  },
  {
   "nom": "Larve Verte",
@@ -553,7 +553,7 @@
   ],
   "gfx": 2,
   "img": "https://api.dofusdb.fr/img/monsters/2.png",
-  "hintSpell": ""
+  "hintSpell": "Postillon Aveuglant"
  },
  {
   "nom": "Larve Verte Solitaire",
@@ -575,7 +575,7 @@
   ],
   "gfx": 546,
   "img": "https://api.dofusdb.fr/img/monsters/546.png",
-  "hintSpell": ""
+  "hintSpell": "____ment"
  },
  {
   "nom": "Moskito",
@@ -596,7 +596,7 @@
   ],
   "gfx": 22,
   "img": "https://api.dofusdb.fr/img/monsters/22.png",
-  "hintSpell": ""
+  "hintSpell": "Piqûre"
  },
  {
   "nom": "Tournesol Sauvage",
@@ -619,7 +619,7 @@
   ],
   "gfx": 14,
   "img": "https://api.dofusdb.fr/img/monsters/14.png",
-  "hintSpell": ""
+  "hintSpell": "Poison ____"
  },
  {
   "nom": "Épouvanteur",
@@ -640,7 +640,7 @@
   ],
   "gfx": 1579,
   "img": "https://api.dofusdb.fr/img/monsters/1579.png",
-  "hintSpell": ""
+  "hintSpell": "Protection des ____"
  },
  {
   "nom": "Rose Obscure",
@@ -661,7 +661,7 @@
   ],
   "gfx": 256,
   "img": "https://api.dofusdb.fr/img/monsters/256.png",
-  "hintSpell": ""
+  "hintSpell": "Empoisonnement"
  },
  {
   "nom": "Fouduglen l'Écureuil",
@@ -681,7 +681,7 @@
   ],
   "gfx": 206,
   "img": "https://api.dofusdb.fr/img/monsters/206.png",
-  "hintSpell": ""
+  "hintSpell": "Casse-noisettes"
  },
  {
   "nom": "Sam Sagaz",
@@ -701,7 +701,7 @@
   ],
   "gfx": 413,
   "img": "https://api.dofusdb.fr/img/monsters/413.png",
-  "hintSpell": ""
+  "hintSpell": "Jardinage"
  },
  {
   "nom": "Bouftou Noir",
@@ -723,7 +723,7 @@
   ],
   "gfx": 946,
   "img": "https://api.dofusdb.fr/img/monsters/946.png",
-  "hintSpell": ""
+  "hintSpell": "Morsure Obscure"
  },
  {
   "nom": "Bouftou d'Halouine",
@@ -767,7 +767,7 @@
   ],
   "gfx": 75,
   "img": "https://api.dofusdb.fr/img/monsters/75.png",
-  "hintSpell": ""
+  "hintSpell": "Ralliement de ____"
  },
  {
   "nom": "Milirat Strubien",
@@ -789,7 +789,7 @@
   ],
   "gfx": 239,
   "img": "https://api.dofusdb.fr/img/monsters/239.png",
-  "hintSpell": ""
+  "hintSpell": "Lancer de Lance"
  },
  {
   "nom": "Scélérat Strubien",
@@ -811,7 +811,7 @@
   ],
   "gfx": 254,
   "img": "https://api.dofusdb.fr/img/monsters/254.png",
-  "hintSpell": ""
+  "hintSpell": "Mordillage"
  },
  {
   "nom": "Écurouille",
@@ -834,7 +834,7 @@
   ],
   "gfx": 206,
   "img": "https://api.dofusdb.fr/img/monsters/206.png",
-  "hintSpell": ""
+  "hintSpell": "Taie de Gland"
  },
  {
   "nom": "Biblop Coco",
@@ -942,7 +942,7 @@
   ],
   "gfx": 107,
   "img": "https://api.dofusdb.fr/img/monsters/107.png",
-  "hintSpell": ""
+  "hintSpell": "Vol de Pièces"
  },
  {
   "nom": "Abraknyde Chétif",
@@ -964,7 +964,7 @@
   ],
   "gfx": 1271,
   "img": "https://api.dofusdb.fr/img/monsters/1271.png",
-  "hintSpell": ""
+  "hintSpell": "Invocation d'Arakne"
  },
  {
   "nom": "Ambi Guman",
@@ -987,7 +987,7 @@
   ],
   "gfx": 1048,
   "img": "https://api.dofusdb.fr/img/monsters/1048.png",
-  "hintSpell": ""
+  "hintSpell": "Patate"
  },
  {
   "nom": "Bouftou Royal",
@@ -1010,7 +1010,7 @@
   ],
   "gfx": 74,
   "img": "https://api.dofusdb.fr/img/monsters/74.png",
-  "hintSpell": ""
+  "hintSpell": "Guérison ____"
  },
  {
   "nom": "Frakacia Leukocytine",
@@ -1032,7 +1032,7 @@
   ],
   "gfx": 250,
   "img": "https://api.dofusdb.fr/img/monsters/250.png",
-  "hintSpell": ""
+  "hintSpell": "Crochet fracassant"
  },
  {
   "nom": "Maître Boulet",
@@ -1055,7 +1055,7 @@
   ],
   "gfx": 194,
   "img": "https://api.dofusdb.fr/img/monsters/194.png",
-  "hintSpell": ""
+  "hintSpell": "Acculement"
  },
  {
   "nom": "Cafarcher",
@@ -1076,7 +1076,7 @@
   ],
   "gfx": 1240,
   "img": "https://api.dofusdb.fr/img/monsters/1240.png",
-  "hintSpell": ""
+  "hintSpell": "Tir de cure-dent"
  },
  {
   "nom": "Céglumen",
@@ -1096,7 +1096,7 @@
   ],
   "gfx": 1244,
   "img": "https://api.dofusdb.fr/img/monsters/1244.png",
-  "hintSpell": ""
+  "hintSpell": "Badigeonnage de cérumen"
  },
  {
   "nom": "Gobaladée",
@@ -1118,7 +1118,7 @@
   ],
   "gfx": 2278,
   "img": "https://api.dofusdb.fr/img/monsters/2278.png",
-  "hintSpell": ""
+  "hintSpell": "Co-balade"
  },
  {
   "nom": "Gobaliste",
@@ -1140,7 +1140,7 @@
   ],
   "gfx": 2277,
   "img": "https://api.dofusdb.fr/img/monsters/2277.png",
-  "hintSpell": ""
+  "hintSpell": "Flatuosité"
  },
  {
   "nom": "Mirgrillon",
@@ -1161,7 +1161,7 @@
   ],
   "gfx": 1242,
   "img": "https://api.dofusdb.fr/img/monsters/1242.png",
-  "hintSpell": ""
+  "hintSpell": "Mini empalement"
  },
  {
   "nom": "Pyrasite",
@@ -1181,7 +1181,7 @@
   ],
   "gfx": 1241,
   "img": "https://api.dofusdb.fr/img/monsters/1241.png",
-  "hintSpell": ""
+  "hintSpell": "Souffle brûlant"
  },
  {
   "nom": "Sakarien",
@@ -1202,7 +1202,7 @@
   ],
   "gfx": 1243,
   "img": "https://api.dofusdb.fr/img/monsters/1243.png",
-  "hintSpell": ""
+  "hintSpell": "Frappe circulaire"
  },
  {
   "nom": "Tofu Maléfique",
@@ -1225,7 +1225,7 @@
   ],
   "gfx": 58,
   "img": "https://api.dofusdb.fr/img/monsters/58.png",
-  "hintSpell": ""
+  "hintSpell": "Maléfice"
  },
  {
   "nom": "Tofu Mutant",
@@ -1247,7 +1247,7 @@
   ],
   "gfx": 449,
   "img": "https://api.dofusdb.fr/img/monsters/449.png",
-  "hintSpell": ""
+  "hintSpell": "Bigle"
  },
  {
   "nom": "Tofu Noir",
@@ -1314,7 +1314,7 @@
   ],
   "gfx": 72,
   "img": "https://api.dofusdb.fr/img/monsters/72.png",
-  "hintSpell": ""
+  "hintSpell": "Vol de Vie"
  },
  {
   "nom": "Champa Bleu",
@@ -1336,7 +1336,7 @@
   ],
   "gfx": 349,
   "img": "https://api.dofusdb.fr/img/monsters/349.png",
-  "hintSpell": ""
+  "hintSpell": "Sacrifice Douloureux"
  },
  {
   "nom": "Champa Marron",
@@ -1358,7 +1358,7 @@
   ],
   "gfx": 350,
   "img": "https://api.dofusdb.fr/img/monsters/350.png",
-  "hintSpell": ""
+  "hintSpell": "Champ Homi"
  },
  {
   "nom": "Champa Rouge",
@@ -1380,7 +1380,7 @@
   ],
   "gfx": 348,
   "img": "https://api.dofusdb.fr/img/monsters/348.png",
-  "hintSpell": ""
+  "hintSpell": "Champsoin"
  },
  {
   "nom": "Champa Vert",
@@ -1402,7 +1402,7 @@
   ],
   "gfx": 347,
   "img": "https://api.dofusdb.fr/img/monsters/347.png",
-  "hintSpell": ""
+  "hintSpell": "Téléportation du ____"
  },
  {
   "nom": "Let Emoliug",
@@ -1425,7 +1425,7 @@
   ],
   "gfx": 93,
   "img": "https://api.dofusdb.fr/img/monsters/93.png",
-  "hintSpell": ""
+  "hintSpell": "Trait Destructeur"
  },
  {
   "nom": "Nebgib",
@@ -1448,7 +1448,7 @@
   ],
   "gfx": 89,
   "img": "https://api.dofusdb.fr/img/monsters/89.png",
-  "hintSpell": ""
+  "hintSpell": "Horloge Séculaire"
  },
  {
   "nom": "Nipul",
@@ -1471,7 +1471,7 @@
   ],
   "gfx": 88,
   "img": "https://api.dofusdb.fr/img/monsters/88.png",
-  "hintSpell": ""
+  "hintSpell": "Impact Sournois"
  },
  {
   "nom": "Osurc",
@@ -1494,7 +1494,7 @@
   ],
   "gfx": 87,
   "img": "https://api.dofusdb.fr/img/monsters/87.png",
-  "hintSpell": ""
+  "hintSpell": "Lancer de Kamas"
  },
  {
   "nom": "Susej",
@@ -1517,7 +1517,7 @@
   ],
   "gfx": 92,
   "img": "https://api.dofusdb.fr/img/monsters/92.png",
-  "hintSpell": ""
+  "hintSpell": "Lame Céleste"
  },
  {
   "nom": "Crustorail Kouraçao",
@@ -1539,7 +1539,7 @@
   ],
   "gfx": 584,
   "img": "https://api.dofusdb.fr/img/monsters/584.png",
-  "hintSpell": ""
+  "hintSpell": "Pince de Corail"
  },
  {
   "nom": "Crustorail Malibout",
@@ -1561,7 +1561,7 @@
   ],
   "gfx": 585,
   "img": "https://api.dofusdb.fr/img/monsters/585.png",
-  "hintSpell": ""
+  "hintSpell": "Pince de Corail"
  },
  {
   "nom": "Crustorail Morito",
@@ -1583,7 +1583,7 @@
   ],
   "gfx": 587,
   "img": "https://api.dofusdb.fr/img/monsters/587.png",
-  "hintSpell": ""
+  "hintSpell": "Pince de Corail"
  },
  {
   "nom": "Crustorail Passaoh",
@@ -1605,7 +1605,7 @@
   ],
   "gfx": 586,
   "img": "https://api.dofusdb.fr/img/monsters/586.png",
-  "hintSpell": ""
+  "hintSpell": "Pince de Corail"
  },
  {
   "nom": "Scarafeuille Noir",
@@ -1629,7 +1629,7 @@
   ],
   "gfx": 441,
   "img": "https://api.dofusdb.fr/img/monsters/441.png",
-  "hintSpell": "Élémental Dispersion"
+  "hintSpell": "Elemental Dispersion"
  },
  {
   "nom": "Maître Vampire",
@@ -1651,7 +1651,7 @@
   ],
   "gfx": 69,
   "img": "https://api.dofusdb.fr/img/monsters/69.png",
-  "hintSpell": ""
+  "hintSpell": "Éventration"
  },
  {
   "nom": "Palmifleur Kouraçao",
@@ -1673,7 +1673,7 @@
   ],
   "gfx": 588,
   "img": "https://api.dofusdb.fr/img/monsters/588.png",
-  "hintSpell": ""
+  "hintSpell": "Décapsulation"
  },
  {
   "nom": "Palmifleur Malibout",
@@ -1695,7 +1695,7 @@
   ],
   "gfx": 589,
   "img": "https://api.dofusdb.fr/img/monsters/589.png",
-  "hintSpell": ""
+  "hintSpell": "Décapsulation"
  },
  {
   "nom": "Palmifleur Morito",
@@ -1717,7 +1717,7 @@
   ],
   "gfx": 591,
   "img": "https://api.dofusdb.fr/img/monsters/591.png",
-  "hintSpell": ""
+  "hintSpell": "Décapsulation"
  },
  {
   "nom": "Palmifleur Passaoh",
@@ -1739,7 +1739,7 @@
   ],
   "gfx": 590,
   "img": "https://api.dofusdb.fr/img/monsters/590.png",
-  "hintSpell": ""
+  "hintSpell": "Décapsulation"
  },
  {
   "nom": "Abraknyde",
@@ -1761,7 +1761,7 @@
   ],
   "gfx": 13,
   "img": "https://api.dofusdb.fr/img/monsters/13.png",
-  "hintSpell": ""
+  "hintSpell": "Abraknassion"
  },
  {
   "nom": "Croc Gland Enragé",
@@ -1804,7 +1804,7 @@
   ],
   "gfx": 1245,
   "img": "https://api.dofusdb.fr/img/monsters/1245.png",
-  "hintSpell": ""
+  "hintSpell": "Blathération"
  },
  {
   "nom": "Scarabosse Doré",
@@ -1827,7 +1827,7 @@
   ],
   "gfx": 443,
   "img": "https://api.dofusdb.fr/img/monsters/443.png",
-  "hintSpell": ""
+  "hintSpell": "Picoti"
  },
  {
   "nom": "Abrakne",
@@ -1849,7 +1849,7 @@
   ],
   "gfx": 345,
   "img": "https://api.dofusdb.fr/img/monsters/345.png",
-  "hintSpell": ""
+  "hintSpell": "Invocation de Champa"
  },
  {
   "nom": "Bandit Manchot",
@@ -1869,7 +1869,7 @@
   ],
   "gfx": 255,
   "img": "https://api.dofusdb.fr/img/monsters/255.png",
-  "hintSpell": ""
+  "hintSpell": "Persécution"
  },
  {
   "nom": "Buffalourd",
@@ -1890,7 +1890,7 @@
   ],
   "gfx": 2316,
   "img": "https://api.dofusdb.fr/img/monsters/2316.png",
-  "hintSpell": ""
+  "hintSpell": "Secousse tellurique"
  },
  {
   "nom": "Bwak de Terre",
@@ -1910,7 +1910,7 @@
   ],
   "gfx": 155,
   "img": "https://api.dofusdb.fr/img/monsters/155.png",
-  "hintSpell": ""
+  "hintSpell": "____itori"
  },
  {
   "nom": "Cochon de Lait",
@@ -1932,7 +1932,7 @@
   ],
   "gfx": 68,
   "img": "https://api.dofusdb.fr/img/monsters/68.png",
-  "hintSpell": ""
+  "hintSpell": "Flèche Trouveuse"
  },
  {
   "nom": "Crabe",
@@ -1954,7 +1954,7 @@
   ],
   "gfx": 24,
   "img": "https://api.dofusdb.fr/img/monsters/24.png",
-  "hintSpell": ""
+  "hintSpell": "Pince"
  },
  {
   "nom": "Forgeron Sombre",
@@ -1976,7 +1976,7 @@
   ],
   "gfx": 66,
   "img": "https://api.dofusdb.fr/img/monsters/66.png",
-  "hintSpell": ""
+  "hintSpell": "Embrochement"
  },
  {
   "nom": "Grolours",
@@ -1997,7 +1997,7 @@
   ],
   "gfx": 2317,
   "img": "https://api.dofusdb.fr/img/monsters/2317.png",
-  "hintSpell": ""
+  "hintSpell": "Impact écrasant"
  },
  {
   "nom": "Kipik",
@@ -2020,7 +2020,7 @@
   ],
   "gfx": 476,
   "img": "https://api.dofusdb.fr/img/monsters/476.png",
-  "hintSpell": ""
+  "hintSpell": "Savapiké"
  },
  {
   "nom": "Kokoko",
@@ -2042,7 +2042,7 @@
   ],
   "gfx": 109,
   "img": "https://api.dofusdb.fr/img/monsters/109.png",
-  "hintSpell": ""
+  "hintSpell": "Frémissement"
  },
  {
   "nom": "Kwakere de Flamme",
@@ -2130,7 +2130,7 @@
   ],
   "gfx": 161,
   "img": "https://api.dofusdb.fr/img/monsters/161.png",
-  "hintSpell": "Wakolanterne"
+  "hintSpell": "Griffes Acérées"
  },
  {
   "nom": "Larve Dorée",
@@ -2150,7 +2150,7 @@
   ],
   "gfx": 216,
   "img": "https://api.dofusdb.fr/img/monsters/216.png",
-  "hintSpell": ""
+  "hintSpell": "____ment"
  },
  {
   "nom": "Moumoule",
@@ -2170,7 +2170,7 @@
   ],
   "gfx": 529,
   "img": "https://api.dofusdb.fr/img/monsters/529.png",
-  "hintSpell": ""
+  "hintSpell": "Ninjattaque"
  },
  {
   "nom": "Nodkoko",
@@ -2193,7 +2193,7 @@
   ],
   "gfx": 117,
   "img": "https://api.dofusdb.fr/img/monsters/117.png",
-  "hintSpell": ""
+  "hintSpell": "Jus Baveux"
  },
  {
   "nom": "Thomondor",
@@ -2214,7 +2214,7 @@
   ],
   "gfx": 2315,
   "img": "https://api.dofusdb.fr/img/monsters/2315.png",
-  "hintSpell": ""
+  "hintSpell": "Rafale de plumes"
  },
  {
   "nom": "Tikoko",
@@ -2237,7 +2237,7 @@
   ],
   "gfx": 108,
   "img": "https://api.dofusdb.fr/img/monsters/108.png",
-  "hintSpell": ""
+  "hintSpell": "Enfeuillage"
  },
  {
   "nom": "Timongouste",
@@ -2258,7 +2258,7 @@
   ],
   "gfx": 2314,
   "img": "https://api.dofusdb.fr/img/monsters/2314.png",
-  "hintSpell": ""
+  "hintSpell": "Jet de salive"
  },
  {
   "nom": "Tofu enneigé",
@@ -2280,7 +2280,7 @@
   ],
   "gfx": 471,
   "img": "https://api.dofusdb.fr/img/monsters/471.png",
-  "hintSpell": ""
+  "hintSpell": "Tombée de Neige"
  },
  {
   "nom": "Tortue Bleue",
@@ -2301,7 +2301,7 @@
   ],
   "gfx": 119,
   "img": "https://api.dofusdb.fr/img/monsters/119.png",
-  "hintSpell": ""
+  "hintSpell": "Carapace Réfléchissante"
  },
  {
   "nom": "Tortue Jaune",
@@ -2322,7 +2322,7 @@
   ],
   "gfx": 121,
   "img": "https://api.dofusdb.fr/img/monsters/121.png",
-  "hintSpell": ""
+  "hintSpell": "Frappe Éclair de la ____"
  },
  {
   "nom": "Tortue Rouge",
@@ -2343,7 +2343,7 @@
   ],
   "gfx": 118,
   "img": "https://api.dofusdb.fr/img/monsters/118.png",
-  "hintSpell": ""
+  "hintSpell": "Chapeau Incandescent"
  },
  {
   "nom": "Tortue Verte",
@@ -2364,7 +2364,7 @@
   ],
   "gfx": 120,
   "img": "https://api.dofusdb.fr/img/monsters/120.png",
-  "hintSpell": ""
+  "hintSpell": "Vents Perçants"
  },
  {
   "nom": "Trankilou",
@@ -2386,7 +2386,7 @@
   ],
   "gfx": 2318,
   "img": "https://api.dofusdb.fr/img/monsters/2318.png",
-  "hintSpell": ""
+  "hintSpell": "Lacération"
  },
  {
   "nom": "Wabbit",
@@ -2406,7 +2406,7 @@
   ],
   "gfx": 25,
   "img": "https://api.dofusdb.fr/img/monsters/25.png",
-  "hintSpell": ""
+  "hintSpell": "Frappe des ____"
  },
  {
   "nom": "Black Wabbit Squelette",
@@ -2428,7 +2428,7 @@
   ],
   "gfx": 1015,
   "img": "https://api.dofusdb.fr/img/monsters/1015.png",
-  "hintSpell": ""
+  "hintSpell": "Wabehameha"
  },
  {
   "nom": "Bworkette",
@@ -2471,7 +2471,7 @@
   ],
   "gfx": 98,
   "img": "https://api.dofusdb.fr/img/monsters/98.png",
-  "hintSpell": ""
+  "hintSpell": "Vol de Pièces"
  },
  {
   "nom": "Coffre de Dédé",
@@ -2494,7 +2494,7 @@
   ],
   "gfx": 98,
   "img": "https://api.dofusdb.fr/img/monsters/98.png",
-  "hintSpell": ""
+  "hintSpell": "Morsure Éthérée"
  },
  {
   "nom": "Directeur Grunob",
@@ -2516,7 +2516,7 @@
   ],
   "gfx": 2279,
   "img": "https://api.dofusdb.fr/img/monsters/2279.png",
-  "hintSpell": ""
+  "hintSpell": "Sermon Éducatif"
  },
  {
   "nom": "Ogivol Scalarcin",
@@ -2538,7 +2538,7 @@
   ],
   "gfx": 252,
   "img": "https://api.dofusdb.fr/img/monsters/252.png",
-  "hintSpell": ""
+  "hintSpell": "____taïque"
  },
  {
   "nom": "Rakoopeur",
@@ -2561,7 +2561,7 @@
   ],
   "gfx": 2319,
   "img": "https://api.dofusdb.fr/img/monsters/2319.png",
-  "hintSpell": ""
+  "hintSpell": "Serpe boomerang"
  },
  {
   "nom": "Shin Larve",
@@ -2583,7 +2583,7 @@
   ],
   "gfx": 248,
   "img": "https://api.dofusdb.fr/img/monsters/248.png",
-  "hintSpell": ""
+  "hintSpell": "Enlisement"
  },
  {
   "nom": "Blop Coco",
@@ -2627,7 +2627,7 @@
   ],
   "gfx": 164,
   "img": "https://api.dofusdb.fr/img/monsters/164.png",
-  "hintSpell": ""
+  "hintSpell": "Bi____ition"
  },
  {
   "nom": "Blop Indigo",
@@ -2671,7 +2671,7 @@
   ],
   "gfx": 165,
   "img": "https://api.dofusdb.fr/img/monsters/165.png",
-  "hintSpell": ""
+  "hintSpell": "Bi____ition"
  },
  {
   "nom": "Guerrier Mental",
@@ -2693,7 +2693,7 @@
   ],
   "gfx": 950,
   "img": "https://api.dofusdb.fr/img/monsters/950.png",
-  "hintSpell": ""
+  "hintSpell": "Estocade Errante"
  },
  {
   "nom": "Kanniboul Ark",
@@ -2715,7 +2715,7 @@
   ],
   "gfx": 110,
   "img": "https://api.dofusdb.fr/img/monsters/110.png",
-  "hintSpell": ""
+  "hintSpell": "Coup de Masque"
  },
  {
   "nom": "Kanniboul Eth",
@@ -2736,7 +2736,7 @@
   ],
   "gfx": 111,
   "img": "https://api.dofusdb.fr/img/monsters/111.png",
-  "hintSpell": ""
+  "hintSpell": "Fronde Poche"
  },
  {
   "nom": "Kanniboul Jav",
@@ -2758,7 +2758,7 @@
   ],
   "gfx": 112,
   "img": "https://api.dofusdb.fr/img/monsters/112.png",
-  "hintSpell": ""
+  "hintSpell": "Poussée Amicale"
  },
  {
   "nom": "Kanniboul Sarbak",
@@ -2779,7 +2779,7 @@
   ],
   "gfx": 113,
   "img": "https://api.dofusdb.fr/img/monsters/113.png",
-  "hintSpell": ""
+  "hintSpell": "Sarba____"
  },
  {
   "nom": "Kanniboul Tam",
@@ -2800,7 +2800,7 @@
   ],
   "gfx": 1322,
   "img": "https://api.dofusdb.fr/img/monsters/1322.png",
-  "hintSpell": ""
+  "hintSpell": "Batou Kada"
  },
  {
   "nom": "Serpentin",
@@ -2822,7 +2822,7 @@
   ],
   "gfx": 176,
   "img": "https://api.dofusdb.fr/img/monsters/176.png",
-  "hintSpell": ""
+  "hintSpell": "Dissimulation"
  },
  {
   "nom": "Twakeuf",
@@ -2844,7 +2844,7 @@
   ],
   "gfx": 1840,
   "img": "https://api.dofusdb.fr/img/monsters/1840.png",
-  "hintSpell": ""
+  "hintSpell": "Souffle Liqueuwant"
  },
  {
   "nom": "Wadulant",
@@ -2867,7 +2867,7 @@
   ],
   "gfx": 1870,
   "img": "https://api.dofusdb.fr/img/monsters/1870.png",
-  "hintSpell": ""
+  "hintSpell": "Céléwité"
  },
  {
   "nom": "Gelée Bleuet",
@@ -2888,7 +2888,7 @@
   ],
   "gfx": 17,
   "img": "https://api.dofusdb.fr/img/monsters/17.png",
-  "hintSpell": ""
+  "hintSpell": "Isométrie"
  },
  {
   "nom": "Gelée Fraise",
@@ -2909,7 +2909,7 @@
   ],
   "gfx": 19,
   "img": "https://api.dofusdb.fr/img/monsters/19.png",
-  "hintSpell": ""
+  "hintSpell": "Gelpikes"
  },
  {
   "nom": "Gelée Menthe",
@@ -2930,7 +2930,7 @@
   ],
   "gfx": 18,
   "img": "https://api.dofusdb.fr/img/monsters/18.png",
-  "hintSpell": ""
+  "hintSpell": "Pik-assaut"
  },
  {
   "nom": "Brumen Tinctorias",
@@ -2952,7 +2952,7 @@
   ],
   "gfx": 253,
   "img": "https://api.dofusdb.fr/img/monsters/253.png",
-  "hintSpell": ""
+  "hintSpell": "Élixir Curatif"
  },
  {
   "nom": "Gadoo",
@@ -2974,7 +2974,7 @@
   ],
   "gfx": 1050,
   "img": "https://api.dofusdb.fr/img/monsters/1050.png",
-  "hintSpell": ""
+  "hintSpell": "Suçon spongieux"
  },
  {
   "nom": "Gelée Royale Bleuet",
@@ -2996,7 +2996,7 @@
   ],
   "gfx": 20,
   "img": "https://api.dofusdb.fr/img/monsters/20.png",
-  "hintSpell": ""
+  "hintSpell": "Isométrie"
  },
  {
   "nom": "Kanniboul Ebil",
@@ -3018,7 +3018,7 @@
   ],
   "gfx": 837,
   "img": "https://api.dofusdb.fr/img/monsters/837.png",
-  "hintSpell": ""
+  "hintSpell": "____ation"
  },
  {
   "nom": "Saphira",
@@ -3040,7 +3040,7 @@
   ],
   "gfx": 363,
   "img": "https://api.dofusdb.fr/img/monsters/363.png",
-  "hintSpell": ""
+  "hintSpell": "Bouh M'Rang Saphir"
  },
  {
   "nom": "Émeraude",
@@ -3062,7 +3062,7 @@
   ],
   "gfx": 361,
   "img": "https://api.dofusdb.fr/img/monsters/361.png",
-  "hintSpell": ""
+  "hintSpell": "Transposition Amicale"
  },
  {
   "nom": "Dragodinde dorée sauvage",
@@ -3084,7 +3084,7 @@
   ],
   "gfx": 356,
   "img": "https://api.dofusdb.fr/img/monsters/356.png",
-  "hintSpell": ""
+  "hintSpell": "Dindoneau"
  },
  {
   "nom": "Dragoeuf Albâtre",
@@ -3107,7 +3107,7 @@
   ],
   "gfx": 1914,
   "img": "https://api.dofusdb.fr/img/monsters/1914.png",
-  "hintSpell": ""
+  "hintSpell": "Dragloméra"
  },
  {
   "nom": "Kanigrou",
@@ -3129,7 +3129,7 @@
   ],
   "gfx": 175,
   "img": "https://api.dofusdb.fr/img/monsters/175.png",
-  "hintSpell": ""
+  "hintSpell": "Saut Majestueux"
  },
  {
   "nom": "Volkorne indigo sauvage",
@@ -3150,7 +3150,7 @@
   ],
   "gfx": 1763,
   "img": "https://api.dofusdb.fr/img/monsters/1763.png",
-  "hintSpell": ""
+  "hintSpell": "Volkohue"
  },
  {
   "nom": "Volkorne orchidée sauvage",
@@ -3171,7 +3171,7 @@
   ],
   "gfx": 1762,
   "img": "https://api.dofusdb.fr/img/monsters/1762.png",
-  "hintSpell": ""
+  "hintSpell": "Volkardeur"
  },
  {
   "nom": "Volkorne pourpre sauvage",
@@ -3192,7 +3192,7 @@
   ],
   "gfx": 1765,
   "img": "https://api.dofusdb.fr/img/monsters/1765.png",
-  "hintSpell": ""
+  "hintSpell": "Volkalme"
  },
  {
   "nom": "Volkorne ébène sauvage",
@@ -3213,7 +3213,7 @@
   ],
   "gfx": 1764,
   "img": "https://api.dofusdb.fr/img/monsters/1764.png",
-  "hintSpell": ""
+  "hintSpell": "Volkair"
  },
  {
   "nom": "Craqueleur Légendaire",
@@ -3235,7 +3235,7 @@
   ],
   "gfx": 183,
   "img": "https://api.dofusdb.fr/img/monsters/183.png",
-  "hintSpell": ""
+  "hintSpell": "Peau de Granite"
  },
  {
   "nom": "Draegnerys",
@@ -3258,7 +3258,7 @@
   ],
   "gfx": 1915,
   "img": "https://api.dofusdb.fr/img/monsters/1915.png",
-  "hintSpell": ""
+  "hintSpell": "Somatotropine"
  },
  {
   "nom": "Black Wo Wabbit",
@@ -3280,7 +3280,7 @@
   ],
   "gfx": 1007,
   "img": "https://api.dofusdb.fr/img/monsters/1007.png",
-  "hintSpell": ""
+  "hintSpell": "Aspiwation"
  },
  {
   "nom": "Blanc Pa Wabbit",
@@ -3302,7 +3302,7 @@
   ],
   "gfx": 1009,
   "img": "https://api.dofusdb.fr/img/monsters/1009.png",
-  "hintSpell": ""
+  "hintSpell": "Mawtyw"
  },
  {
   "nom": "Tiwobot",
@@ -3324,7 +3324,7 @@
   ],
   "gfx": 1018,
   "img": "https://api.dofusdb.fr/img/monsters/1018.png",
-  "hintSpell": ""
+  "hintSpell": "Wetouw du Wabbit"
  },
  {
   "nom": "Wobot Kiafin",
@@ -3346,7 +3346,7 @@
   ],
   "gfx": 1008,
   "img": "https://api.dofusdb.fr/img/monsters/1008.png",
-  "hintSpell": ""
+  "hintSpell": "Weuche"
  },
  {
   "nom": "Koalak Forestier",
@@ -3456,7 +3456,7 @@
   ],
   "gfx": 129,
   "img": "https://api.dofusdb.fr/img/monsters/129.png",
-  "hintSpell": "Vindication ____esque"
+  "hintSpell": "Écrasement Handicapant"
  },
  {
   "nom": "Tyranne la Terrible",
@@ -3477,7 +3477,7 @@
   ],
   "gfx": 1275,
   "img": "https://api.dofusdb.fr/img/monsters/1275.png",
-  "hintSpell": ""
+  "hintSpell": "Hyper Kick"
  },
  {
   "nom": "Wa Wobot",
@@ -3500,7 +3500,7 @@
   ],
   "gfx": 1006,
   "img": "https://api.dofusdb.fr/img/monsters/1006.png",
-  "hintSpell": ""
+  "hintSpell": "Mékattwaction"
  },
  {
   "nom": "Abrakne Sombre",
@@ -3522,7 +3522,7 @@
   ],
   "gfx": 346,
   "img": "https://api.dofusdb.fr/img/monsters/346.png",
-  "hintSpell": ""
+  "hintSpell": "Motivation Sylvestre"
  },
  {
   "nom": "Boomba",
@@ -3545,7 +3545,7 @@
   ],
   "gfx": 124,
   "img": "https://api.dofusdb.fr/img/monsters/124.png",
-  "hintSpell": ""
+  "hintSpell": "Bombe ____"
  },
  {
   "nom": "Bozoteur",
@@ -3567,7 +3567,7 @@
   ],
   "gfx": 1586,
   "img": "https://api.dofusdb.fr/img/monsters/1586.png",
-  "hintSpell": ""
+  "hintSpell": "Bang"
  },
  {
   "nom": "Crabe Hijacob",
@@ -3589,7 +3589,7 @@
   ],
   "gfx": 808,
   "img": "https://api.dofusdb.fr/img/monsters/808.png",
-  "hintSpell": ""
+  "hintSpell": "Pincette"
  },
  {
   "nom": "Gargantûl",
@@ -3611,7 +3611,7 @@
   ],
   "gfx": 1266,
   "img": "https://api.dofusdb.fr/img/monsters/1266.png",
-  "hintSpell": ""
+  "hintSpell": "Mastication"
  },
  {
   "nom": "Graboule",
@@ -3633,7 +3633,7 @@
   ],
   "gfx": 1590,
   "img": "https://api.dofusdb.fr/img/monsters/1590.png",
-  "hintSpell": ""
+  "hintSpell": "Balle Piégée"
  },
  {
   "nom": "Nakunbra",
@@ -3655,7 +3655,7 @@
   ],
   "gfx": 125,
   "img": "https://api.dofusdb.fr/img/monsters/125.png",
-  "hintSpell": ""
+  "hintSpell": "Sus à l'ennemi !"
  },
  {
   "nom": "Néfileuse",
@@ -3676,7 +3676,7 @@
   ],
   "gfx": 1264,
   "img": "https://api.dofusdb.fr/img/monsters/1264.png",
-  "hintSpell": ""
+  "hintSpell": "Toile paralysante"
  },
  {
   "nom": "Pirolienne",
@@ -3698,7 +3698,7 @@
   ],
   "gfx": 1588,
   "img": "https://api.dofusdb.fr/img/monsters/1588.png",
-  "hintSpell": ""
+  "hintSpell": "Chaudasse"
  },
  {
   "nom": "Rat Bougri",
@@ -3720,7 +3720,7 @@
   ],
   "gfx": 807,
   "img": "https://api.dofusdb.fr/img/monsters/807.png",
-  "hintSpell": ""
+  "hintSpell": "Ratissage"
  },
  {
   "nom": "Roukouto",
@@ -3742,7 +3742,7 @@
   ],
   "gfx": 1589,
   "img": "https://api.dofusdb.fr/img/monsters/1589.png",
-  "hintSpell": ""
+  "hintSpell": "Chapeau de Roue"
  },
  {
   "nom": "Saltik",
@@ -3763,7 +3763,7 @@
   ],
   "gfx": 1265,
   "img": "https://api.dofusdb.fr/img/monsters/1265.png",
-  "hintSpell": ""
+  "hintSpell": "Bond étourdissant"
  },
  {
   "nom": "Tivelo",
@@ -3785,7 +3785,7 @@
   ],
   "gfx": 1587,
   "img": "https://api.dofusdb.fr/img/monsters/1587.png",
-  "hintSpell": ""
+  "hintSpell": "Roule ma Poule"
  },
  {
   "nom": "Bouftou des cavernes",
@@ -3807,7 +3807,7 @@
   ],
   "gfx": 359,
   "img": "https://api.dofusdb.fr/img/monsters/359.png",
-  "hintSpell": ""
+  "hintSpell": "Morsure du ____ des ____"
  },
  {
   "nom": "Choudini",
@@ -3830,7 +3830,7 @@
   ],
   "gfx": 1585,
   "img": "https://api.dofusdb.fr/img/monsters/1585.png",
-  "hintSpell": ""
+  "hintSpell": "Reste assis"
  },
  {
   "nom": "Cochon de Farle",
@@ -3852,7 +3852,7 @@
   ],
   "gfx": 334,
   "img": "https://api.dofusdb.fr/img/monsters/334.png",
-  "hintSpell": ""
+  "hintSpell": "Suçotement Porcin"
  },
  {
   "nom": "Le Chouque",
@@ -3872,7 +3872,7 @@
   ],
   "gfx": 126,
   "img": "https://api.dofusdb.fr/img/monsters/126.png",
-  "hintSpell": ""
+  "hintSpell": "Coup de Sabre Maudit"
  },
  {
   "nom": "Reine Nyée",
@@ -3894,7 +3894,7 @@
   ],
   "gfx": 1267,
   "img": "https://api.dofusdb.fr/img/monsters/1267.png",
-  "hintSpell": ""
+  "hintSpell": "Ponte d'Oeuf"
  },
  {
   "nom": "Simbadas",
@@ -3916,7 +3916,7 @@
   ],
   "gfx": 1575,
   "img": "https://api.dofusdb.fr/img/monsters/1575.png",
-  "hintSpell": ""
+  "hintSpell": "Saut précipité"
  },
  {
   "nom": "Boufcoul",
@@ -3938,7 +3938,7 @@
   ],
   "gfx": 360,
   "img": "https://api.dofusdb.fr/img/monsters/360.png",
-  "hintSpell": ""
+  "hintSpell": "Bise du ____"
  },
  {
   "nom": "Cocholou",
@@ -3961,7 +3961,7 @@
   ],
   "gfx": 1592,
   "img": "https://api.dofusdb.fr/img/monsters/1592.png",
-  "hintSpell": ""
+  "hintSpell": "Dents Longues"
  },
  {
   "nom": "Dragoss Argile",
@@ -3983,7 +3983,7 @@
   ],
   "gfx": 492,
   "img": "https://api.dofusdb.fr/img/monsters/492.png",
-  "hintSpell": ""
+  "hintSpell": "____ Tidkaliss"
  },
  {
   "nom": "Dragoss Calcaire",
@@ -4005,7 +4005,7 @@
   ],
   "gfx": 491,
   "img": "https://api.dofusdb.fr/img/monsters/491.png",
-  "hintSpell": ""
+  "hintSpell": "____ Pelle"
  },
  {
   "nom": "Dragoss Charbon",
@@ -4027,7 +4027,7 @@
   ],
   "gfx": 481,
   "img": "https://api.dofusdb.fr/img/monsters/481.png",
-  "hintSpell": ""
+  "hintSpell": "Combustion"
  },
  {
   "nom": "Dragoss Protéiforme",
@@ -4050,7 +4050,7 @@
   ],
   "gfx": 1912,
   "img": "https://api.dofusdb.fr/img/monsters/1912.png",
-  "hintSpell": ""
+  "hintSpell": "Hyoïde"
  },
  {
   "nom": "Fourbasse",
@@ -4072,7 +4072,7 @@
   ],
   "gfx": 116,
   "img": "https://api.dofusdb.fr/img/monsters/116.png",
-  "hintSpell": ""
+  "hintSpell": "Tir Embusqué"
  },
  {
   "nom": "Gloutovore",
@@ -4092,7 +4092,7 @@
   ],
   "gfx": 115,
   "img": "https://api.dofusdb.fr/img/monsters/115.png",
-  "hintSpell": ""
+  "hintSpell": "Crasse Piration"
  },
  {
   "nom": "Mergranlou",
@@ -4115,7 +4115,7 @@
   ],
   "gfx": 1594,
   "img": "https://api.dofusdb.fr/img/monsters/1594.png",
-  "hintSpell": ""
+  "hintSpell": "Mergran"
  },
  {
   "nom": "Muloubard",
@@ -4137,7 +4137,7 @@
   ],
   "gfx": 1591,
   "img": "https://api.dofusdb.fr/img/monsters/1591.png",
-  "hintSpell": ""
+  "hintSpell": "Riffes"
  },
  {
   "nom": "Mulounoké",
@@ -4158,7 +4158,7 @@
   ],
   "gfx": 1593,
   "img": "https://api.dofusdb.fr/img/monsters/1593.png",
-  "hintSpell": ""
+  "hintSpell": "Ruée Bestiale"
  },
  {
   "nom": "Trukikol",
@@ -4179,7 +4179,7 @@
   ],
   "gfx": 114,
   "img": "https://api.dofusdb.fr/img/monsters/114.png",
-  "hintSpell": ""
+  "hintSpell": "Virevoltage collant"
  },
  {
   "nom": "Champêtrouille",
@@ -4201,7 +4201,7 @@
   ],
   "gfx": 940,
   "img": "https://api.dofusdb.fr/img/monsters/940.png",
-  "hintSpell": ""
+  "hintSpell": "Frappe à Dingues"
  },
  {
   "nom": "Mufafah",
@@ -4223,7 +4223,7 @@
   ],
   "gfx": 592,
   "img": "https://api.dofusdb.fr/img/monsters/592.png",
-  "hintSpell": ""
+  "hintSpell": "Rugissement Mufafesque"
  },
  {
   "nom": "Bourbassingue",
@@ -4245,7 +4245,7 @@
   ],
   "gfx": 583,
   "img": "https://api.dofusdb.fr/img/monsters/583.png",
-  "hintSpell": ""
+  "hintSpell": "Attraction boueuse"
  },
  {
   "nom": "Kido",
@@ -4267,7 +4267,7 @@
   ],
   "gfx": 593,
   "img": "https://api.dofusdb.fr/img/monsters/593.png",
-  "hintSpell": ""
+  "hintSpell": "Clapet"
  },
  {
   "nom": "Cauchemarakne",
@@ -4289,7 +4289,7 @@
   ],
   "gfx": 939,
   "img": "https://api.dofusdb.fr/img/monsters/939.png",
-  "hintSpell": ""
+  "hintSpell": "Mort Sûre"
  },
  {
   "nom": "Dévhorreur",
@@ -4334,7 +4334,7 @@
   ],
   "gfx": 594,
   "img": "https://api.dofusdb.fr/img/monsters/594.png",
-  "hintSpell": ""
+  "hintSpell": "Brisskote"
  },
  {
   "nom": "Carlita de l'Aguerfelde",
@@ -4356,7 +4356,7 @@
   ],
   "gfx": 1576,
   "img": "https://api.dofusdb.fr/img/monsters/1576.png",
-  "hintSpell": ""
+  "hintSpell": "Piège à Mulou"
  },
  {
   "nom": "Dragon Cochon",
@@ -4378,7 +4378,7 @@
   ],
   "gfx": 60,
   "img": "https://api.dofusdb.fr/img/monsters/60.png",
-  "hintSpell": ""
+  "hintSpell": "Écrasement Handicapant"
  },
  {
   "nom": "Grasmera Somnambule",
@@ -4469,7 +4469,7 @@
   ],
   "gfx": 1911,
   "img": "https://api.dofusdb.fr/img/monsters/1911.png",
-  "hintSpell": ""
+  "hintSpell": "Emplafonnement"
  },
  {
   "nom": "Koulosse",
@@ -4491,7 +4491,7 @@
   ],
   "gfx": 358,
   "img": "https://api.dofusdb.fr/img/monsters/358.png",
-  "hintSpell": ""
+  "hintSpell": "Invocation de Bouftou des ____"
  },
  {
   "nom": "Malléfisk",
@@ -4513,7 +4513,7 @@
   ],
   "gfx": 1109,
   "img": "https://api.dofusdb.fr/img/monsters/1109.png",
-  "hintSpell": ""
+  "hintSpell": "Ka Dabor"
  },
  {
   "nom": "Moon",
@@ -4536,7 +4536,7 @@
   ],
   "gfx": 123,
   "img": "https://api.dofusdb.fr/img/monsters/123.png",
-  "hintSpell": ""
+  "hintSpell": "Marteau de ____"
  },
  {
   "nom": "Tourbassingue",
@@ -4558,7 +4558,7 @@
   ],
   "gfx": 582,
   "img": "https://api.dofusdb.fr/img/monsters/582.png",
-  "hintSpell": ""
+  "hintSpell": "Tourbe réparatrice"
  },
  {
   "nom": "Bouboule de neige",
@@ -4580,7 +4580,7 @@
   ],
   "gfx": 484,
   "img": "https://api.dofusdb.fr/img/monsters/484.png",
-  "hintSpell": ""
+  "hintSpell": "Boule de ____"
  },
  {
   "nom": "Corbac",
@@ -4625,7 +4625,7 @@
   ],
   "gfx": 477,
   "img": "https://api.dofusdb.fr/img/monsters/477.png",
-  "hintSpell": ""
+  "hintSpell": "Boolkiroul"
  },
  {
   "nom": "Vilain Petit Tofu",
@@ -4712,7 +4712,7 @@
   ],
   "gfx": 1648,
   "img": "https://api.dofusdb.fr/img/monsters/1648.png",
-  "hintSpell": ""
+  "hintSpell": "Jig"
  },
  {
   "nom": "Papa Nowel",
@@ -4734,7 +4734,7 @@
   ],
   "gfx": 487,
   "img": "https://api.dofusdb.fr/img/monsters/487.png",
-  "hintSpell": ""
+  "hintSpell": "Engluement"
  },
  {
   "nom": "Silf le Rasboul Majeur",
@@ -4757,7 +4757,7 @@
   ],
   "gfx": 595,
   "img": "https://api.dofusdb.fr/img/monsters/595.png",
-  "hintSpell": ""
+  "hintSpell": "Rasage"
  },
  {
   "nom": "Brikablak",
@@ -4779,7 +4779,7 @@
   ],
   "gfx": 1227,
   "img": "https://api.dofusdb.fr/img/monsters/1227.png",
-  "hintSpell": ""
+  "hintSpell": "Attaque surprise"
  },
  {
   "nom": "Cawotman",
@@ -4802,7 +4802,7 @@
   ],
   "gfx": 1011,
   "img": "https://api.dofusdb.fr/img/monsters/1011.png",
-  "hintSpell": ""
+  "hintSpell": "Bond Appétissant"
  },
  {
   "nom": "Dragnarok",
@@ -4824,7 +4824,7 @@
   ],
   "gfx": 478,
   "img": "https://api.dofusdb.fr/img/monsters/478.png",
-  "hintSpell": ""
+  "hintSpell": "Steune"
  },
  {
   "nom": "Draguaindrop",
@@ -4846,7 +4846,7 @@
   ],
   "gfx": 482,
   "img": "https://api.dofusdb.fr/img/monsters/482.png",
-  "hintSpell": ""
+  "hintSpell": "Coupédaikallé"
  },
  {
   "nom": "Dragueuse",
@@ -4868,7 +4868,7 @@
   ],
   "gfx": 480,
   "img": "https://api.dofusdb.fr/img/monsters/480.png",
-  "hintSpell": ""
+  "hintSpell": "Drague"
  },
  {
   "nom": "Farfacette",
@@ -4890,7 +4890,7 @@
   ],
   "gfx": 1226,
   "img": "https://api.dofusdb.fr/img/monsters/1226.png",
-  "hintSpell": ""
+  "hintSpell": "Tornadhésive"
  },
  {
   "nom": "Gromorso",
@@ -4912,7 +4912,7 @@
   ],
   "gfx": 1225,
   "img": "https://api.dofusdb.fr/img/monsters/1225.png",
-  "hintSpell": ""
+  "hintSpell": "Massassine"
  },
  {
   "nom": "Tofu Dodu",
@@ -4977,7 +4977,7 @@
   ],
   "gfx": 1458,
   "img": "https://api.dofusdb.fr/img/monsters/1458.png",
-  "hintSpell": ""
+  "hintSpell": "Absorption ____esque"
  },
  {
   "nom": "Wabbit Céphale",
@@ -4999,7 +4999,7 @@
   ],
   "gfx": 1013,
   "img": "https://api.dofusdb.fr/img/monsters/1013.png",
-  "hintSpell": ""
+  "hintSpell": "Écwasement"
  },
  {
   "nom": "Wabbit Fluo",
@@ -5021,7 +5021,7 @@
   ],
   "gfx": 1012,
   "img": "https://api.dofusdb.fr/img/monsters/1012.png",
-  "hintSpell": ""
+  "hintSpell": "Empwise"
  },
  {
   "nom": "Wabbit Garou",
@@ -5043,7 +5043,7 @@
   ],
   "gfx": 1014,
   "img": "https://api.dofusdb.fr/img/monsters/1014.png",
-  "hintSpell": ""
+  "hintSpell": "Suwpwise"
  },
  {
   "nom": "Wabbit Vampire",
@@ -5065,7 +5065,7 @@
   ],
   "gfx": 1010,
   "img": "https://api.dofusdb.fr/img/monsters/1010.png",
-  "hintSpell": ""
+  "hintSpell": "Généwosité Cawottique"
  },
  {
   "nom": "Disciple Zoth",
@@ -5087,7 +5087,7 @@
   ],
   "gfx": 579,
   "img": "https://api.dofusdb.fr/img/monsters/579.png",
-  "hintSpell": ""
+  "hintSpell": "Supplice"
  },
  {
   "nom": "Gamine Zoth",
@@ -5108,7 +5108,7 @@
   ],
   "gfx": 577,
   "img": "https://api.dofusdb.fr/img/monsters/577.png",
-  "hintSpell": ""
+  "hintSpell": "Tyrannie"
  },
  {
   "nom": "Crocabulia",
@@ -5131,7 +5131,7 @@
   ],
   "gfx": 479,
   "img": "https://api.dofusdb.fr/img/monsters/479.png",
-  "hintSpell": ""
+  "hintSpell": "Souffle"
  },
  {
   "nom": "Fraktale",
@@ -5153,7 +5153,7 @@
   ],
   "gfx": 1224,
   "img": "https://api.dofusdb.fr/img/monsters/1224.png",
-  "hintSpell": ""
+  "hintSpell": "Instabilité temporelle"
  },
  {
   "nom": "Guerrier Zoth",
@@ -5175,7 +5175,7 @@
   ],
   "gfx": 578,
   "img": "https://api.dofusdb.fr/img/monsters/578.png",
-  "hintSpell": ""
+  "hintSpell": "Héchaud Fourrée"
  },
  {
   "nom": "Minotoror",
@@ -5198,7 +5198,7 @@
   ],
   "gfx": 67,
   "img": "https://api.dofusdb.fr/img/monsters/67.png",
-  "hintSpell": ""
+  "hintSpell": "Lancer de Tofu"
  },
  {
   "nom": "Morblok",
@@ -5220,7 +5220,7 @@
   ],
   "gfx": 1218,
   "img": "https://api.dofusdb.fr/img/monsters/1218.png",
-  "hintSpell": ""
+  "hintSpell": "Chronocharge"
  },
  {
   "nom": "Poupée Affamée",
@@ -5243,7 +5243,7 @@
   ],
   "gfx": 362,
   "img": "https://api.dofusdb.fr/img/monsters/362.png",
-  "hintSpell": ""
+  "hintSpell": "Coupe-faim"
  },
  {
   "nom": "Poupée Émeraude",
@@ -5265,7 +5265,7 @@
   ],
   "gfx": 362,
   "img": "https://api.dofusdb.fr/img/monsters/362.png",
-  "hintSpell": ""
+  "hintSpell": "Transposition Poupesque"
  },
  {
   "nom": "Skeunk",
@@ -5309,7 +5309,7 @@
   ],
   "gfx": 1649,
   "img": "https://api.dofusdb.fr/img/monsters/1649.png",
-  "hintSpell": ""
+  "hintSpell": "Laitage"
  },
  {
   "nom": "Kwamouraï",
@@ -5331,7 +5331,7 @@
   ],
   "gfx": 2050,
   "img": "https://api.dofusdb.fr/img/monsters/2050.png",
-  "hintSpell": ""
+  "hintSpell": "Invocation de Bombombre"
  },
  {
   "nom": "Sarkapwane",
@@ -5353,7 +5353,7 @@
   ],
   "gfx": 698,
   "img": "https://api.dofusdb.fr/img/monsters/698.png",
-  "hintSpell": ""
+  "hintSpell": "Crache eau"
  },
  {
   "nom": "Sergent Zoth",
@@ -5375,7 +5375,7 @@
   ],
   "gfx": 580,
   "img": "https://api.dofusdb.fr/img/monsters/580.png",
-  "hintSpell": ""
+  "hintSpell": "Kulbutage"
  },
  {
   "nom": "Araknotron Irascible",
@@ -5397,7 +5397,7 @@
   ],
   "gfx": 505,
   "img": "https://api.dofusdb.fr/img/monsters/505.png",
-  "hintSpell": ""
+  "hintSpell": "Lancer d'Arakne Morte"
  },
  {
   "nom": "Ali Grothor",
@@ -5419,7 +5419,7 @@
   ],
   "gfx": 1047,
   "img": "https://api.dofusdb.fr/img/monsters/1047.png",
-  "hintSpell": ""
+  "hintSpell": "Ture"
  },
  {
   "nom": "Capitaine Ekarlatte",
@@ -5442,7 +5442,7 @@
   ],
   "gfx": 1167,
   "img": "https://api.dofusdb.fr/img/monsters/1167.png",
-  "hintSpell": ""
+  "hintSpell": "Case départ"
  },
  {
   "nom": "Nagate",
@@ -5464,7 +5464,7 @@
   ],
   "gfx": 2055,
   "img": "https://api.dofusdb.fr/img/monsters/2055.png",
-  "hintSpell": ""
+  "hintSpell": "Eau fraîche"
  },
  {
   "nom": "Padgref Demoël",
@@ -5486,7 +5486,7 @@
   ],
   "gfx": 249,
   "img": "https://api.dofusdb.fr/img/monsters/249.png",
-  "hintSpell": ""
+  "hintSpell": "Attraction"
  },
  {
   "nom": "Boumbardier",
@@ -5508,7 +5508,7 @@
   ],
   "gfx": 692,
   "img": "https://api.dofusdb.fr/img/monsters/692.png",
-  "hintSpell": ""
+  "hintSpell": "Obus aveuglant"
  },
  {
   "nom": "Crachefoux",
@@ -5529,7 +5529,7 @@
   ],
   "gfx": 660,
   "img": "https://api.dofusdb.fr/img/monsters/660.png",
-  "hintSpell": ""
+  "hintSpell": "Couleuvrine"
  },
  {
   "nom": "Founamboul",
@@ -5551,7 +5551,7 @@
   ],
   "gfx": 2054,
   "img": "https://api.dofusdb.fr/img/monsters/2054.png",
-  "hintSpell": ""
+  "hintSpell": "Boumboule"
  },
  {
   "nom": "Méga Craqueleur des plaines",
@@ -5574,7 +5574,7 @@
   ],
   "gfx": 181,
   "img": "https://api.dofusdb.fr/img/monsters/181.png",
-  "hintSpell": ""
+  "hintSpell": "Écrasement Handicapant"
  },
  {
   "nom": "Pétartifoux",
@@ -5596,7 +5596,7 @@
   ],
   "gfx": 659,
   "img": "https://api.dofusdb.fr/img/monsters/659.png",
-  "hintSpell": ""
+  "hintSpell": "Pétard"
  },
  {
   "nom": "Rouquette",
@@ -5618,7 +5618,7 @@
   ],
   "gfx": 702,
   "img": "https://api.dofusdb.fr/img/monsters/702.png",
-  "hintSpell": ""
+  "hintSpell": "Fusée incendiaire"
  },
  {
   "nom": "Rat Fraîchi",
@@ -5640,7 +5640,7 @@
   ],
   "gfx": 951,
   "img": "https://api.dofusdb.fr/img/monsters/951.png",
-  "hintSpell": ""
+  "hintSpell": "Ratatinage"
  },
  {
   "nom": "Rat Pine",
@@ -5662,7 +5662,7 @@
   ],
   "gfx": 950,
   "img": "https://api.dofusdb.fr/img/monsters/950.png",
-  "hintSpell": ""
+  "hintSpell": "Ratatinage"
  },
  {
   "nom": "Amy l'empoisonneuse",
@@ -5685,7 +5685,7 @@
   ],
   "gfx": 1051,
   "img": "https://api.dofusdb.fr/img/monsters/1051.png",
-  "hintSpell": ""
+  "hintSpell": "Ronce animée"
  },
  {
   "nom": "Darma",
@@ -5707,7 +5707,7 @@
   ],
   "gfx": 1650,
   "img": "https://api.dofusdb.fr/img/monsters/1650.png",
-  "hintSpell": ""
+  "hintSpell": "Vue en Noir"
  },
  {
   "nom": "Fojumo",
@@ -5730,7 +5730,7 @@
   ],
   "gfx": 1276,
   "img": "https://api.dofusdb.fr/img/monsters/1276.png",
-  "hintSpell": ""
+  "hintSpell": "Assassinat silencieux"
  },
  {
   "nom": "Founoroshi",
@@ -5753,7 +5753,7 @@
   ],
   "gfx": 2052,
   "img": "https://api.dofusdb.fr/img/monsters/2052.png",
-  "hintSpell": ""
+  "hintSpell": "Fumée alourdissante"
  },
  {
   "nom": "Shihan",
@@ -5775,7 +5775,7 @@
   ],
   "gfx": 2036,
   "img": "https://api.dofusdb.fr/img/monsters/2036.png",
-  "hintSpell": ""
+  "hintSpell": "Qìkǒng"
  },
  {
   "nom": "Tynril Consterné",
@@ -5797,7 +5797,7 @@
   ],
   "gfx": 596,
   "img": "https://api.dofusdb.fr/img/monsters/596.png",
-  "hintSpell": ""
+  "hintSpell": "Bisouille"
  },
  {
   "nom": "Fantimonier",
@@ -5819,7 +5819,7 @@
   ],
   "gfx": 797,
   "img": "https://api.dofusdb.fr/img/monsters/797.png",
-  "hintSpell": ""
+  "hintSpell": "Barre barre"
  },
  {
   "nom": "Rat Botteur",
@@ -5841,7 +5841,7 @@
   ],
   "gfx": 953,
   "img": "https://api.dofusdb.fr/img/monsters/953.png",
-  "hintSpell": ""
+  "hintSpell": "Rabotage"
  },
  {
   "nom": "Rat Caille",
@@ -5863,7 +5863,7 @@
   ],
   "gfx": 952,
   "img": "https://api.dofusdb.fr/img/monsters/952.png",
-  "hintSpell": ""
+  "hintSpell": "Ramonage"
  },
  {
   "nom": "Mogligli",
@@ -5885,7 +5885,7 @@
   ],
   "gfx": 1651,
   "img": "https://api.dofusdb.fr/img/monsters/1651.png",
-  "hintSpell": ""
+  "hintSpell": "Chienchien Rouge"
  },
  {
   "nom": "Phossile",
@@ -5909,7 +5909,7 @@
   ],
   "gfx": 1108,
   "img": "https://api.dofusdb.fr/img/monsters/1108.png",
-  "hintSpell": ""
+  "hintSpell": "Roc ____"
  },
  {
   "nom": "Chakaroze",
@@ -5931,7 +5931,7 @@
   ],
   "gfx": 1371,
   "img": "https://api.dofusdb.fr/img/monsters/1371.png",
-  "hintSpell": ""
+  "hintSpell": "Griffure Ondulante"
  },
  {
   "nom": "Anatak Diskedor",
@@ -5953,7 +5953,7 @@
   ],
   "gfx": 1278,
   "img": "https://api.dofusdb.fr/img/monsters/1278.png",
-  "hintSpell": ""
+  "hintSpell": "Lame-tempête"
  },
  {
   "nom": "Glandaf l'Aigri",
@@ -5975,7 +5975,7 @@
   ],
   "gfx": 1652,
   "img": "https://api.dofusdb.fr/img/monsters/1652.png",
-  "hintSpell": ""
+  "hintSpell": "Gnirdmalg"
  },
  {
   "nom": "Ush Galesh",
@@ -5998,7 +5998,7 @@
   ],
   "gfx": 1346,
   "img": "https://api.dofusdb.fr/img/monsters/1346.png",
-  "hintSpell": ""
+  "hintSpell": "Négativisme"
  },
  {
   "nom": "Soissanth",
@@ -6021,7 +6021,7 @@
   ],
   "gfx": 1217,
   "img": "https://api.dofusdb.fr/img/monsters/1217.png",
-  "hintSpell": ""
+  "hintSpell": "Poinzon"
  },
  {
   "nom": "Crasper",
@@ -6043,7 +6043,7 @@
   ],
   "gfx": 1653,
   "img": "https://api.dofusdb.fr/img/monsters/1653.png",
-  "hintSpell": ""
+  "hintSpell": "Crasse"
  },
  {
   "nom": "Hin",
@@ -6065,7 +6065,7 @@
   ],
   "gfx": 1221,
   "img": "https://api.dofusdb.fr/img/monsters/1221.png",
-  "hintSpell": ""
+  "hintSpell": "Tétropré"
  },
  {
   "nom": "Ka'Youloud",
@@ -6088,7 +6088,7 @@
   ],
   "gfx": 1541,
   "img": "https://api.dofusdb.fr/img/monsters/1541.png",
-  "hintSpell": ""
+  "hintSpell": "Mâche Ouille"
  },
  {
   "nom": "Tengu Givrefoux",
@@ -6111,7 +6111,7 @@
   ],
   "gfx": 840,
   "img": "https://api.dofusdb.fr/img/monsters/840.png",
-  "hintSpell": ""
+  "hintSpell": "Torgnole givrée"
  },
  {
   "nom": "XLII",
@@ -6135,7 +6135,7 @@
   ],
   "gfx": 1222,
   "img": "https://api.dofusdb.fr/img/monsters/1222.png",
-  "hintSpell": ""
+  "hintSpell": "Coquetterie"
  },
  {
   "nom": "Abrazif",
@@ -6157,7 +6157,7 @@
   ],
   "gfx": 811,
   "img": "https://api.dofusdb.fr/img/monsters/811.png",
-  "hintSpell": ""
+  "hintSpell": "Spore d'oeuvre"
  },
  {
   "nom": "Craqueleur des glaces",
@@ -6178,7 +6178,7 @@
   ],
   "gfx": 485,
   "img": "https://api.dofusdb.fr/img/monsters/485.png",
-  "hintSpell": ""
+  "hintSpell": "Pic de glace"
  },
  {
   "nom": "Dramanite",
@@ -6200,7 +6200,7 @@
   ],
   "gfx": 809,
   "img": "https://api.dofusdb.fr/img/monsters/809.png",
-  "hintSpell": ""
+  "hintSpell": "Spore Képic"
  },
  {
   "nom": "Fistulor",
@@ -6222,7 +6222,7 @@
   ],
   "gfx": 810,
   "img": "https://api.dofusdb.fr/img/monsters/810.png",
-  "hintSpell": ""
+  "hintSpell": "Cèpe Tique"
  },
  {
   "nom": "Fongeur",
@@ -6244,7 +6244,7 @@
   ],
   "gfx": 758,
   "img": "https://api.dofusdb.fr/img/monsters/758.png",
-  "hintSpell": ""
+  "hintSpell": "Spore Tafaux"
  },
  {
   "nom": "Morfrelon",
@@ -6266,7 +6266,7 @@
   ],
   "gfx": 1154,
   "img": "https://api.dofusdb.fr/img/monsters/1154.png",
-  "hintSpell": ""
+  "hintSpell": "Dardagnan"
  },
  {
   "nom": "Mérulette",
@@ -6288,7 +6288,7 @@
   ],
   "gfx": 813,
   "img": "https://api.dofusdb.fr/img/monsters/813.png",
-  "hintSpell": ""
+  "hintSpell": "Mérule Tihme"
  },
  {
   "nom": "Bworker",
@@ -6311,7 +6311,7 @@
   ],
   "gfx": 264,
   "img": "https://api.dofusdb.fr/img/monsters/264.png",
-  "hintSpell": ""
+  "hintSpell": "Sanction ____"
  },
  {
   "nom": "Carter le Pillard",
@@ -6334,7 +6334,7 @@
   ],
   "gfx": 1654,
   "img": "https://api.dofusdb.fr/img/monsters/1654.png",
-  "hintSpell": ""
+  "hintSpell": "Dans les vapes"
  },
  {
   "nom": "Gronchon",
@@ -6357,7 +6357,7 @@
   ],
   "gfx": 1825,
   "img": "https://api.dofusdb.fr/img/monsters/1825.png",
-  "hintSpell": ""
+  "hintSpell": "Ralliement Glutin"
  },
  {
   "nom": "Guerrier du K.O.",
@@ -6379,7 +6379,7 @@
   ],
   "gfx": 1277,
   "img": "https://api.dofusdb.fr/img/monsters/1277.png",
-  "hintSpell": ""
+  "hintSpell": "Tremblement de guerre"
  },
  {
   "nom": "Korriandre",
@@ -6402,7 +6402,7 @@
   ],
   "gfx": 841,
   "img": "https://api.dofusdb.fr/img/monsters/841.png",
-  "hintSpell": ""
+  "hintSpell": "Riraule"
  },
  {
   "nom": "Shushu Debruk'Sayl",
@@ -6425,7 +6425,7 @@
   ],
   "gfx": 1577,
   "img": "https://api.dofusdb.fr/img/monsters/1577.png",
-  "hintSpell": ""
+  "hintSpell": "Assimilation d'énergies"
  },
  {
   "nom": "Toxoliath",
@@ -6449,7 +6449,7 @@
   ],
   "gfx": 1166,
   "img": "https://api.dofusdb.fr/img/monsters/1166.png",
-  "hintSpell": ""
+  "hintSpell": "Venin Salvateur"
  },
  {
   "nom": "Roissingue",
@@ -6471,7 +6471,7 @@
   ],
   "gfx": 581,
   "img": "https://api.dofusdb.fr/img/monsters/581.png",
-  "hintSpell": ""
+  "hintSpell": "Retour du Roi"
  },
  {
   "nom": "Blérauve",
@@ -6493,7 +6493,7 @@
   ],
   "gfx": 798,
   "img": "https://api.dofusdb.fr/img/monsters/798.png",
-  "hintSpell": ""
+  "hintSpell": "Détente"
  },
  {
   "nom": "Blérice",
@@ -6515,7 +6515,7 @@
   ],
   "gfx": 835,
   "img": "https://api.dofusdb.fr/img/monsters/835.png",
-  "hintSpell": ""
+  "hintSpell": "Hydrokinésie"
  },
  {
   "nom": "Blérom",
@@ -6537,7 +6537,7 @@
   ],
   "gfx": 799,
   "img": "https://api.dofusdb.fr/img/monsters/799.png",
-  "hintSpell": ""
+  "hintSpell": "Carnage"
  },
  {
   "nom": "Croleur",
@@ -6560,7 +6560,7 @@
   ],
   "gfx": 801,
   "img": "https://api.dofusdb.fr/img/monsters/801.png",
-  "hintSpell": ""
+  "hintSpell": "Acrobatie"
  },
  {
   "nom": "Crâmbo",
@@ -6581,7 +6581,7 @@
   ],
   "gfx": 1570,
   "img": "https://api.dofusdb.fr/img/monsters/1570.png",
-  "hintSpell": ""
+  "hintSpell": "Premier Sang"
  },
  {
   "nom": "Fleuro",
@@ -6603,7 +6603,7 @@
   ],
   "gfx": 839,
   "img": "https://api.dofusdb.fr/img/monsters/839.png",
-  "hintSpell": ""
+  "hintSpell": "Pyro"
  },
  {
   "nom": "Sombléro",
@@ -6626,7 +6626,7 @@
   ],
   "gfx": 1073,
   "img": "https://api.dofusdb.fr/img/monsters/1073.png",
-  "hintSpell": ""
+  "hintSpell": "Vaguichage"
  },
  {
   "nom": "Wolvero",
@@ -6648,7 +6648,7 @@
   ],
   "gfx": 800,
   "img": "https://api.dofusdb.fr/img/monsters/800.png",
-  "hintSpell": ""
+  "hintSpell": "Glouton"
  },
  {
   "nom": "Fuji Givrefoux",
@@ -6670,7 +6670,7 @@
   ],
   "gfx": 843,
   "img": "https://api.dofusdb.fr/img/monsters/843.png",
-  "hintSpell": ""
+  "hintSpell": "Progéniture"
  },
  {
   "nom": "Grolloum",
@@ -6693,7 +6693,7 @@
   ],
   "gfx": 834,
   "img": "https://api.dofusdb.fr/img/monsters/834.png",
-  "hintSpell": ""
+  "hintSpell": "Frimas"
  },
  {
   "nom": "Sans Visage",
@@ -6716,7 +6716,7 @@
   ],
   "gfx": 1655,
   "img": "https://api.dofusdb.fr/img/monsters/1655.png",
-  "hintSpell": ""
+  "hintSpell": "Rage Avide"
  },
  {
   "nom": "Abrakne Sombre Irascible",
@@ -6738,7 +6738,7 @@
   ],
   "gfx": 346,
   "img": "https://api.dofusdb.fr/img/monsters/346.png",
-  "hintSpell": ""
+  "hintSpell": "Bond affaiblissant"
  },
  {
   "nom": "Bandleth",
@@ -6782,7 +6782,7 @@
   ],
   "gfx": 1164,
   "img": "https://api.dofusdb.fr/img/monsters/1164.png",
-  "hintSpell": ""
+  "hintSpell": "Vers la lumière"
  },
  {
   "nom": "Brabuzar",
@@ -6804,7 +6804,7 @@
   ],
   "gfx": 1212,
   "img": "https://api.dofusdb.fr/img/monsters/1212.png",
-  "hintSpell": ""
+  "hintSpell": "Mise en situation"
  },
  {
   "nom": "Branche Invocatrice",
@@ -6825,7 +6825,7 @@
   ],
   "gfx": 148,
   "img": "https://api.dofusdb.fr/img/monsters/148.png",
-  "hintSpell": ""
+  "hintSpell": "Appel Sylvestre"
  },
  {
   "nom": "Branche Soignante",
@@ -6846,7 +6846,7 @@
   ],
   "gfx": 150,
   "img": "https://api.dofusdb.fr/img/monsters/150.png",
-  "hintSpell": ""
+  "hintSpell": "Graine Vitalisante"
  },
  {
   "nom": "Brikoglours",
@@ -6868,7 +6868,7 @@
   ],
   "gfx": 982,
   "img": "https://api.dofusdb.fr/img/monsters/982.png",
-  "hintSpell": ""
+  "hintSpell": "Clef en glaise"
  },
  {
   "nom": "Brutasmodan",
@@ -6890,7 +6890,7 @@
   ],
   "gfx": 2231,
   "img": "https://api.dofusdb.fr/img/monsters/2231.png",
-  "hintSpell": ""
+  "hintSpell": "Festin Ardent"
  },
  {
   "nom": "Buveur",
@@ -6913,7 +6913,7 @@
   ],
   "gfx": 457,
   "img": "https://api.dofusdb.fr/img/monsters/457.png",
-  "hintSpell": ""
+  "hintSpell": "Daudoh"
  },
  {
   "nom": "Calarmure",
@@ -6936,7 +6936,7 @@
   ],
   "gfx": 2641,
   "img": "https://api.dofusdb.fr/img/monsters/2641.png",
-  "hintSpell": ""
+  "hintSpell": "Armucus"
  },
  {
   "nom": "Chafer Draugr",
@@ -6958,7 +6958,7 @@
   ],
   "gfx": 697,
   "img": "https://api.dofusdb.fr/img/monsters/697.png",
-  "hintSpell": ""
+  "hintSpell": "Mjöllnir"
  },
  {
   "nom": "Chafer Fantassin",
@@ -6980,7 +6980,7 @@
   ],
   "gfx": 193,
   "img": "https://api.dofusdb.fr/img/monsters/193.png",
-  "hintSpell": ""
+  "hintSpell": "Fantassassinat"
  },
  {
   "nom": "Chafer Invisible",
@@ -7002,7 +7002,7 @@
   ],
   "gfx": 57,
   "img": "https://api.dofusdb.fr/img/monsters/57.png",
-  "hintSpell": ""
+  "hintSpell": "Camouflage"
  },
  {
   "nom": "Chafer Primitif",
@@ -7024,7 +7024,7 @@
   ],
   "gfx": 917,
   "img": "https://api.dofusdb.fr/img/monsters/917.png",
-  "hintSpell": ""
+  "hintSpell": "Curare"
  },
  {
   "nom": "Chakanoubis",
@@ -7069,7 +7069,7 @@
   ],
   "gfx": 1629,
   "img": "https://api.dofusdb.fr/img/monsters/1629.png",
-  "hintSpell": ""
+  "hintSpell": "Flâmi"
  },
  {
   "nom": "Chevalier de Glace",
@@ -7091,7 +7091,7 @@
   ],
   "gfx": 980,
   "img": "https://api.dofusdb.fr/img/monsters/980.png",
-  "hintSpell": ""
+  "hintSpell": "Rafraîchissement"
  },
  {
   "nom": "Corbac Apprivoisé",
@@ -7113,7 +7113,7 @@
   ],
   "gfx": 456,
   "img": "https://api.dofusdb.fr/img/monsters/456.png",
-  "hintSpell": ""
+  "hintSpell": "Plumeau Déstabilisant"
  },
  {
   "nom": "Culbutœuf",
@@ -7135,7 +7135,7 @@
   ],
   "gfx": 979,
   "img": "https://api.dofusdb.fr/img/monsters/979.png",
-  "hintSpell": ""
+  "hintSpell": "Du fond du cœur"
  },
  {
   "nom": "Dahliane",
@@ -7157,7 +7157,7 @@
   ],
   "gfx": 2608,
   "img": "https://api.dofusdb.fr/img/monsters/2608.png",
-  "hintSpell": ""
+  "hintSpell": "Lianeçon"
  },
  {
   "nom": "Dawaj",
@@ -7179,7 +7179,7 @@
   ],
   "gfx": 1971,
   "img": "https://api.dofusdb.fr/img/monsters/1971.png",
-  "hintSpell": ""
+  "hintSpell": "Sol Aride"
  },
  {
   "nom": "Diabélial",
@@ -7201,7 +7201,7 @@
   ],
   "gfx": 2232,
   "img": "https://api.dofusdb.fr/img/monsters/2232.png",
-  "hintSpell": ""
+  "hintSpell": "Langue Démoniaque"
  },
  {
   "nom": "Don Dorgan",
@@ -7223,7 +7223,7 @@
   ],
   "gfx": 333,
   "img": "https://api.dofusdb.fr/img/monsters/333.png",
-  "hintSpell": ""
+  "hintSpell": "Menottage"
  },
  {
   "nom": "Don Duss Ang",
@@ -7245,7 +7245,7 @@
   ],
   "gfx": 332,
   "img": "https://api.dofusdb.fr/img/monsters/332.png",
-  "hintSpell": ""
+  "hintSpell": "Perfusion"
  },
  {
   "nom": "Doublure",
@@ -7267,7 +7267,7 @@
   ],
   "gfx": 1163,
   "img": "https://api.dofusdb.fr/img/monsters/1163.png",
-  "hintSpell": ""
+  "hintSpell": "Doublage"
  },
  {
   "nom": "Déminoboule",
@@ -7290,7 +7290,7 @@
   ],
   "gfx": 464,
   "img": "https://api.dofusdb.fr/img/monsters/464.png",
-  "hintSpell": ""
+  "hintSpell": "Boulet Magique"
  },
  {
   "nom": "Désosseur",
@@ -7312,7 +7312,7 @@
   ],
   "gfx": 1969,
   "img": "https://api.dofusdb.fr/img/monsters/1969.png",
-  "hintSpell": ""
+  "hintSpell": "Désossage"
  },
  {
   "nom": "Ecaptif",
@@ -7335,7 +7335,7 @@
   ],
   "gfx": 1965,
   "img": "https://api.dofusdb.fr/img/monsters/1965.png",
-  "hintSpell": ""
+  "hintSpell": "Déferlante"
  },
  {
   "nom": "Ferrailleur",
@@ -7358,7 +7358,7 @@
   ],
   "gfx": 1967,
   "img": "https://api.dofusdb.fr/img/monsters/1967.png",
-  "hintSpell": ""
+  "hintSpell": "Démantèlement"
  },
  {
   "nom": "Fracamélia",
@@ -7380,7 +7380,7 @@
   ],
   "gfx": 2606,
   "img": "https://api.dofusdb.fr/img/monsters/2606.png",
-  "hintSpell": ""
+  "hintSpell": "Bastonille"
  },
  {
   "nom": "Fugokam",
@@ -7402,7 +7402,7 @@
   ],
   "gfx": 2126,
   "img": "https://api.dofusdb.fr/img/monsters/2126.png",
-  "hintSpell": ""
+  "hintSpell": "Souffle artistique"
  },
  {
   "nom": "Gamino",
@@ -7424,7 +7424,7 @@
   ],
   "gfx": 357,
   "img": "https://api.dofusdb.fr/img/monsters/357.png",
-  "hintSpell": ""
+  "hintSpell": "Torokiri"
  },
  {
   "nom": "Ganos",
@@ -7446,7 +7446,7 @@
   ],
   "gfx": 2516,
   "img": "https://api.dofusdb.fr/img/monsters/2516.png",
-  "hintSpell": ""
+  "hintSpell": "Matatak"
  },
  {
   "nom": "Goulafre",
@@ -7468,7 +7468,7 @@
   ],
   "gfx": 1595,
   "img": "https://api.dofusdb.fr/img/monsters/1595.png",
-  "hintSpell": ""
+  "hintSpell": "Bidonnage"
  },
  {
   "nom": "Gouligane",
@@ -7490,7 +7490,7 @@
   ],
   "gfx": 1597,
   "img": "https://api.dofusdb.fr/img/monsters/1597.png",
-  "hintSpell": ""
+  "hintSpell": "Gouli gouli"
  },
  {
   "nom": "Grasmera Épuisé",
@@ -7581,7 +7581,7 @@
   ],
   "gfx": 1457,
   "img": "https://api.dofusdb.fr/img/monsters/1457.png",
-  "hintSpell": ""
+  "hintSpell": "Drachetaulque"
  },
  {
   "nom": "Imafugo",
@@ -7603,7 +7603,7 @@
   ],
   "gfx": 2120,
   "img": "https://api.dofusdb.fr/img/monsters/2120.png",
-  "hintSpell": ""
+  "hintSpell": "Inspiration Créatrice"
  },
  {
   "nom": "Imetsu",
@@ -7625,7 +7625,7 @@
   ],
   "gfx": 2119,
   "img": "https://api.dofusdb.fr/img/monsters/2119.png",
-  "hintSpell": ""
+  "hintSpell": "Shidekami"
  },
  {
   "nom": "Imiyama",
@@ -7648,7 +7648,7 @@
   ],
   "gfx": 2118,
   "img": "https://api.dofusdb.fr/img/monsters/2118.png",
-  "hintSpell": ""
+  "hintSpell": "Ronces de ____"
  },
  {
   "nom": "Imorok",
@@ -7670,7 +7670,7 @@
   ],
   "gfx": 2117,
   "img": "https://api.dofusdb.fr/img/monsters/2117.png",
-  "hintSpell": ""
+  "hintSpell": "Tessellation"
  },
  {
   "nom": "Imushin",
@@ -7692,7 +7692,7 @@
   ],
   "gfx": 2116,
   "img": "https://api.dofusdb.fr/img/monsters/2116.png",
-  "hintSpell": ""
+  "hintSpell": "Shikigami No Mai"
  },
  {
   "nom": "Kamasterisk",
@@ -7714,7 +7714,7 @@
   ],
   "gfx": 1110,
   "img": "https://api.dofusdb.fr/img/monsters/1110.png",
-  "hintSpell": ""
+  "hintSpell": "Clignotement"
  },
  {
   "nom": "Kanimate",
@@ -7736,7 +7736,7 @@
   ],
   "gfx": 981,
   "img": "https://api.dofusdb.fr/img/monsters/981.png",
-  "hintSpell": ""
+  "hintSpell": "Machine Ception"
  },
  {
   "nom": "Krak'Haine",
@@ -7759,7 +7759,7 @@
   ],
   "gfx": 2643,
   "img": "https://api.dofusdb.fr/img/monsters/2643.png",
-  "hintSpell": ""
+  "hintSpell": "Férosignal"
  },
  {
   "nom": "Krèvladal",
@@ -7781,7 +7781,7 @@
   ],
   "gfx": 1968,
   "img": "https://api.dofusdb.fr/img/monsters/1968.png",
-  "hintSpell": ""
+  "hintSpell": "Pouilleux Massacreur"
  },
  {
   "nom": "Kérigoule",
@@ -7803,7 +7803,7 @@
   ],
   "gfx": 1596,
   "img": "https://api.dofusdb.fr/img/monsters/1596.png",
-  "hintSpell": ""
+  "hintSpell": "Chauffetage"
  },
  {
   "nom": "Mabram",
@@ -7826,7 +7826,7 @@
   ],
   "gfx": 2124,
   "img": "https://api.dofusdb.fr/img/monsters/2124.png",
-  "hintSpell": ""
+  "hintSpell": "Entracte aux papillons"
  },
  {
   "nom": "Magouille",
@@ -7849,7 +7849,7 @@
   ],
   "gfx": 1165,
   "img": "https://api.dofusdb.fr/img/monsters/1165.png",
-  "hintSpell": ""
+  "hintSpell": "Crânéantissement"
  },
  {
   "nom": "Mansordide",
@@ -7871,7 +7871,7 @@
   ],
   "gfx": 983,
   "img": "https://api.dofusdb.fr/img/monsters/983.png",
-  "hintSpell": ""
+  "hintSpell": "Envol de mort"
  },
  {
   "nom": "Mominotor",
@@ -7894,7 +7894,7 @@
   ],
   "gfx": 463,
   "img": "https://api.dofusdb.fr/img/monsters/463.png",
-  "hintSpell": ""
+  "hintSpell": "En bandelette organisée"
  },
  {
   "nom": "Momistik",
@@ -7938,7 +7938,7 @@
   ],
   "gfx": 2607,
   "img": "https://api.dofusdb.fr/img/monsters/2607.png",
-  "hintSpell": ""
+  "hintSpell": "Boutonithe"
  },
  {
   "nom": "Mâchassin",
@@ -7960,7 +7960,7 @@
   ],
   "gfx": 1161,
   "img": "https://api.dofusdb.fr/img/monsters/1161.png",
-  "hintSpell": ""
+  "hintSpell": "Piège à Le Ours"
  },
  {
   "nom": "Mécanofoux",
@@ -7982,7 +7982,7 @@
   ],
   "gfx": 984,
   "img": "https://api.dofusdb.fr/img/monsters/984.png",
-  "hintSpell": ""
+  "hintSpell": "Dé grippant"
  },
  {
   "nom": "Mérulor",
@@ -8005,7 +8005,7 @@
   ],
   "gfx": 985,
   "img": "https://api.dofusdb.fr/img/monsters/985.png",
-  "hintSpell": ""
+  "hintSpell": "Dégage limite"
  },
  {
   "nom": "Pichon Blanc",
@@ -8027,7 +8027,7 @@
   ],
   "gfx": 508,
   "img": "https://api.dofusdb.fr/img/monsters/508.png",
-  "hintSpell": ""
+  "hintSpell": "Bouffée d'Air"
  },
  {
   "nom": "Pichon Bleu",
@@ -8049,7 +8049,7 @@
   ],
   "gfx": 507,
   "img": "https://api.dofusdb.fr/img/monsters/507.png",
-  "hintSpell": ""
+  "hintSpell": "Résistivité"
  },
  {
   "nom": "Pichon Kloune",
@@ -8071,7 +8071,7 @@
   ],
   "gfx": 510,
   "img": "https://api.dofusdb.fr/img/monsters/510.png",
-  "hintSpell": ""
+  "hintSpell": "____rie"
  },
  {
   "nom": "Pichon Orange",
@@ -8093,7 +8093,7 @@
   ],
   "gfx": 506,
   "img": "https://api.dofusdb.fr/img/monsters/506.png",
-  "hintSpell": ""
+  "hintSpell": "Sel Marin"
  },
  {
   "nom": "Pichon Vert",
@@ -8115,7 +8115,7 @@
   ],
   "gfx": 509,
   "img": "https://api.dofusdb.fr/img/monsters/509.png",
-  "hintSpell": ""
+  "hintSpell": "Reflux"
  },
  {
   "nom": "Psikopompe",
@@ -8137,7 +8137,7 @@
   ],
   "gfx": 990,
   "img": "https://api.dofusdb.fr/img/monsters/990.png",
-  "hintSpell": ""
+  "hintSpell": "Coupe-Jatte"
  },
  {
   "nom": "Renarbo",
@@ -8159,7 +8159,7 @@
   ],
   "gfx": 458,
   "img": "https://api.dofusdb.fr/img/monsters/458.png",
-  "hintSpell": ""
+  "hintSpell": "Croassement"
  },
  {
   "nom": "Rokoram",
@@ -8181,7 +8181,7 @@
   ],
   "gfx": 2123,
   "img": "https://api.dofusdb.fr/img/monsters/2123.png",
-  "hintSpell": ""
+  "hintSpell": "Gakuya"
  },
  {
   "nom": "Rykaon",
@@ -8223,7 +8223,7 @@
   ],
   "gfx": 136,
   "img": "https://api.dofusdb.fr/img/monsters/136.png",
-  "hintSpell": ""
+  "hintSpell": "Elemental Dispersion"
  },
  {
   "nom": "Scarafeuille Bleu",
@@ -8243,7 +8243,7 @@
   ],
   "gfx": 105,
   "img": "https://api.dofusdb.fr/img/monsters/105.png",
-  "hintSpell": ""
+  "hintSpell": "Scaraforce"
  },
  {
   "nom": "Scarafeuille Immature",
@@ -8266,7 +8266,7 @@
   ],
   "gfx": 444,
   "img": "https://api.dofusdb.fr/img/monsters/444.png",
-  "hintSpell": ""
+  "hintSpell": "Empoisonnement"
  },
  {
   "nom": "Scarafeuille Rouge",
@@ -8286,7 +8286,7 @@
   ],
   "gfx": 104,
   "img": "https://api.dofusdb.fr/img/monsters/104.png",
-  "hintSpell": ""
+  "hintSpell": "Scaraforce"
  },
  {
   "nom": "Scarafeuille Vert",
@@ -8306,7 +8306,7 @@
   ],
   "gfx": 135,
   "img": "https://api.dofusdb.fr/img/monsters/135.png",
-  "hintSpell": ""
+  "hintSpell": "Scaraforce"
  },
  {
   "nom": "Scaratos",
@@ -8329,7 +8329,7 @@
   ],
   "gfx": 462,
   "img": "https://api.dofusdb.fr/img/monsters/462.png",
-  "hintSpell": ""
+  "hintSpell": "Scaracornos"
  },
  {
   "nom": "Shinlam",
@@ -8351,7 +8351,7 @@
   ],
   "gfx": 2122,
   "img": "https://api.dofusdb.fr/img/monsters/2122.png",
-  "hintSpell": ""
+  "hintSpell": "Lames Noires"
  },
  {
   "nom": "Sicogne",
@@ -8373,7 +8373,7 @@
   ],
   "gfx": 1223,
   "img": "https://api.dofusdb.fr/img/monsters/1223.png",
-  "hintSpell": ""
+  "hintSpell": "Charge Destructrice"
  },
  {
   "nom": "Skentu",
@@ -8396,7 +8396,7 @@
   ],
   "gfx": 1970,
   "img": "https://api.dofusdb.fr/img/monsters/1970.png",
-  "hintSpell": ""
+  "hintSpell": "Bantha"
  },
  {
   "nom": "Strigide",
@@ -8419,7 +8419,7 @@
   ],
   "gfx": 988,
   "img": "https://api.dofusdb.fr/img/monsters/988.png",
-  "hintSpell": ""
+  "hintSpell": "Stricannement"
  },
  {
   "nom": "Tanklume",
@@ -8443,7 +8443,7 @@
   ],
   "gfx": 1766,
   "img": "https://api.dofusdb.fr/img/monsters/1766.png",
-  "hintSpell": ""
+  "hintSpell": "Triple attaque"
  },
  {
   "nom": "Terristocrate",
@@ -8465,7 +8465,7 @@
   ],
   "gfx": 1162,
   "img": "https://api.dofusdb.fr/img/monsters/1162.png",
-  "hintSpell": ""
+  "hintSpell": "Bombe Illicale"
  },
  {
   "nom": "Tsunam",
@@ -8487,7 +8487,7 @@
   ],
   "gfx": 2125,
   "img": "https://api.dofusdb.fr/img/monsters/2125.png",
-  "hintSpell": ""
+  "hintSpell": "Perle ____"
  },
  {
   "nom": "Écaillon",
@@ -8510,7 +8510,7 @@
   ],
   "gfx": 2642,
   "img": "https://api.dofusdb.fr/img/monsters/2642.png",
-  "hintSpell": ""
+  "hintSpell": "Enfourchage"
  },
  {
   "nom": "Blop Coco Royal",
@@ -8532,7 +8532,7 @@
   ],
   "gfx": 645,
   "img": "https://api.dofusdb.fr/img/monsters/645.png",
-  "hintSpell": ""
+  "hintSpell": "Blotection"
  },
  {
   "nom": "Capitaine Meno",
@@ -8556,7 +8556,7 @@
   ],
   "gfx": 1430,
   "img": "https://api.dofusdb.fr/img/monsters/1430.png",
-  "hintSpell": ""
+  "hintSpell": "Crystalisation"
  },
  {
   "nom": "Chafer Rōnin",
@@ -8579,7 +8579,7 @@
   ],
   "gfx": 916,
   "img": "https://api.dofusdb.fr/img/monsters/916.png",
-  "hintSpell": ""
+  "hintSpell": "Ostracisme"
  },
  {
   "nom": "Chêne Mou",
@@ -8602,7 +8602,7 @@
   ],
   "gfx": 147,
   "img": "https://api.dofusdb.fr/img/monsters/147.png",
-  "hintSpell": ""
+  "hintSpell": "Tornade de Branches"
  },
  {
   "nom": "Comte Harebourg",
@@ -8626,7 +8626,7 @@
   ],
   "gfx": 993,
   "img": "https://api.dofusdb.fr/img/monsters/993.png",
-  "hintSpell": ""
+  "hintSpell": "Contretemps"
  },
  {
   "nom": "Dazak Martegel",
@@ -8650,7 +8650,7 @@
   ],
   "gfx": 1771,
   "img": "https://api.dofusdb.fr/img/monsters/1771.png",
-  "hintSpell": ""
+  "hintSpell": "Empalement royal"
  },
  {
   "nom": "Ilyzaelle",
@@ -8674,7 +8674,7 @@
   ],
   "gfx": 1628,
   "img": "https://api.dofusdb.fr/img/monsters/1628.png",
-  "hintSpell": ""
+  "hintSpell": "Hantâme"
  },
  {
   "nom": "Maître Corbac",
@@ -8697,7 +8697,7 @@
   ],
   "gfx": 177,
   "img": "https://api.dofusdb.fr/img/monsters/177.png",
-  "hintSpell": ""
+  "hintSpell": "Sanction Ténébreuse"
  },
  {
   "nom": "Misère",
@@ -8721,7 +8721,7 @@
   ],
   "gfx": 1966,
   "img": "https://api.dofusdb.fr/img/monsters/1966.png",
-  "hintSpell": ""
+  "hintSpell": "Balance-Fléau"
  },
  {
   "nom": "Mob l'Éponge",
@@ -8744,7 +8744,7 @@
   ],
   "gfx": 513,
   "img": "https://api.dofusdb.fr/img/monsters/513.png",
-  "hintSpell": ""
+  "hintSpell": "Dégraissage"
  },
  {
   "nom": "Reine Amirukam",
@@ -8766,7 +8766,7 @@
   ],
   "gfx": 2127,
   "img": "https://api.dofusdb.fr/img/monsters/2127.png",
-  "hintSpell": ""
+  "hintSpell": "Toner Deubraiste"
  },
  {
   "nom": "Roi Imagami",
@@ -8788,7 +8788,7 @@
   ],
   "gfx": 2121,
   "img": "https://api.dofusdb.fr/img/monsters/2121.png",
-  "hintSpell": ""
+  "hintSpell": "Parchemin de Traverse"
  },
  {
   "nom": "Roi Nidas",
@@ -8811,7 +8811,7 @@
   ],
   "gfx": 1106,
   "img": "https://api.dofusdb.fr/img/monsters/1106.png",
-  "hintSpell": ""
+  "hintSpell": "Liquidation"
  },
  {
   "nom": "Sylargh",
@@ -8834,7 +8834,7 @@
   ],
   "gfx": 986,
   "img": "https://api.dofusdb.fr/img/monsters/986.png",
-  "hintSpell": ""
+  "hintSpell": "Poinçon"
  },
  {
   "nom": "Tal Kasha",
@@ -8857,7 +8857,7 @@
   ],
   "gfx": 1547,
   "img": "https://api.dofusdb.fr/img/monsters/1547.png",
-  "hintSpell": ""
+  "hintSpell": "Cheveux partir de là"
  },
  {
   "nom": "Grasmera Fatigué",
@@ -8923,7 +8923,7 @@
   ],
   "gfx": 1019,
   "img": "https://api.dofusdb.fr/img/monsters/1019.png",
-  "hintSpell": ""
+  "hintSpell": "Tirer les ficelles"
  },
  {
   "nom": "Minotoboule de Nowel",
@@ -8944,7 +8944,7 @@
   ],
   "gfx": 757,
   "img": "https://api.dofusdb.fr/img/monsters/757.png",
-  "hintSpell": ""
+  "hintSpell": "Souffle Hivernal"
  },
  {
   "nom": "Chazino",
@@ -8967,7 +8967,7 @@
   ],
   "gfx": 1391,
   "img": "https://api.dofusdb.fr/img/monsters/1391.png",
-  "hintSpell": ""
+  "hintSpell": "Expulsion"
  },
  {
   "nom": "Exécrabe",
@@ -8990,7 +8990,7 @@
   ],
   "gfx": 2644,
   "img": "https://api.dofusdb.fr/img/monsters/2644.png",
-  "hintSpell": ""
+  "hintSpell": "Encornage"
  },
  {
   "nom": "Mureine",
@@ -9013,7 +9013,7 @@
   ],
   "gfx": 2633,
   "img": "https://api.dofusdb.fr/img/monsters/2633.png",
-  "hintSpell": ""
+  "hintSpell": "Disperssssion"
  },
  {
   "nom": "Willorque",
@@ -9036,6 +9036,6 @@
   ],
   "gfx": 2635,
   "img": "https://api.dofusdb.fr/img/monsters/2635.png",
-  "hintSpell": ""
+  "hintSpell": "Écholok"
  }
 ]
