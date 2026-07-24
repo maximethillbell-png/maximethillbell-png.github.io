@@ -1,5 +1,13 @@
 [
   {
+    "title": "Dofusdle",
+    "emoji": "🐲",
+    "description": "Devine le mob de Dofus du jour à la Wordle — 410 mobs, indices, stats & séries.",
+    "category": "jeu",
+    "date": "2026-07-24",
+    "url": "projects/dofusdle/index.html"
+  },
+  {
     "title": "MaxPlay",
     "emoji": "🎬",
     "description": "Lecteur vidéo local (Electron + mpv), interface soignée.",
