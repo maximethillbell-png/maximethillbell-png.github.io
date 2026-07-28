@@ -132,7 +132,7 @@ body{font-family:'Fredoka',sans-serif;color:var(--txt);
 .sheet .it{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:12px;font-weight:600}
 .sheet .sw{width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:19px}
 .btn-mode small{display:block;font-size:13px;color:#c8cee9;font-weight:500;margin-top:1px}.btn-mode .ico.emo{display:flex;align-items:center;justify-content:center;font-size:30px}.mbtn .ml{font-size:26px;line-height:1}
-</style>
+.tile.neutral{background:linear-gradient(180deg,#39406099,#2c335099);color:#c7cde6}.votecta{margin-top:10px;border:none;border-radius:10px;background:var(--orange);color:#3a2600;font-family:inherit;font-weight:700;cursor:pointer;padding:9px 16px}.votemob{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:10px}.votemob .sp{width:100px;height:100px;background:#0c1020;border:3px solid var(--orange);border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}.votemob .sp img{width:100%;height:100%;object-fit:contain}.votemob .vn{font-size:18px;font-weight:600}.swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:4px 0 12px}.cswatch{width:100%;aspect-ratio:1;border-radius:10px;border:2px solid rgba(255,255,255,.25);cursor:pointer;transition:.1s}.cswatch:hover{transform:scale(1.08);border-color:#fff}.vskip{width:100%;background:#20263f;border:1px solid var(--panel-line);color:#fff;border-radius:9px;padding:8px;font-family:inherit;font-weight:600;cursor:pointer}</style>
 </head>
 <body>
 <div class="wrap">
@@ -151,6 +151,7 @@ body{font-family:'Fredoka',sans-serif;color:var(--txt);
       <button class="tbtn" title="Série actuelle (victoires quotidiennes consécutives)">🔥<b id="tbStreak">0</b></button>
       <button class="tbtn" title="Notes de mise à jour" onclick="openModal('notesModal')">📝</button>
       <button class="tbtn" title="Comment jouer ?" onclick="openModal('howtoModal')">❓</button>
+      <button class="tbtn" title="Aider à colorer le bestiaire" onclick="openVote()">🎨</button>
     </div>
     <div class="modeswitch">
       <div class="mbtn" id="ms-classic" onclick="startMode('classic')" title="Classique — Boss de donjon"><span class="ml">🐉</span><span class="check">✓</span></div>
@@ -255,8 +256,8 @@ const CHANGELOG=[
   {d:"24/07/2026",h:"Bestiaire complet extrait des fichiers Dofus 3 — 1163 mobs, indices sort / zone / silhouette."}
 ];
 const HINT1_AT=6,HINT3_AT=7,HINT2_AT=10;
-const ALLCOLS={type:{key:'type',label:'Type/race'},zone:{key:'zone',label:'Zone',list:true},niveau:{key:'tranche',label:'Niveau',level:true},faib:{key:'faiblesse',label:'Faiblesse',list:true},res:{key:'resistance',label:'Résistance',list:true},invuln:{key:'invulnerabilite',label:'Invuln.'}};
-function cols(){const c=[ALLCOLS.type,ALLCOLS.zone,ALLCOLS.niveau,ALLCOLS.faib,ALLCOLS.res];if(MODE!=='complet')c.push(ALLCOLS.invuln);return c;}
+const ALLCOLS={type:{key:'type',label:'Type/race'},zone:{key:'zone',label:'Zone',list:true},niveau:{key:'tranche',label:'Niveau',level:true},faib:{key:'faiblesse',label:'Faiblesse',list:true},res:{key:'resistance',label:'Résistance',list:true},couleur:{key:'couleur',label:'Couleur',color:true},invuln:{key:'invulnerabilite',label:'Invuln.'}};
+function cols(){const c=[ALLCOLS.type,ALLCOLS.couleur,ALLCOLS.zone,ALLCOLS.niveau];if(MODE!=='complet')c.push(ALLCOLS.invuln);return c;}
 const $=id=>document.getElementById(id);
 const menu=$('menu'),classic=$('classic'),input=$('guess'),ac=$('ac');
 const MODES={
@@ -326,6 +327,7 @@ function chrome(){
 function asList(v){return Array.isArray(v)?v:[v];}
 function makeTile(col,gv,tv,m){
   const d=document.createElement('div');d.className='cell tile';
+  if(col.color){const G=(gv||[]).filter(Boolean),T=(tv||[]).filter(Boolean);if(!G.length||!T.length){d.classList.add('neutral');d.innerHTML='<span class="val">'+(G.join(', ')||'?')+'</span>';return d;}const inter=G.filter(x=>T.includes(x));d.classList.add(G.length===T.length&&G.every(x=>T.includes(x))?'ok':(inter.length?'warn':'no'));d.innerHTML='<span class="val">'+G.join(', ')+'</span>';return d;}
   if(col.level){const same=gv===tv;d.classList.add(same?'ok':'no');
     let a='';if(!same)a=(m.niveau<target.niveau)?'▲':'▼';
     d.innerHTML='<span class="val">'+gv+'</span>'+(a?'<span class="arrow">'+a+'</span>':'');return d;}
@@ -367,6 +369,7 @@ function paintAc(){[...ac.children].forEach((d,i)=>d.classList.toggle('sel',i===
 document.addEventListener('click',e=>{if(!e.target.closest('.searchbox'))ac.style.display='none';});
 
 function isColGreen(col,gv,tv){
+  if(col.color){const G=(gv||[]).filter(Boolean),T=(tv||[]).filter(Boolean);if(!G.length||!T.length)return true;return G.length===T.length&&G.every(x=>T.includes(x));}
   if(col.level)return gv===tv;
   if(col.list){const G=asList(gv),T=asList(tv);return G.length===T.length&&G.every(x=>T.includes(x));}
   return gv===tv;
@@ -397,7 +400,7 @@ function finish(restored){
   $('searchbar').style.display='none';$('status').textContent='';
   const msg=restored?"Tu as déjà trouvé le mob du jour :":"Bravo ! Le mob du jour était :";
   $('winbox').innerHTML='<div class="win"><h3>🎉 '+target.nom+'</h3><div>'+msg.replace(' :','')+
-    '</div><div class="cd">Prochain mob dans<b id="cd">--:--:--</b></div></div>';
+    '</div><div class="cd">Prochain mob dans<b id="cd">--:--:--</b></div><button class="votecta" onclick="openVote()">🎨 Aider à colorer le bestiaire</button></div>';
   input.disabled=true;$('goBtn').disabled=true;
   startCountdown();
 }
@@ -448,17 +451,32 @@ function openStats(){
   $('dist').innerHTML=html;
   openModal('statsModal');
 }
+const WORKER='https://dofusdle-colors.dofusdlecolor.workers.dev';
+const COLORNAMES=["Rouge","Vert","Bleu","Jaune","Orange","Rose","Violet","Marron","Cyan","Blanc","Noir","Gris"];
+const COLORHEX={Rouge:"#d9534f",Vert:"#5cb85c",Bleu:"#4c7cf5",Jaune:"#ecd94a",Orange:"#f0913a",Rose:"#ef8ec0",Violet:"#9b59d0",Marron:"#8a5a2b",Cyan:"#4fc7d6",Blanc:"#f2f2f2",Noir:"#222633",Gris:"#8a92ad"};
+let voteQueue=[],voteIdx=0;
+function openVote(){const need=MONSTERS.filter(m=>!(m.couleur&&m.couleur.length));const src=need.length?need:MONSTERS;voteQueue=src.slice().sort(()=>Math.random()-0.5).slice(0,10);voteIdx=0;renderVote();openModal('voteModal');}
+function renderVote(){const b=$('voteBody');if(voteIdx>=voteQueue.length){b.innerHTML='<p style="text-align:center;font-size:16px;margin:10px 0">Merci pour ton aide ! 🎨</p><button class="vskip" onclick="openVote()">Encore 10 mobs</button>';$('voteProgress').textContent='';return;}const m=voteQueue[voteIdx];const sw=COLORNAMES.map(c=>'<button class="cswatch" style="background:'+COLORHEX[c]+'" title="'+c+'" onclick="voteColor(\''+c+'\')"></button>').join('');b.innerHTML='<div class="votemob"><div class="sp"><img src="'+m.img+'" onerror="this.style.display=\'none\'"></div><div class="vn">'+m.nom+'</div></div><div class="swatches">'+sw+'</div><button class="vskip" onclick="voteSkip()">Passer ce mob</button>';$('voteProgress').textContent=(voteIdx+1)+' / '+voteQueue.length;}
+function voteColor(c){const m=voteQueue[voteIdx];fetch(WORKER+'/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({mob:m.nom,color:c})}).catch(()=>{});voteIdx++;renderVote();}
+function voteSkip(){voteIdx++;renderVote();}
 function renderNotes(){
   $('notesList').innerHTML=CHANGELOG.map(n=>'<div class="note"><div class="d">'+n.d+'</div><p>'+n.h+'</p></div>').join('');
 }
 function tranche(l){return l<=50?'lvl 1 à 50':l<=100?'lvl 50 à 100':l<=150?'lvl 100 à 150':l<=199?'lvl 150 à 199':'Lvl 200+';}
 function applyExcluded(ex){if(Array.isArray(ex)&&ex.length){const s=new Set(ex);MONSTERS=MONSTERS.filter(m=>!s.has(m.nom));}}
-function applyOverrides(ov){if(ov&&typeof ov==='object'){for(const m of MONSTERS){const o=ov[m.nom];if(!o)continue;if(o.invulnerabilite!=null)m.invulnerabilite=o.invulnerabilite;if(o.zone!=null)m.zone=o.zone;if(o.niveau!=null){m.niveau=o.niveau;m.tranche=tranche(o.niveau);}}}}
+function applyOverrides(ov){if(ov&&typeof ov==='object'){for(const m of MONSTERS){const o=ov[m.nom];if(!o)continue;if(o.invulnerabilite!=null)m.invulnerabilite=o.invulnerabilite;if(o.zone!=null)m.zone=o.zone;if(o.couleur!=null)m.couleur=o.couleur;if(o.niveau!=null){m.niveau=o.niveau;m.tranche=tranche(o.niveau);}}}}
 function boot(){buildPools();renderNotes();setInterval(refreshCount,30000);}
 fetch('game_data.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{if(Array.isArray(d)&&d.length)MONSTERS=d;}).catch(()=>{}).finally(()=>{
  fetch('excluded.json',{cache:'no-store'}).then(r=>r.json()).then(applyExcluded).catch(()=>{}).finally(()=>{
   fetch('overrides.json',{cache:'no-store'}).then(r=>r.json()).then(applyOverrides).catch(()=>{}).finally(boot);});});
 
 </script>
+<div class="modal" id="voteModal"><div class="sheet">
+  <button class="x" onclick="closeModal('voteModal')">×</button>
+  <h3>Couleur dominante du mob ?</h3>
+  <p style="text-align:center;color:#aab2d8;font-size:13px;margin-bottom:10px">Aide la communauté à colorer le bestiaire — clique la couleur qui domine. Illimité, merci&nbsp;!</p>
+  <div id="voteBody"></div>
+  <div id="voteProgress" style="text-align:center;color:#8a92ad;font-size:12px;margin-top:8px"></div>
+</div></div>
 </body>
 </html>
