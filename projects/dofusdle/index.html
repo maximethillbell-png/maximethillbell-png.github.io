@@ -355,12 +355,18 @@ input.addEventListener('keydown',e=>{
   if(ac.style.display==='block'&&acItems.length){
     if(e.key==='ArrowDown'){e.preventDefault();acSel=(acSel+1)%acItems.length;paintAc();}
     else if(e.key==='ArrowUp'){e.preventDefault();acSel=(acSel-1+acItems.length)%acItems.length;paintAc();}
-    else if(e.key==='Enter'){e.preventDefault();if(acSel>=0){input.value=acItems[acSel].nom;ac.style.display='none';}submitGuess();}
+    else if(e.key==='Enter'){e.preventDefault();input.value=(acSel>=0?acItems[acSel]:acItems[0]).nom;ac.style.display='none';submitGuess();}
   }else if(e.key==='Enter'){submitGuess();}
 });
 function paintAc(){[...ac.children].forEach((d,i)=>d.classList.toggle('sel',i===acSel));}
 document.addEventListener('click',e=>{if(!e.target.closest('.searchbox'))ac.style.display='none';});
 
+function isColGreen(col,gv,tv){
+  if(col.level)return gv===tv;
+  if(col.list){const G=asList(gv),T=asList(tv);return G.length===T.length&&G.every(x=>T.includes(x));}
+  return gv===tv;
+}
+function allGreen(m){return cols().every(c=>isColGreen(c,m[c.key],target[c.key]));}
 function submitGuess(){
   if(DS().solved)return;
   const v=norm(input.value);if(!v)return;
@@ -371,7 +377,7 @@ function submitGuess(){
   DS().guesses.push(m.nom);save();
   addRow(m,false);chrome();refreshHints();
   input.value='';ac.style.display='none';acItems=[];
-  if(m.nom===target.nom)onSolve();else input.focus();
+  if(m.nom===target.nom)onSolve();else{input.focus();if(allGreen(m))$('status').innerHTML="🟩 Toutes les propriétés correspondent, mais ce n'est pas le bon mob !";}
 }
 function onSolve(){
   DS().solved=true;
