@@ -183,10 +183,10 @@ body{font-family:'Fredoka',sans-serif;color:var(--txt);
       <button class="tbtn" title="Aider à colorer le bestiaire" onclick="openVote()">🎨</button>
     </div>
     <div class="modeswitch">
-      <div class="mbtn i-dungeons" id="ms-classic" onclick="startMode('classic')" title="Classique — Boss de donjon"><span class="check">✓</span></div>
-      <div class="mbtn i-worldmap" id="ms-hardcore" onclick="startMode('hardcore')" title="Hardcore — Avis de recherche"><span class="check">✓</span></div>
-      <div class="mbtn i-monsters" id="ms-complet" onclick="startMode('complet')" title="Complet — Mobs de base"><span class="check">✓</span></div>
-      <div class="mbtn i-spell" onclick="startSpell()" title="Sorts — Devine le sort"></div>
+      <div class="mbtn i-dungeons" data-mode="classic" onclick="startMode('classic')" title="Classique — Boss de donjon"><span class="check">✓</span></div>
+      <div class="mbtn i-worldmap" data-mode="hardcore" onclick="startMode('hardcore')" title="Hardcore — Avis de recherche"><span class="check">✓</span></div>
+      <div class="mbtn i-monsters" data-mode="complet" onclick="startMode('complet')" title="Complet — Mobs de base"><span class="check">✓</span></div>
+      <div class="mbtn i-spell" data-mode="sorts" onclick="startSpell()" title="Sorts — Devine le sort"><span class="check">✓</span></div>
     </div>
     <div class="counter" style="display:none"><b id="solveCount">0</b> personnes ont déjà trouvé !</div>
     <div class="panel intro" id="intro">
@@ -238,10 +238,10 @@ body{font-family:'Fredoka',sans-serif;color:var(--txt);
       <button class="tbtn" title="Comment jouer ?" onclick="openModal('spellHowto')">❓</button>
     </div>
     <div class="modeswitch">
-      <div class="mbtn i-dungeons" onclick="startMode('classic')" title="Classique — Boss de donjon"></div>
-      <div class="mbtn i-worldmap" onclick="startMode('hardcore')" title="Hardcore — Avis de recherche"></div>
-      <div class="mbtn i-monsters" onclick="startMode('complet')" title="Complet — Mobs de base"></div>
-      <div class="mbtn i-spell active" id="ms-sorts" title="Sorts — Devine le sort"><span class="check">✓</span></div>
+      <div class="mbtn i-dungeons" data-mode="classic" onclick="startMode('classic')" title="Classique — Boss de donjon"><span class="check">✓</span></div>
+      <div class="mbtn i-worldmap" data-mode="hardcore" onclick="startMode('hardcore')" title="Hardcore — Avis de recherche"><span class="check">✓</span></div>
+      <div class="mbtn i-monsters" data-mode="complet" onclick="startMode('complet')" title="Complet — Mobs de base"><span class="check">✓</span></div>
+      <div class="mbtn i-spell" data-mode="sorts" title="Sorts — Devine le sort"><span class="check">✓</span></div>
     </div>
     <div class="panel intro" id="spIntro">
       <h2>Devine le sort de classe du jour</h2>
@@ -487,7 +487,8 @@ function startCountdown(){
   tick();cdTimer=setInterval(tick,1000);
 }
 function refreshStreakBadge(){$('tbStreak').textContent=STA().cur;}
-function refreshModeSwitch(){for(const k in MODES){const el=$('ms-'+k);if(!el)continue;el.classList.toggle('active',k===MODE);el.classList.toggle('done',ST.days[k].day===dayId()&&ST.days[k].solved);}}
+function refreshSwitches(active){document.querySelectorAll('.mbtn[data-mode]').forEach(el=>{const k=el.dataset.mode;const d=ST.days[k];el.classList.toggle('done',!!(d&&d.day===dayId()&&d.solved));el.classList.toggle('active',k===active);});}
+function refreshModeSwitch(){refreshSwitches(MODE);}
 
 function refreshHints(){
   [[1,HINT1_AT],[3,HINT3_AT],[2,HINT2_AT]].forEach(([i,at])=>{
@@ -558,7 +559,7 @@ function startSpell(){
   sGuessed=new Set(SD().guesses);sAttempts=SD().guesses.length;
   const inp=$('sguess');inp.disabled=false;$('sgoBtn').disabled=false;$('spWinbox').innerHTML='';
   $('spSearchbar').style.display='flex';$('spStatus').textContent='';inp.value='';$('sac').style.display='none';sacItems=[];
-  renderSpell();refreshSpellStreak();
+  renderSpell();refreshSpellStreak();refreshSwitches('sorts');
   if(SD().solved)spellFinish(true);else inp.focus();
 }
 function renderSpell(){
@@ -623,7 +624,7 @@ function onSpellSolve(){
   SD().solved=true;const s=SSTAT();s.played++;s.won++;s.guessTotal+=sAttempts;if(sAttempts===1)s.oneShots++;
   s.dist[sAttempts]=(s.dist[sAttempts]||0)+1;
   if(s.lastWinDay===dayId()-1)s.cur++;else s.cur=1;s.lastWinDay=dayId();if(s.cur>s.max)s.max=s.cur;
-  save();refreshSpellStreak();spellFinish(false);
+  save();refreshSpellStreak();refreshSwitches('sorts');spellFinish(false);
 }
 function spellFinish(restored){
   $('spSearchbar').style.display='none';$('spStatus').textContent='';
