@@ -157,7 +157,7 @@ body{font-family:'Fredoka',sans-serif;color:var(--txt);
       <div class="mbtn" id="ms-hardcore" onclick="startMode('hardcore')" title="Hardcore — Avis de recherche"><span class="ml">💀</span><span class="check">✓</span></div>
       <div class="mbtn" id="ms-complet" onclick="startMode('complet')" title="Complet — Mobs de base"><span class="ml">👹</span><span class="check">✓</span></div>
     </div>
-    <div class="counter"><b id="solveCount">0</b> personnes ont déjà trouvé !</div>
+    <div class="counter" style="display:none"><b id="solveCount">0</b> personnes ont déjà trouvé !</div>
     <div class="panel intro" id="intro">
       <h2 id="introTitle">Découvre le mob du jour</h2>
       <p id="introP">Pour démarrer tape le nom de n'importe quel mob</p>
@@ -290,8 +290,8 @@ function daySolvers(){const seed=dayId()*7+({classic:1,hardcore:2,complet:3}[MOD
 const CNT_NS='dofusdle-mtb';
 function cntKey(){return MODE+'-'+dayId();}
 function setCount(v){if($('solveCount'))$('solveCount').textContent=Number(v).toLocaleString('fr-FR');}
-function refreshCount(){fetch('https://abacus.jasoncameron.dev/get/'+CNT_NS+'/'+cntKey()).then(r=>r.ok?r.json():Promise.reject()).then(d=>{if(d&&typeof d.value==='number')setCount(d.value);else throw 0;}).catch(()=>setCount(daySolvers()));}
-function bumpCount(){const flag='dofusdle_cnt_'+cntKey();if(localStorage.getItem(flag)){refreshCount();return;}fetch('https://abacus.jasoncameron.dev/hit/'+CNT_NS+'/'+cntKey()).then(r=>r.json()).then(d=>{localStorage.setItem(flag,'1');if(d&&typeof d.value==='number')setCount(d.value);}).catch(()=>{});}
+function refreshCount(){return;fetch('https://abacus.jasoncameron.dev/get/'+CNT_NS+'/'+cntKey()).then(r=>r.ok?r.json():Promise.reject()).then(d=>{if(d&&typeof d.value==='number')setCount(d.value);else throw 0;}).catch(()=>setCount(daySolvers()));}
+function bumpCount(){return;const flag='dofusdle_cnt_'+cntKey();if(localStorage.getItem(flag)){refreshCount();return;}fetch('https://abacus.jasoncameron.dev/hit/'+CNT_NS+'/'+cntKey()).then(r=>r.json()).then(d=>{localStorage.setItem(flag,'1');if(d&&typeof d.value==='number')setCount(d.value);}).catch(()=>{});}
 
 function startMode(m){MODE=m;enterGame();}
 function showMenu(){classic.style.display='none';menu.style.display='flex';}
