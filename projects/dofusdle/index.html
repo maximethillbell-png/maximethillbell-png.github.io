@@ -348,7 +348,8 @@ let acItems=[],acSel=-1;
 input.addEventListener('input',()=>{
   const v=norm(input.value);ac.innerHTML='';acSel=-1;
   if(v.length<1){ac.style.display='none';return;}
-  acItems=pool().filter(m=>norm(m.nom).includes(v)&&!guessed.has(m.nom)).slice(0,8);
+  const rank=n=>n.startsWith(v)?0:n.split(/[ '\-]/).some(w=>w.startsWith(v))?1:2;
+  acItems=pool().filter(m=>!guessed.has(m.nom)).map(m=>[m,norm(m.nom)]).filter(x=>x[1].includes(v)).sort((a,b)=>rank(a[1])-rank(b[1])||a[1].localeCompare(b[1])).slice(0,8).map(x=>x[0]);
   if(!acItems.length){ac.style.display='none';return;}
   acItems.forEach(m=>{const d=document.createElement('div');
     d.innerHTML='<img src="'+m.img+'" onerror="this.style.visibility=\'hidden\'"><span>'+m.nom+'</span>';
