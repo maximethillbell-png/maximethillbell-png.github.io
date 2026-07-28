@@ -167,6 +167,12 @@ body{font-family:'Fredoka',sans-serif;color:var(--txt);
         <div class="hcount" id="hcount1"></div>
         <div class="hpop" id="hpop1"></div>
       </div>
+      <div class="hint locked" id="hint3">
+        <button class="hbtn" onclick="toggleHint(3)"><span class="hico">🗺️</span><span class="lockbadge">🔒</span></button>
+        <div class="hlabel">Indice : zone</div>
+        <div class="hcount" id="hcount3"></div>
+        <div class="hpop" id="hpop3"></div>
+      </div>
       <div class="hint locked" id="hint2">
         <button class="hbtn" onclick="toggleHint(2)"><span class="hico">👤</span><span class="lockbadge">🔒</span></button>
         <div class="hlabel">Indice : silhouette</div>
@@ -246,7 +252,7 @@ let MONSTERS=EMB;
 const CHANGELOG=[
   {d:"24/07/2026",h:"Lancement de <b>Dofusdle</b> — mode Classique avec <b>1163 mobs</b> du bestiaire, un nouveau à trouver chaque jour, indices sort & silhouette."}
 ];
-const HINT1_AT=6,HINT2_AT=10;
+const HINT1_AT=6,HINT3_AT=7,HINT2_AT=10;
 const COLS=[
   {key:'type',label:'Type/race'},
   {key:'categorie',label:'Boss ?'},
@@ -389,18 +395,19 @@ function refreshCount(){$('solveCount').textContent=daySolvers().toLocaleString(
 function refreshStreakBadge(){$('tbStreak').textContent=ST.stats.cur;}
 function refreshModeCheck(){$('modeClassic').classList.toggle('done',!!ST.classic.solved);}
 function refreshHints(){
-  [[1,HINT1_AT],[2,HINT2_AT]].forEach(([i,at])=>{
+  [[1,HINT1_AT],[3,HINT3_AT],[2,HINT2_AT]].forEach(([i,at])=>{
     const el=$('hint'+i);const rem=at-attempts;
     if(attempts>=at){el.classList.remove('locked');}
     else{el.classList.add('locked');$('hcount'+i).textContent='dans '+rem+' essai'+(rem>1?'s':'');$('hpop'+i).classList.remove('show');}
   });
 }
 function toggleHint(i){
-  const at=i===1?HINT1_AT:HINT2_AT;if(attempts<at)return;
+  const at=i===1?HINT1_AT:i===3?HINT3_AT:HINT2_AT;if(attempts<at)return;
   const pop=$('hpop'+i);
   if(pop.classList.contains('show')){pop.classList.remove('show');return;}
   document.querySelectorAll('.hpop').forEach(p=>p.classList.remove('show'));
   if(i===1)pop.innerHTML=target.hintSpell?('Sort : <b>'+target.hintSpell+'</b>'):"Pas d'indice de sort pour ce mob — tente la silhouette !";
+  else if(i===3)pop.innerHTML='Zone : <b>'+target.zone.join(' / ')+'</b>';
   else pop.innerHTML='<div class="silh"><img src="'+target.img+'" onerror="this.style.display=\'none\'"></div>';
   pop.classList.add('show');
 }
