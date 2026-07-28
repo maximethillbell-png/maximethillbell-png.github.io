@@ -287,7 +287,11 @@ function buildPools(){for(const k in MODES)MODES[k].pool=MONSTERS.filter(MODES[k
 
 function seededRand(n){const x=Math.sin(n*99991.7)*10000;return x-Math.floor(x);}
 function daySolvers(){const seed=dayId()*7+({classic:1,hardcore:2,complet:3}[MODE]||0);const total=300+Math.floor(seededRand(seed)*3200);const n=new Date();const secs=n.getHours()*3600+n.getMinutes()*60+n.getSeconds();const frac=Math.min(1,secs/86400);let v=Math.floor(total*(0.12+0.88*frac));if(DS().solved)v+=1;return v;}
-function refreshCount(){if($('solveCount'))$('solveCount').textContent=daySolvers().toLocaleString('fr-FR');}
+const CNT_NS='dofusdle-mtb';
+function cntKey(){return MODE+'-'+dayId();}
+function setCount(v){if($('solveCount'))$('solveCount').textContent=Number(v).toLocaleString('fr-FR');}
+function refreshCount(){fetch('https://abacus.jasoncameron.dev/get/'+CNT_NS+'/'+cntKey()).then(r=>r.ok?r.json():Promise.reject()).then(d=>{if(d&&typeof d.value==='number')setCount(d.value);else throw 0;}).catch(()=>setCount(daySolvers()));}
+function bumpCount(){const flag='dofusdle_cnt_'+cntKey();if(localStorage.getItem(flag)){refreshCount();return;}fetch('https://abacus.jasoncameron.dev/hit/'+CNT_NS+'/'+cntKey()).then(r=>r.json()).then(d=>{localStorage.setItem(flag,'1');if(d&&typeof d.value==='number')setCount(d.value);}).catch(()=>{});}
 
 function startMode(m){MODE=m;enterGame();}
 function showMenu(){classic.style.display='none';menu.style.display='flex';}
@@ -385,7 +389,7 @@ function onSolve(){
   s.dist[attempts]=(s.dist[attempts]||0)+1;
   if(s.lastWinDay===dayId()-1)s.cur++;else s.cur=1;
   s.lastWinDay=dayId();if(s.cur>s.max)s.max=s.cur;
-  save();refreshCount();refreshStreakBadge();refreshModeSwitch();
+  save();bumpCount();refreshStreakBadge();refreshModeSwitch();
   finish(false);
 }
 function finish(restored){
