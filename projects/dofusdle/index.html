@@ -467,8 +467,7 @@ function applyExcluded(ex){if(Array.isArray(ex)&&ex.length){const s=new Set(ex);
 function applyOverrides(ov){if(ov&&typeof ov==='object'){for(const m of MONSTERS){const o=ov[m.nom];if(!o)continue;if(o.invulnerabilite!=null)m.invulnerabilite=o.invulnerabilite;if(o.zone!=null)m.zone=o.zone;if(o.couleur!=null)m.couleur=o.couleur;if(o.niveau!=null){m.niveau=o.niveau;m.tranche=tranche(o.niveau);}}}}
 function boot(){buildPools();renderNotes();setInterval(refreshCount,30000);}
 fetch('game_data.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{if(Array.isArray(d)&&d.length)MONSTERS=d;}).catch(()=>{}).finally(()=>{
- fetch('excluded.json',{cache:'no-store'}).then(r=>r.json()).then(applyExcluded).catch(()=>{}).finally(()=>{
-  fetch('overrides.json',{cache:'no-store'}).then(r=>r.json()).then(applyOverrides).catch(()=>{}).finally(boot);});});
+ fetch(WORKER+'/curation',{cache:'no-store'}).then(r=>r.json()).then(cur=>{applyExcluded(cur.excluded);applyOverrides(cur.overrides);}).catch(()=>{}).finally(boot);});
 
 </script>
 <div class="modal" id="voteModal"><div class="sheet">
