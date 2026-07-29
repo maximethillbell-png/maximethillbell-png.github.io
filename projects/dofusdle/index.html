@@ -670,19 +670,25 @@ function cellStatus(col,gv,tv){
   if(col.list){const G=asList(gv),T=asList(tv),inter=G.filter(x=>T.includes(x));return (G.length===T.length&&G.every(x=>T.includes(x)))?'ok':(inter.length?'warn':'no');}
   return gv===tv?'ok':'no';
 }
+function keycaps(num){return String(num).split('').map(d=>d+'️⃣').join('');}
 function emojiGrid(){
   const SQ={ok:'🟩',warn:'🟨',no:'🟥',neutral:'⬜'};
-  return DS().guesses.map(nm=>{const m=MONSTERS.find(x=>x.nom===nm);if(!m)return '';
+  const rows=DS().guesses.map(nm=>{const m=MONSTERS.find(x=>x.nom===nm);if(!m)return '';
     return cols().map(c=>{
       if(c.level)return m[c.key]===target[c.key]?'🟩':(m.niveau<target.niveau?'⬆️':'⬇️');
       return SQ[cellStatus(c,m[c.key],target[c.key])];
-    }).join(' ');}).filter(Boolean).join('\n');
+    }).join(' ');}).filter(Boolean);
+  return rows.slice(-5).join('\n');
 }
 function shareText(){const n=DS().guesses.length;
-  return `Dofusdle — mode ${MODES[MODE].name} #${puzzleNo()} — trouvé en ${n} coup${n>1?'s':''} ⚔️\n`+emojiGrid()+`\n`+SITE_URL;}
+  let s=`Dofusdle — mode ${MODES[MODE].name} #${puzzleNo()} — trouvé en ${n} coup${n>1?'s':''} ⚔️\n`+emojiGrid();
+  if(n>5)s+=`\n➕${keycaps(n-5)} de plus`;
+  return s+`\n`+SITE_URL;}
 function spellShareText(){const n=SD().guesses.length;
-  const grid=Array(Math.max(0,n-1)).fill('🟥').concat('🟩').join(' ');
-  return `Dofusdle — mode Sorts #${puzzleNo()} — sort trouvé en ${n} essai${n>1?'s':''} 🔮\n`+grid+`\n`+SITE_URL;}
+  const cells=Array(Math.max(0,n-1)).fill('🟥').concat('🟩');
+  let s=`Dofusdle — mode Sorts #${puzzleNo()} — sort trouvé en ${n} essai${n>1?'s':''} 🔮\n`+cells.slice(-5).join(' ');
+  if(n>5)s+=`\n➕${keycaps(n-5)} de plus`;
+  return s+`\n`+SITE_URL;}
 function toast(m){let t=$('toast');if(!t){t=document.createElement('div');t.id='toast';document.body.appendChild(t);}t.textContent=m;t.className='show';clearTimeout(toast._t);toast._t=setTimeout(()=>{t.className='';},1800);}
 function doCopy(txt){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(()=>toast('Copié ! 📋')).catch(()=>fallbackCopy(txt));}else fallbackCopy(txt);}
 function fallbackCopy(txt){const ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('Copié ! 📋');}catch(e){toast('Copie impossible 😕');}ta.remove();}
