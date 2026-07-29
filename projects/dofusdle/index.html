@@ -474,8 +474,8 @@ function onSolve(){
 function finish(restored){
   $('searchbar').style.display='none';$('status').textContent='';
   const msg=restored?"Tu as déjà trouvé le mob du jour :":"Bravo ! Le mob du jour était :";
-  $('winbox').innerHTML='<div class="win"><h3>🎉 '+target.nom+'</h3><div>'+msg.replace(' :','')+
-    '</div><div class="cd">Prochain mob dans<b id="cd">--:--:--</b></div><button class="votecta" onclick="openVote()">🎨 Aider à colorer le bestiaire</button></div>';
+  $('winbox').innerHTML='<div class="win"><div>'+msg.replace(' :','')+'</div><h3>🎉 '+target.nom+'</h3>'+
+    '<div class="cd">Prochain mob dans<b id="cd">--:--:--</b></div><button class="votecta" onclick="openVote()">🎨 Aider à colorer le bestiaire</button></div>';
   input.disabled=true;$('goBtn').disabled=true;
   startCountdown();
 }
@@ -629,8 +629,8 @@ function onSpellSolve(){
 function spellFinish(restored){
   $('spSearchbar').style.display='none';$('spStatus').textContent='';
   const msg=restored?'Tu avais déjà trouvé le sort du jour :':'Bravo ! Le sort du jour était :';
-  $('spWinbox').innerHTML='<div class="win"><h3>🔮 '+esc(sTarget.nom)+'</h3><div>'+msg.replace(' :','')+
-    ' <b>'+esc(sTarget.classe)+'</b></div><div class="cd">Prochain sort dans<b id="scd">--:--:--</b></div></div>';
+  $('spWinbox').innerHTML='<div class="win"><div>'+msg.replace(' :','')+'</div><h3>🔮 '+esc(sTarget.nom)+'</h3>'+
+    '<div>Classe : <b>'+esc(sTarget.classe)+'</b></div><div class="cd">Prochain sort dans<b id="scd">--:--:--</b></div></div>';
   $('sguess').disabled=true;$('sgoBtn').disabled=true;startSpellCountdown();
 }
 function startSpellCountdown(){
