@@ -159,7 +159,14 @@ body{font-family:'Fredoka',sans-serif;color:var(--txt);
 .mbtn.i-dungeons{background-image:url("menu_dungeons.png")}
 .mbtn.i-worldmap{background-image:url("menu_worldmap.png")}
 .mbtn.i-monsters{background-image:url("menu_monsters.png")}
-.mbtn.i-spell{background-image:url("menu_spell.png")}</style>
+.mbtn.i-spell{background-image:url("menu_spell.png")}
+/* PARTAGE */
+.sharebtns{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.shbtn{border:none;border-radius:10px;padding:10px 18px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;color:#fff;box-shadow:0 4px 0 rgba(0,0,0,.3);transition:.1s}
+.shbtn:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.3)}
+.shbtn.copy{background:#5a6be0}.shbtn.tw{background:#1d9bf0}
+#toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#20243a;border:1px solid var(--panel-line);color:#fff;padding:11px 20px;border-radius:12px;font-weight:600;font-size:15px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:1000;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+#toast.show{opacity:1}</style>
 </head>
 <body>
 <div class="wrap">
@@ -475,7 +482,9 @@ function finish(restored){
   $('searchbar').style.display='none';$('status').textContent='';
   const msg=restored?"Tu as déjà trouvé le mob du jour :":"Bravo ! Le mob du jour était :";
   $('winbox').innerHTML='<div class="win"><div>'+msg.replace(' :','')+'</div><h3>🎉 '+target.nom+'</h3>'+
-    '<div class="cd">Prochain mob dans<b id="cd">--:--:--</b></div><button class="votecta" onclick="openVote()">🎨 Aider à colorer le bestiaire</button></div>';
+    '<div class="cd">Prochain mob dans<b id="cd">--:--:--</b></div>'+
+    '<div class="sharebtns"><button class="shbtn copy" onclick="copyShare()">📋 Copier</button><button class="shbtn tw" onclick="tweetShare()">🐦 Partager</button></div>'+
+    '<button class="votecta" onclick="openVote()">🎨 Aider à colorer le bestiaire</button></div>';
   input.disabled=true;$('goBtn').disabled=true;
   startCountdown();
 }
@@ -630,7 +639,8 @@ function spellFinish(restored){
   $('spSearchbar').style.display='none';$('spStatus').textContent='';
   const msg=restored?'Tu avais déjà trouvé le sort du jour :':'Bravo ! Le sort du jour était :';
   $('spWinbox').innerHTML='<div class="win"><div>'+msg.replace(' :','')+'</div><h3>🔮 '+esc(sTarget.nom)+'</h3>'+
-    '<div>Classe : <b>'+esc(sTarget.classe)+'</b></div><div class="cd">Prochain sort dans<b id="scd">--:--:--</b></div></div>';
+    '<div>Classe : <b>'+esc(sTarget.classe)+'</b></div><div class="cd">Prochain sort dans<b id="scd">--:--:--</b></div>'+
+    '<div class="sharebtns"><button class="shbtn copy" onclick="copySpellShare()">📋 Copier</button><button class="shbtn tw" onclick="tweetSpellShare()">🐦 Partager</button></div></div>';
   $('sguess').disabled=true;$('sgoBtn').disabled=true;startSpellCountdown();
 }
 function startSpellCountdown(){
@@ -651,11 +661,41 @@ function openSpellStats(){
     html+='<div class="r"><span class="lab">'+i+'</span><div class="track"><div class="bar" style="width:'+w+'%">'+c+'</div></div></div>';}
   $('dist').innerHTML=html;openModal('statsModal');
 }
+/* ===== PARTAGE (grille emoji type Wordle) ===== */
+const SITE_URL='https://maximethillbell-png.github.io/projects/dofusdle/';
+const DLE_EPOCH=20647; // #1 = 21/07/2026
+function puzzleNo(){return dayId()-DLE_EPOCH;}
+function cellStatus(col,gv,tv){
+  if(col.color){const G=(gv||[]).filter(Boolean),T=(tv||[]).filter(Boolean);if(!G.length||!T.length)return 'neutral';const inter=G.filter(x=>T.includes(x));return (G.length===T.length&&G.every(x=>T.includes(x)))?'ok':(inter.length?'warn':'no');}
+  if(col.list){const G=asList(gv),T=asList(tv),inter=G.filter(x=>T.includes(x));return (G.length===T.length&&G.every(x=>T.includes(x)))?'ok':(inter.length?'warn':'no');}
+  return gv===tv?'ok':'no';
+}
+function emojiGrid(){
+  const SQ={ok:'🟩',warn:'🟨',no:'🟥',neutral:'⬜'};
+  return DS().guesses.map(nm=>{const m=MONSTERS.find(x=>x.nom===nm);if(!m)return '';
+    return cols().map(c=>{
+      if(c.level)return m[c.key]===target[c.key]?'🟩':(m.niveau<target.niveau?'⬆️':'⬇️');
+      return SQ[cellStatus(c,m[c.key],target[c.key])];
+    }).join('');}).filter(Boolean).join('\n');
+}
+function shareText(){const n=DS().guesses.length;
+  return `Dofusdle — mode ${MODES[MODE].name} #${puzzleNo()} — trouvé en ${n} coup${n>1?'s':''} ⚔️\n`+emojiGrid()+`\n`+SITE_URL;}
+function spellShareText(){const n=SD().guesses.length;
+  const grid='🟥'.repeat(Math.max(0,n-1))+'🟩';
+  return `Dofusdle — mode Sorts #${puzzleNo()} — sort trouvé en ${n} essai${n>1?'s':''} 🔮\n`+grid+`\n`+SITE_URL;}
+function toast(m){let t=$('toast');if(!t){t=document.createElement('div');t.id='toast';document.body.appendChild(t);}t.textContent=m;t.className='show';clearTimeout(toast._t);toast._t=setTimeout(()=>{t.className='';},1800);}
+function doCopy(txt){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(()=>toast('Copié ! 📋')).catch(()=>fallbackCopy(txt));}else fallbackCopy(txt);}
+function fallbackCopy(txt){const ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('Copié ! 📋');}catch(e){toast('Copie impossible 😕');}ta.remove();}
+function shareX(txt){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(txt),'_blank','noopener');}
+function copyShare(){doCopy(shareText());}
+function tweetShare(){shareX(shareText());}
+function copySpellShare(){doCopy(spellShareText());}
+function tweetSpellShare(){shareX(spellShareText());}
 function celebrate(emojis){
   const EMOJIS=emojis||['🎉','✨','🎊','⭐','🌟','💥','🔥','🏆'];
   let cv=document.getElementById('fx');
   if(!cv){cv=document.createElement('canvas');cv.id='fx';cv.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:999';document.body.appendChild(cv);}
-  const ctx=cv.getContext('2d');const DPR=window.devicePixelRatio||1;const w=innerWidth,h=innerHeight;
+  const ctx=cv.getContext('2d');if(!ctx)return;const DPR=window.devicePixelRatio||1;const w=innerWidth,h=innerHeight;
   cv.width=w*DPR;cv.height=h*DPR;ctx.scale(DPR,DPR);
   const parts=[];for(let i=0;i<95;i++){const a=Math.random()*Math.PI*2;const sp=6+Math.random()*9;
     parts.push({x:w/2,y:h*0.40,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-7,e:EMOJIS[i%EMOJIS.length],s:20+Math.random()*22,rot:Math.random()*6.28,vr:(Math.random()-.5)*.3});}
