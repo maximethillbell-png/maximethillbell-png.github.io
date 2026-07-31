@@ -148,9 +148,12 @@ body{font-family:'Fredoka',sans-serif;color:var(--txt);
 .sguesses{display:flex;flex-direction:column;gap:6px;width:min(600px,92vw)}
 .sgrow{display:flex;align-items:center;gap:10px;background:rgba(20,24,42,.86);border:1px solid var(--panel-line);border-radius:11px;padding:8px 14px;font-weight:600;animation:flip .4s ease both}
 .sgrow.bad{border-left:4px solid var(--no)}
+.sgrow.good{border-left:4px solid var(--ok);background:rgba(40,70,25,.6)}
 .sgrow .sn{flex:1}
 .sgrow .sc{font-size:12px;color:#aab2d8}
-.sgrow .sx{color:var(--no);font-size:18px}
+.sgrow .sc.clsmatch{color:var(--ok);font-weight:700}
+.sgrow .sx{font-size:18px}
+.sgrow.bad .sx{color:var(--no)}
 /* ICÔNES DE MODES */
 .btn-mode .ico.i-dungeons{background-image:url("menu_dungeons.png")}
 .btn-mode .ico.i-worldmap{background-image:url("menu_worldmap.png")}
@@ -592,8 +595,9 @@ function renderSpell(){
   });
   const g=$('spGuesses');g.innerHTML='';
   SD().guesses.slice().reverse().forEach(nm=>{const s=SPELLS.find(x=>x.nom===nm);if(!s)return;
-    const r=document.createElement('div');r.className='sgrow bad';
-    r.innerHTML='<img src="'+s.img+'" style="width:30px;height:30px;object-fit:contain" onerror="this.style.visibility=\'hidden\'"><span class="sn">'+esc(s.nom)+'</span><span class="sc">'+esc(s.classe)+'</span><span class="sx">✗</span>';
+    const win=sTarget&&nm===sTarget.nom;const clsOk=sTarget&&s.classe===sTarget.classe;
+    const r=document.createElement('div');r.className='sgrow '+(win?'good':'bad');
+    r.innerHTML='<img src="'+s.img+'" style="width:30px;height:30px;object-fit:contain" onerror="this.style.visibility=\'hidden\'"><span class="sn">'+esc(s.nom)+'</span><span class="sc'+(clsOk?' clsmatch':'')+'">'+esc(s.classe)+'</span><span class="sx">'+(win?'✅':'✗')+'</span>';
     g.appendChild(r);});
 }
 let sacItems=[],sacSel=-1;
