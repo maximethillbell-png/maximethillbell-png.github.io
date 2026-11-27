@@ -1,5 +1,13 @@
 [
   {
+    "title": "Titrage live",
+    "emoji": "🔴",
+    "description": "Pupitre de titrage pour tes lives : conducteur de titres, bouton antenne et sortie à capturer dans OBS.",
+    "category": "outil",
+    "date": "2026-11-27",
+    "url": "projects/titrage/index.html"
+  },
+  {
     "title": "Générateur de stinger",
     "emoji": "🎞️",
     "description": "Crée des transitions stinger pour tes lives, avec prévisu en boucle et timeline.",

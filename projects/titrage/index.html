@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Titrage live</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE: pupitre de régie — net, rapide, lisible en plein direct
+   IDEA: le pupitre d'un générateur de titres broadcast : un conducteur de titres, un bouton antenne, un retour programme
+   PICTURE: le retour 16:9 avec le titre en place, tally rouge quand c'est à l'antenne
+   COLOUR and TYPE: graphite / blanc cassé, rouge tally pour l'antenne ; Barlow Condensed + Barlow
+   LAYOUT: retour + boutons antenne + conducteur à gauche, réglages de style à droite ; empilé sous 1000px */
+:root{color-scheme:light dark;--bg:light-dark(#eef0f3,#0f1115);--panel:light-dark(#ffffff,#181b21);--ink:light-dark(#14161b,#eceef2);--mute:light-dark(#5a6070,#959cab);--line:light-dark(#d9dde4,#2a2f39);--field:light-dark(#f4f5f8,#11141a);--tally:#ff3b30}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Barlow,system-ui,sans-serif;overflow-x:clip}
+/* ---- rendu du titre (partagé contrôle / sortie) ---- */
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden;pointer-events:none}
+.anchor{position:absolute}
+.lt{visibility:hidden;display:grid;justify-items:start}
+.lt .b{background:var(--bgc);padding:var(--py) var(--px);border-radius:var(--rad)}
+.lt .l1,.lt .l2{display:block;white-space:nowrap;line-height:1.12}
+.lt .l1{font-family:var(--f1);font-size:var(--s1);font-weight:var(--w1);color:var(--t1);text-transform:var(--u1)}
+.lt .l2{font-family:var(--f2);font-size:var(--s2);font-weight:var(--w2);color:var(--t2);text-transform:var(--u2)}
+.lt .b1{min-width:var(--minw)}
+.lt .acc{display:block;background:var(--acc)}
+.lt.empty2 .b2{display:none}
+.tpl-barre{grid-template-columns:var(--accw) auto;justify-items:stretch!important}
+.tpl-barre .acc{grid-row:1/3;grid-column:1}.tpl-barre .b{grid-column:2}.tpl-barre .b1{border-radius:0 var(--rad) 0 0}.tpl-barre .b2{padding-top:0;border-radius:0 0 var(--rad) 0}
+.tpl-barre.empty2 .b1{border-radius:0 var(--rad) var(--rad) 0}
+.tpl-blocs .acc{display:none}.tpl-blocs .b2{background:var(--acc)}
+.tpl-minimal .b{background:none;padding-left:0;padding-right:0}.tpl-minimal .acc{order:1;height:var(--accw);width:140px}.tpl-minimal .b2{order:2}
+.tpl-minimal .l1,.tpl-minimal .l2{text-shadow:0 2px 14px rgba(0,0,0,.55)}
+.tpl-bandeau{display:flex;align-items:stretch}.tpl-bandeau .acc{display:none}
+.tpl-bandeau .b{display:flex;align-items:center}.tpl-bandeau .b1{flex:1}.tpl-bandeau .b2{order:-1;background:var(--acc)}
+.al-r{justify-items:end}.al-r .b{text-align:right}.al-c{justify-items:center}.al-c .b{text-align:center}
+.tpl-minimal.al-r .acc{justify-self:end}.tpl-minimal.al-c .acc{justify-self:center}
+/* ---- sortie ---- */
+html.out,html.out body{background:transparent!important;margin:0;overflow:hidden}
+#outRoot{position:fixed;inset:0}
+/* ---- pupitre ---- */
+h1,h2,.big{font-family:"Barlow Condensed",Barlow,sans-serif}
+header{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:18px max(3vw,16px) 6px}
+h1{margin:0;font-size:34px;line-height:1.05;font-weight:800}
+.tally{display:inline-flex;align-items:center;gap:8px;font:700 15px "Barlow Condensed";padding:6px 12px;border-radius:6px;background:var(--panel);border:1px solid var(--line);color:var(--mute);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.tally i{width:10px;height:10px;border-radius:50%;background:#666;flex:none}
+.tally.on{background:var(--tally);border-color:var(--tally);color:#fff}.tally.on i{background:#fff}
+.wrap{display:grid;gap:18px;padding:12px max(3vw,16px) 32px}
+@media(min-width:1000px){.wrap{grid-template-columns:minmax(0,1fr) 390px;align-items:start}.panel{position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto}}
+.pv{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line);background:linear-gradient(135deg,#1c3d5e,#08131e)}
+.pv.chk{background:repeating-conic-gradient(#2a2a2a 0 25%,#3a3a3a 0 50%) 0 0/24px 24px}
+.pvl{position:absolute;top:10px;left:10px;font:700 12px Barlow;color:#fff;background:rgba(0,0,0,.55);padding:3px 8px;border-radius:4px}
+.pvl.on{background:var(--tally)}
+.air{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:12px 0}
+button,.btn{font:600 15px Barlow;min-height:44px;padding:0 16px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+button:hover,.btn:hover{border-color:var(--mute)}
+button:focus-visible,select:focus-visible,input:focus-visible,.btn:focus-within{outline:2px solid var(--tally);outline-offset:2px}
+#take{background:var(--tally);border-color:var(--tally);color:#fff;font:800 20px "Barlow Condensed";min-height:56px}
+#hide{font:800 20px "Barlow Condensed";min-height:56px;background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.opts{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;color:var(--mute);font-size:14px}
+.opts input[type=number]{width:72px;min-height:36px;font:16px Barlow;border-radius:6px;border:1px solid var(--line);background:var(--field);color:var(--ink);padding:0 8px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:14px}
+.card h2{margin:0 0 10px;font-size:22px}
+.ed{display:grid;gap:8px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+@media(max-width:600px){.ed{grid-template-columns:1fr}}
+.list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:6px}
+.it{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:4px 4px 4px 12px;background:var(--field);cursor:pointer}
+.it.sel{border-color:var(--ink)}.it.air{box-shadow:inset 4px 0 0 var(--tally)}
+.it b{display:block;font:700 18px "Barlow Condensed";white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.it small{display:block;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.it .acts{display:flex;gap:4px}.it .acts button{min-height:36px;min-width:36px;padding:0 8px;font-size:14px}
+.it .acts .tk{color:var(--tally);font-weight:800}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px}
+details{border-bottom:1px solid var(--line)}details:last-child{border-bottom:0}
+summary{font:700 20px "Barlow Condensed";padding:12px 16px;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"–";color:var(--mute)}details:not([open]) summary::after{content:"+"}
+.sec{padding:0 16px 14px;display:grid;gap:12px}
+.ctl label{display:flex;justify-content:space-between;gap:8px;font-size:14px;color:var(--mute);margin-bottom:4px}
+.ctl output{color:var(--ink);font-weight:600;white-space:nowrap}
+select,input[type=text],input[type=url]{width:100%;font:16px Barlow;min-height:44px;padding:0 10px;border-radius:8px;border:1px solid var(--line);background:var(--field);color:var(--ink)}
+input[type=range]{width:100%;accent-color:var(--tally);height:28px}
+.col{display:flex!important;align-items:center;justify-content:space-between;color:var(--ink)!important}
+input[type=color]{width:64px;height:36px;border:1px solid var(--line);border-radius:6px;background:none;padding:2px}
+.chk{display:flex;gap:10px;align-items:center;min-height:36px;cursor:pointer}
+.chk input{width:20px;height:20px;accent-color:var(--tally)}
+.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1 1 auto}
+.btn input{display:none}
+.note{font-size:13px;color:var(--mute);margin:0}
+.link{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px}
+.link input{font-size:13px}
+ol.steps{margin:0;padding-left:20px;font-size:14px;display:grid;gap:4px}
+[hidden]{display:none!important}
+@media(max-width:600px){h1{font-size:28px}}
+</style>
+</head>
+<body>
+<div id="ctlRoot" hidden>
+<header><h1>Titrage live</h1><span class="tally" id="tally"><i></i><span id="tallyTxt">Hors antenne</span></span></header>
+<div class="wrap">
+<main>
+  <div class="pv" id="pv"><span class="pvl" id="pvl">APERÇU</span></div>
+  <div class="air">
+    <button id="take" title="Ctrl + Entrée">AFFICHER</button>
+    <button id="hide" title="Échap">MASQUER</button>
+    <button id="test">Tester dans l’aperçu</button>
+  </div>
+  <div class="opts">
+    <label class="chk"><input type="checkbox" id="live"> Modifs en direct quand le titre est à l’antenne</label>
+    <label>Masquer auto après <input type="number" id="autoHide" min="0" max="600" step="1"> s (0 = jamais)</label>
+    <label class="chk"><input type="checkbox" id="pvChk"> Fond damier</label>
+  </div>
+  <section class="card">
+    <h2>Conducteur</h2>
+    <div class="ed">
+      <div class="ctl"><label for="e1"><span>Ligne 1</span></label><input type="text" id="e1" maxlength="120"></div>
+      <div class="ctl"><label for="e2"><span>Ligne 2 (vide = une seule ligne)</span></label><input type="text" id="e2" maxlength="160"></div>
+    </div>
+    <div class="row" style="margin-top:10px"><button id="add">+ Nouveau titre</button><button id="dup">Dupliquer</button></div>
+    <ul class="list" id="list"></ul>
+    <p class="note" style="margin-top:10px">Clique un titre pour l’éditer, « ▶ » pour l’envoyer directement à l’antenne. Raccourcis : Ctrl + Entrée = afficher, Échap = masquer.</p>
+  </section>
+</main>
+<aside class="panel" id="panel"></aside>
+</div>
+<datalist id="fonts"></datalist>
+</div>
+<div id="outRoot" hidden></div>
+<script>
+{
+const $=id=>document.getElementById(id);
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const GF={'Barlow Condensed':'400;500;600;700;800;900','Barlow':'400;500;600;700;800;900','Bebas Neue':'400','Oswald':'400;500;600;700','Montserrat':'400;500;600;700;800;900','Inter':'400;500;600;700;800;900','Poppins':'400;500;600;700;800;900','Anton':'400','Rajdhani':'400;500;600;700','Teko':'400;500;600;700','Exo 2':'400;500;600;700;800;900','Orbitron':'400;500;600;700;800;900','Roboto Condensed':'400;500;600;700;800;900','Archivo Black':'400','Chakra Petch':'400;500;600;700','Kanit':'400;500;600;700;800;900','Russo One':'400','Saira Condensed':'400;500;600;700;800;900','Playfair Display':'400;500;600;700;800;900'};
+const loadedGF=new Set(['Barlow Condensed','Barlow']);
+function ensureFont(n){if(GF[n]&&!loadedGF.has(n)){loadedGF.add(n);const l=document.createElement('link');l.rel='stylesheet';l.href=`https://fonts.googleapis.com/css2?family=${encodeURIComponent(n).replace(/%20/g,'+')}:wght@${GF[n]}&display=swap`;document.head.appendChild(l)}}
+const cleanF=n=>String(n||'').replace(/["\\;{}<>]/g,'').trim().slice(0,80);
+const hexA=(h,a)=>{const m=/^#?([0-9a-f]{6})$/i.exec(h||'');if(!m)return h;const n=parseInt(m[1],16);return`rgba(${n>>16},${(n>>8)&255},${n&255},${a})`};
+const DEF_S={tpl:'barre',pos:'bl',mx:120,my:110,minw:520,px:34,py:14,rad:0,accw:10,f1:'Barlow Condensed',s1:64,w1:800,u1:true,f2:'Barlow',s2:30,w2:500,u2:false,bg:'#111318',bga:.92,acc:'#ff3b30',t1:'#ffffff',t2:'#c9ced8',anim:'wipe',dur:600};
+
+/* ===== moteur de rendu partagé ===== */
+function Title(container){
+ const st=document.createElement('div');st.className='stage';
+ st.innerHTML='<div class="anchor"><div class="lt"><i class="acc"></i><div class="b b1"><span class="l1"></span></div><div class="b b2"><span class="l2"></span></div></div></div>';
+ container.appendChild(st);
+ const an=st.firstChild,lt=an.firstChild,acc=lt.children[0],b1=lt.children[1],b2=lt.children[2],l1=b1.firstChild,l2=b2.firstChild;
+ const fit=()=>{const w=container.clientWidth,h=container.clientHeight;if(!w||!h)return;const k=Math.min(w/1920,h/1080);st.style.transform=`translate(${(w-1920*k)/2}px,${(h-1080*k)/2}px) scale(${k})`};
+ const ro=new ResizeObserver(fit);ro.observe(container);fit();
+ let S={...DEF_S},tok=0,dirX=1;const api={visible:false};
+ const cancel=()=>lt.getAnimations({subtree:true}).forEach(a=>a.cancel());
+ const E='cubic-bezier(.16,1,.3,1)',EI='cubic-bezier(.7,0,.84,0)';
+ function setText(t){l1.textContent=t&&t.l1||'';l2.textContent=t&&t.l2||'';lt.classList.toggle('empty2',!(t&&t.l2&&t.l2.trim()))}
+ api.apply=s=>{
+  S={...DEF_S,...s};const v=lt.style,a=an.style;
+  [S.f1,S.f2].forEach(ensureFont);
+  const P={'--bgc':hexA(S.bg,S.bga),'--acc':S.acc,'--t1':S.t1,'--t2':S.t2,'--f1':`"${cleanF(S.f1)}","Barlow Condensed",sans-serif`,'--f2':`"${cleanF(S.f2)}",Barlow,sans-serif`,'--s1':S.s1+'px','--s2':S.s2+'px','--w1':S.w1,'--w2':S.w2,'--u1':S.u1?'uppercase':'none','--u2':S.u2?'uppercase':'none','--minw':S.minw+'px','--px':S.px+'px','--py':S.py+'px','--rad':S.rad+'px','--accw':S.accw+'px'};
+  for(const k in P)v.setProperty(k,P[k]);
+  const h=S.pos[1],vt=S.pos[0];dirX=h==='r'?-1:1;
+  lt.className='lt tpl-'+S.tpl+' al-'+h+(lt.classList.contains('empty2')?' empty2':'');
+  a.left=a.right=a.top=a.bottom=a.transform='';
+  if(S.tpl==='bandeau'){a.left=a.right=S.mx+'px'}
+  else if(h==='l')a.left=S.mx+'px';else if(h==='r')a.right=S.mx+'px';else{a.left='50%';a.transform='translateX(-50%)'}
+  if(vt==='b')a.bottom=S.my+'px';else a.top=S.my+'px';
+ };
+ function run(list,my,done){Promise.all(list.map(x=>x.finished)).then(()=>{if(my===tok)done()}).catch(()=>{})}
+ api.show=()=>{
+  const my=++tok;cancel();api.visible=true;lt.style.visibility='visible';
+  const d=S.dur,L=[],A=(el,k,o)=>L.push(el.animate(k,{easing:E,fill:'both',duration:d,...o}));
+  if(S.anim==='wipe'){[acc,b1,b2].forEach((el,i)=>A(el,[{clipPath:dirX>0?'inset(0 100% 0 0)':'inset(0 0 0 100%)'},{clipPath:'inset(0 0 0 0)'}],{delay:i*d*.12}));
+   [l1,l2].forEach((el,i)=>A(el,[{opacity:0,transform:`translateX(${-dirX*24}px)`},{opacity:1,transform:'translateX(0)'}],{delay:d*.3+i*d*.1}))}
+  else if(S.anim==='slide')A(lt,[{opacity:0,transform:`translateX(${-dirX*90}px)`},{opacity:1,transform:'translateX(0)'}]);
+  else if(S.anim==='rise')[acc,b1,b2].forEach((el,i)=>A(el,[{opacity:0,transform:'translateY(40px)'},{opacity:1,transform:'translateY(0)'}],{delay:i*d*.12}));
+  else if(S.anim==='fade')A(lt,[{opacity:0},{opacity:1}]);
+  run(L,my,cancel);return my;
+ };
+ api.hide=()=>new Promise(res=>{
+  const my=++tok;api.visible=false;
+  if(lt.style.visibility!=='visible'){res();return}
+  const d=S.dur*.6,L=[],A=(el,k,o)=>L.push(el.animate(k,{easing:EI,fill:'forwards',duration:d,...o}));
+  if(S.anim==='wipe'){[b2,b1,acc].forEach((el,i)=>A(el,[{clipPath:'inset(0 0 0 0)'},{clipPath:dirX>0?'inset(0 0 0 100%)':'inset(0 100% 0 0)'}],{delay:i*d*.1}));[l1,l2].forEach(el=>A(el,[{opacity:1},{opacity:0}],{duration:d*.5}))}
+  else if(S.anim==='slide')A(lt,[{opacity:1,transform:'translateX(0)'},{opacity:0,transform:`translateX(${-dirX*90}px)`}]);
+  else if(S.anim==='rise')[b2,b1,acc].forEach((el,i)=>A(el,[{opacity:1,transform:'translateY(0)'},{opacity:0,transform:'translateY(24px)'}],{delay:i*d*.1}));
+  else if(S.anim==='fade')A(lt,[{opacity:1},{opacity:0}]);
+  const fin=()=>{lt.style.visibility='hidden';cancel();res()};
+  if(!L.length){fin();return}
+  run(L,my,fin);
+ });
+ api.edit=t=>{
+  if(l1.textContent===(t.l1||'')&&l2.textContent===(t.l2||''))return;
+  const my=++tok;cancel();lt.style.visibility='visible';
+  const f=[l1,l2].map(el=>el.animate([{opacity:1},{opacity:0}],{duration:120,fill:'forwards'}));
+  run(f,my,()=>{setText(t);cancel();const g=[l1,l2].map(el=>el.animate([{opacity:0},{opacity:1}],{duration:160,fill:'both'}));run(g,my,cancel)});
+ };
+ api.swap=async t=>{await api.hide();setText(t);api.show()};
+ api.still=t=>{++tok;cancel();setText(t);api.visible=false;lt.style.visibility=t?'visible':'hidden'};
+ api.setText=setText;
+ return api;
+}
+function receive(api,m){
+ if(!m)return;api.apply(m.s||{});
+ if(m.on){if(!api.visible){api.setText(m.t);api.show()}else if(m.mode==='swap')api.swap(m.t);else api.edit(m.t)}
+ else if(api.visible)api.hide();
+}
+const keyOf=ch=>'titrage:out:'+ch,topicOf=ch=>'titrage-'+ch;
+
+/* ===== mode sortie (OBS / vMix) ===== */
+const H=location.hash.slice(1),mo=/^out-([a-z0-9]{6,32})(-n)?$/.exec(H);
+if(mo){
+ document.documentElement.className='out';const root=$('outRoot');root.hidden=false;$('ctlRoot').remove();
+ const ch=mo[1],api=Title(root);let last=0;
+ const on=m=>{if(!m||!m.seq||m.seq<=last)return;last=m.seq;receive(api,m)};
+ try{on(JSON.parse(localStorage.getItem(keyOf(ch))))}catch(e){}
+ try{const bc=new BroadcastChannel(keyOf(ch));bc.onmessage=e=>on(e.data)}catch(e){}
+ addEventListener('storage',e=>{if(e.key===keyOf(ch))try{on(JSON.parse(e.newValue))}catch(err){}});
+ if(mo[2]){
+  const base='https://ntfy.sh/'+topicOf(ch);
+  const poll=()=>fetch(base+'/json?poll=1&since=latest').then(r=>r.text()).then(t=>{const ls=t.trim().split('\n').filter(Boolean);if(ls.length){const j=JSON.parse(ls[ls.length-1]);if(j.message)on(JSON.parse(j.message))}}).catch(()=>{});
+  poll();
+  try{const es=new EventSource(base+'/sse');es.onmessage=e=>{try{const j=JSON.parse(e.data);if(j.event==='message'&&j.message)on(JSON.parse(j.message))}catch(err){}};es.onopen=poll}catch(e){setInterval(poll,2000)}
+ }
+}else{
+/* ===== mode pupitre ===== */
+$('ctlRoot').hidden=false;$('outRoot').remove();
+const rid=n=>Array.from(crypto.getRandomValues(new Uint8Array(n)),b=>'abcdefghijkmnpqrstuvwxyz23456789'[b%32]).join('');
+const uid=()=>Date.now().toString(36)+rid(4);
+let C={ch:rid(12),net:false,live:true,autoHide:0,pvChk:false,s:{...DEF_S},items:[
+ {id:uid(),l1:'Camille Laurent',l2:'Caster principale'},
+ {id:uid()+'b',l1:'Finale — Map 3',l2:'Team Rouge vs Team Bleue'},
+ {id:uid()+'c',l1:'Pause',l2:'Retour dans 5 minutes'},
+ {id:uid()+'d',l1:'Merci d’avoir suivi le live !',l2:''}],sel:null,onair:null};
+C.sel=C.items[0].id;
+try{const s=JSON.parse(localStorage.getItem('titrage.v1')||'null');if(s&&Array.isArray(s.items)){C={...C,...s,s:{...DEF_S,...s.s}}}}catch(e){}
+const mc=/^ctl-([a-z0-9]{6,32})$/.exec(H);if(mc)C.ch=mc[1];
+let saveT;const persist=()=>{clearTimeout(saveT);saveT=setTimeout(()=>{try{localStorage.setItem('titrage.v1',JSON.stringify(C))}catch(e){}},300)};
+const item=id=>C.items.find(i=>i.id===id);
+const sel=()=>item(C.sel)||C.items[0];
+
+/* --- envoi --- */
+let bc=null;try{bc=new BroadcastChannel(keyOf(C.ch))}catch(e){}
+let netT=null,netMsg=null;
+function netFlush(){clearTimeout(netT);netT=null;if(!netMsg||!C.net)return;const body=JSON.stringify(netMsg);netMsg=null;
+ fetch('https://ntfy.sh/'+topicOf(C.ch),{method:'POST',body}).then(r=>{netStat(r.ok?'Réseau : envoyé '+new Date().toLocaleTimeString('fr-FR'):'Réseau : refusé ('+r.status+'), réessaie dans quelques secondes')}).catch(()=>netStat('Réseau : envoi impossible depuis cette page (pas d’accès à ntfy.sh)'))}
+const netStat=t=>{const n=$('netStat');if(n)n.textContent=t};
+function send(mode,urgent){
+ const it=C.onair?item(C.onair):null;
+ const m={seq:Date.now(),on:!!it,t:it?{l1:it.l1,l2:it.l2}:null,s:C.s,mode};
+ try{localStorage.setItem(keyOf(C.ch),JSON.stringify(m))}catch(e){}
+ try{bc&&bc.postMessage(m)}catch(e){}
+ if(C.net){netMsg=m;if(urgent)netFlush();else if(!netT)netT=setTimeout(netFlush,700)}
+ receive(prev,m);
+}
+
+/* --- aperçu --- */
+const prev=Title($('pv'));
+let stillT;
+function showStill(){if(C.onair)return;prev.apply(C.s);const s=sel();prev.still(s?{l1:s.l1,l2:s.l2}:null)}
+function ui(){
+ const it=C.onair&&item(C.onair);
+ $('tally').classList.toggle('on',!!it);$('tallyTxt').textContent=it?'À L’ANTENNE : '+it.l1:'Hors antenne';
+ $('pvl').classList.toggle('on',!!it);$('pvl').textContent=it?'PROGRAMME':'APERÇU (hors antenne)';
+ $('pv').classList.toggle('chk',C.pvChk);
+ renderList();
+}
+function take(id,mode){
+ const was=C.onair;C.onair=id;
+ send(was&&was!==id?'swap':(was?'edit':'swap'),true);ui();persist();
+ clearTimeout(autoT);if(C.autoHide>0)autoT=setTimeout(hide,C.autoHide*1000);
+}
+let autoT;
+function hide(){clearTimeout(autoT);if(!C.onair)return;C.onair=null;send('hide',true);ui();persist();clearTimeout(stillT);stillT=setTimeout(showStill,C.s.dur*.6+250)}
+$('take').addEventListener('click',()=>take(sel().id));
+$('hide').addEventListener('click',hide);
+$('test').addEventListener('click',async()=>{if(C.onair)return;const s=sel();prev.apply(C.s);prev.still(null);prev.setText({l1:s.l1,l2:s.l2});prev.show();clearTimeout(stillT);stillT=setTimeout(async()=>{await prev.hide();setTimeout(showStill,400)},C.s.dur+1800)});
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){e.preventDefault();take(sel().id)}else if(e.key==='Escape'){hide()}});
+
+/* --- conducteur --- */
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function renderList(){
+ $('list').innerHTML=C.items.map((it,i)=>`<li class="it${it.id===C.sel?' sel':''}${it.id===C.onair?' air':''}" data-id="${esc(it.id)}"><div><b>${esc(it.l1||'(vide)')}</b><small>${esc(it.l2||'—')}</small></div><div class="acts"><button class="tk" data-a="take" title="Afficher">▶</button><button data-a="up" title="Monter" ${i?'':'disabled'}>▲</button><button data-a="down" title="Descendre" ${i<C.items.length-1?'':'disabled'}>▼</button><button data-a="del" title="Supprimer">✕</button></div></li>`).join('');
+}
+function fillEd(){const s=sel();$('e1').value=s?s.l1:'';$('e2').value=s?s.l2:''}
+$('list').addEventListener('click',e=>{
+ const li=e.target.closest('.it');if(!li)return;const id=li.dataset.id,a=e.target.closest('button')?.dataset.a,i=C.items.findIndex(x=>x.id===id);
+ if(a==='take'){C.sel=id;fillEd();take(id)}
+ else if(a==='up'&&i>0){[C.items[i-1],C.items[i]]=[C.items[i],C.items[i-1]]}
+ else if(a==='down'&&i<C.items.length-1){[C.items[i+1],C.items[i]]=[C.items[i],C.items[i+1]]}
+ else if(a==='del'){if(id===C.onair)hide();C.items.splice(i,1);if(!C.items.length)C.items.push({id:uid(),l1:'Nouveau titre',l2:''});if(C.sel===id)C.sel=C.items[Math.max(0,i-1)].id;fillEd()}
+ else if(!a){C.sel=id;fillEd()}
+ ui();showStill();persist();
+});
+let liveT;
+['e1','e2'].forEach(k=>$(k).addEventListener('input',()=>{
+ const s=sel();s.l1=$('e1').value;s.l2=$('e2').value;renderList();persist();
+ if(s.id===C.onair){if(C.live){clearTimeout(liveT);liveT=setTimeout(()=>send('edit'),250)}}else showStill();
+}));
+$('add').addEventListener('click',()=>{const n={id:uid(),l1:'Nouveau titre',l2:'Sous-titre'};C.items.push(n);C.sel=n.id;fillEd();ui();showStill();persist();$('e1').select()});
+$('dup').addEventListener('click',()=>{const s=sel(),n={id:uid(),l1:s.l1,l2:s.l2};C.items.splice(C.items.indexOf(s)+1,0,n);C.sel=n.id;fillEd();ui();showStill();persist()});
+$('live').addEventListener('change',e=>{C.live=e.target.checked;persist()});
+$('autoHide').addEventListener('input',e=>{C.autoHide=clamp(+e.target.value||0,0,600);persist()});
+$('pvChk').addEventListener('change',e=>{C.pvChk=e.target.checked;ui();persist()});
+
+/* --- panneau de style --- */
+const W=[[300,'300 Light'],[400,'400 Regular'],[500,'500 Medium'],[600,'600 Semibold'],[700,'700 Bold'],[800,'800 Extrabold'],[900,'900 Black']];
+const SEC=[
+ {t:'Mise en page',c:[
+  {id:'tpl',l:'Modèle',k:'sel',o:[['barre','Barre + liseré'],['blocs','Blocs empilés'],['minimal','Minimal (texte + trait)'],['bandeau','Bandeau pleine largeur']]},
+  {id:'pos',l:'Position',k:'sel',o:[['bl','Bas gauche'],['bc','Bas centre'],['br','Bas droite'],['tl','Haut gauche'],['tc','Haut centre'],['tr','Haut droite']]},
+  {id:'mx',l:'Marge horizontale',k:'rng',min:0,max:700,step:2,f:v=>v+' px'},
+  {id:'my',l:'Marge verticale',k:'rng',min:0,max:500,step:2,f:v=>v+' px'},
+  {id:'minw',l:'Largeur mini',k:'rng',min:0,max:1600,step:10,f:v=>v+' px'},
+  {id:'px',l:'Marge intérieure horizontale',k:'rng',min:0,max:100,step:1,f:v=>v+' px'},
+  {id:'py',l:'Marge intérieure verticale',k:'rng',min:0,max:60,step:1,f:v=>v+' px'},
+  {id:'accw',l:'Épaisseur du liseré',k:'rng',min:0,max:40,step:1,f:v=>v+' px'},
+  {id:'rad',l:'Arrondi',k:'rng',min:0,max:40,step:1,f:v=>v+' px'}]},
+ {t:'Polices',html:`<button id="localFonts">Charger les polices de mon ordi</button><p class="note" id="fontNote">Tu peux aussi taper le nom exact d’une police installée. Elle doit être installée sur la machine qui diffuse (OBS / vMix) pour s’y afficher.</p>`,c:[
+  {id:'f1',l:'Police ligne 1',k:'font'},{id:'s1',l:'Taille ligne 1',k:'rng',min:16,max:180,step:1,f:v=>v+' px'},{id:'w1',l:'Graisse ligne 1',k:'sel',num:1,o:W},{id:'u1',l:'Ligne 1 en majuscules',k:'chk'},
+  {id:'f2',l:'Police ligne 2',k:'font'},{id:'s2',l:'Taille ligne 2',k:'rng',min:12,max:120,step:1,f:v=>v+' px'},{id:'w2',l:'Graisse ligne 2',k:'sel',num:1,o:W},{id:'u2',l:'Ligne 2 en majuscules',k:'chk'}]},
+ {t:'Couleurs',c:[
+  {id:'bg',l:'Fond',k:'col'},{id:'bga',l:'Opacité du fond',k:'rng',min:0,max:1,step:.01,f:v=>Math.round(v*100)+' %'},
+  {id:'acc',l:'Accent (liseré, bloc 2)',k:'col'},{id:'t1',l:'Texte ligne 1',k:'col'},{id:'t2',l:'Texte ligne 2',k:'col'}]},
+ {t:'Animation',c:[
+  {id:'anim',l:'Entrée / sortie',k:'sel',o:[['wipe','Volet (wipe)'],['slide','Glisse'],['rise','Monte'],['fade','Fondu'],['cut','Coupe franche']]},
+  {id:'dur',l:'Durée d’entrée',k:'rng',min:150,max:1500,step:10,f:v=>v+' ms'}]},
+ {t:'Connexion OBS / vMix',html:`
+  <div class="ctl"><label for="chIn"><span>Canal (identifiant secret de ta sortie)</span></label><div class="link"><input type="text" id="chIn" readonly><button id="chNew">Nouveau</button></div></div>
+  <label class="chk"><input type="checkbox" id="net"><span>Mode réseau (vMix, autre PC, autre navigateur)</span></label>
+  <p class="note" id="netStat"></p>
+  <div class="ctl"><label for="outUrl"><span>URL de sortie à mettre dans OBS / vMix</span></label><div class="link"><input type="url" id="outUrl" readonly><button data-copy="outUrl">Copier</button></div></div>
+  <div class="ctl"><label for="ctlUrl"><span>URL du pupitre (dock OBS)</span></label><div class="link"><input type="url" id="ctlUrl" readonly><button data-copy="ctlUrl">Copier</button></div></div>
+  <p class="note" id="hostNote" hidden>Ces liens ne marchent qu’une fois la page en ligne sur ton GitHub : OBS et vMix ne peuvent pas ouvrir une page Claude.</p>
+  <ol class="steps"><li><b>OBS</b> : Source → Navigateur → colle l’URL de sortie, 1920 × 1080.</li><li>Sans mode réseau, pilote depuis OBS : Docks → Docks de navigateur personnalisés → colle l’URL du pupitre.</li><li><b>vMix</b> ou autre PC : coche « Mode réseau », puis Add Input → Web Browser → URL de sortie, 1920 × 1080.</li></ol>
+  <p class="note">Le mode réseau passe par le relais public ntfy.sh. Le canal sert de mot de passe : ne le partage pas.</p>`},
+ {t:'Sauvegarde',html:`<div class="row"><button id="expJson">Exporter titres + style</button><label class="btn">Importer<input type="file" id="impJson" accept=".json,application/json"></label></div><p class="note" id="saveNote"></p>`}
+];
+const ctlHTML=c=>{
+ if(c.k==='rng')return `<div class="ctl"><label for="s_${c.id}"><span>${c.l}</span><output id="o_${c.id}"></output></label><input type="range" id="s_${c.id}" min="${c.min}" max="${c.max}" step="${c.step}"></div>`;
+ if(c.k==='sel')return `<div class="ctl"><label for="s_${c.id}"><span>${c.l}</span></label><select id="s_${c.id}">${c.o.map(o=>`<option value="${o[0]}">${o[1]}</option>`).join('')}</select></div>`;
+ if(c.k==='col')return `<div class="ctl"><label class="col" for="s_${c.id}"><span>${c.l}</span><input type="color" id="s_${c.id}"></label></div>`;
+ if(c.k==='chk')return `<div class="ctl"><label class="chk"><input type="checkbox" id="s_${c.id}"><span>${c.l}</span></label></div>`;
+ return `<div class="ctl"><label for="s_${c.id}"><span>${c.l}</span></label><input type="text" id="s_${c.id}" list="fonts" autocomplete="off" spellcheck="false"></div>`;
+};
+const panel=$('panel');
+panel.innerHTML=SEC.map((s,i)=>`<details ${i<4||i===4?'open':''}><summary>${s.t}</summary><div class="sec">${s.html&&s.t==='Polices'?s.html:''}${(s.c||[]).map(ctlHTML).join('')}${s.html&&s.t!=='Polices'?s.html:''}</div></details>`).join('');
+const CTL={};SEC.forEach(s=>(s.c||[]).forEach(c=>CTL[c.id]=c));
+function syncStyle(){for(const id in CTL){const c=CTL[id],el=$('s_'+id);if(c.k==='chk')el.checked=!!C.s[id];else el.value=C.s[id];if(c.f)$('o_'+id).textContent=c.f(C.s[id]);if(c.k==='font')el.style.fontFamily=`"${cleanF(C.s[id])}",sans-serif`}}
+let styleT;
+panel.addEventListener('input',e=>{
+ const id=e.target.id;if(!id.startsWith('s_'))return;const k=id.slice(2),c=CTL[k];if(!c)return;
+ C.s[k]=c.k==='chk'?e.target.checked:(c.k==='rng'||c.num)?Number(e.target.value):c.k==='font'?cleanF(e.target.value):e.target.value;
+ if(c.f)$('o_'+k).textContent=c.f(C.s[k]);if(c.k==='font')e.target.style.fontFamily=`"${C.s[k]}",sans-serif`;
+ persist();
+ if(C.onair){clearTimeout(styleT);styleT=setTimeout(()=>send('edit'),120)}else showStill();
+});
+/* polices */
+const fontDL=$('fonts');let localF=[];
+function fillFonts(){fontDL.innerHTML=[...Object.keys(GF),...localF].map(f=>`<option value="${esc(f)}"></option>`).join('')}
+fillFonts();
+$('localFonts').addEventListener('click',async()=>{
+ const n=$('fontNote');
+ if(!('queryLocalFonts' in window)){n.textContent='Ce navigateur ne donne pas la liste des polices (il faut Chrome ou Edge sur ordinateur, page ouverte directement, pas dans Claude). Tu peux quand même taper le nom exact d’une police installée.';return}
+ try{const fs=await window.queryLocalFonts();localF=[...new Set(fs.map(f=>f.family))].sort((a,b)=>a.localeCompare(b,'fr'));fillFonts();n.textContent=`${localF.length} polices de ton ordi ajoutées à la liste : clique dans un champ police et tape pour chercher.`}
+ catch(e){n.textContent='Accès aux polices refusé. Autorise-le dans les réglages du site, ou tape le nom exact de la police.'}
+});
+/* connexion */
+const base=()=>location.href.split('#')[0];
+function links(){
+ $('chIn').value=C.ch;$('net').checked=C.net;
+ $('outUrl').value=base()+'#out-'+C.ch+(C.net?'-n':'');$('ctlUrl').value=base()+'#ctl-'+C.ch;
+ $('hostNote').hidden=!(window.top!==window||/claude\.ai|claudeusercontent/.test(location.hostname));
+ if(!C.net)netStat('Mode local : la sortie doit tourner dans le même navigateur que le pupitre (ex. source + dock OBS).');
+}
+$('net').addEventListener('change',e=>{C.net=e.target.checked;links();persist();if(C.net)send('edit',true)});
+$('chNew').addEventListener('click',()=>{if(C.onair)hide();C.ch=rid(12);try{bc&&bc.close();bc=new BroadcastChannel(keyOf(C.ch))}catch(e){}links();persist()});
+panel.addEventListener('click',async e=>{const b=e.target.closest('[data-copy]');if(!b)return;const v=$(b.dataset.copy).value;try{await navigator.clipboard.writeText(v);b.textContent='Copié';setTimeout(()=>b.textContent='Copier',1200)}catch(err){$(b.dataset.copy).select()}});
+/* sauvegarde */
+let DL=null;(async()=>{try{DL=await window.claude?.use?.('downloads')}catch(e){}})();
+async function save(name,data){
+ const n=$('saveNote');
+ if(DL){try{await DL.save({filename:name,data});n.textContent='Enregistré : '+name}catch(e){n.textContent=e&&e.code==='declined'?'Enregistrement annulé.':'Enregistrement impossible ici.'}return}
+ try{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type:'application/json'}));a.download=name;document.body.appendChild(a);a.click();a.remove();n.textContent='Téléchargement lancé : '+name}catch(e){n.textContent='Le téléchargement est bloqué dans cette vue.'}
+}
+$('expJson').addEventListener('click',()=>save('titrage_reglages.json',JSON.stringify({s:C.s,items:C.items},null,1)));
+$('impJson').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const o=JSON.parse(r.result);if(o.s)C.s={...DEF_S,...o.s};if(Array.isArray(o.items)&&o.items.length)C.items=o.items.map(i=>({id:String(i.id||uid()),l1:String(i.l1||''),l2:String(i.l2||'')}));C.sel=C.items[0].id;if(C.onair&&!item(C.onair))C.onair=null;syncStyle();fillEd();ui();showStill();persist();$('saveNote').textContent='Réglages importés.'}catch(err){$('saveNote').textContent='Fichier illisible.'}};r.readAsText(f);e.target.value=''});
+
+/* init */
+if(C.onair&&!item(C.onair))C.onair=null;
+$('live').checked=C.live;$('autoHide').value=C.autoHide;$('pvChk').checked=C.pvChk;
+syncStyle();fillEd();links();ui();
+prev.apply(C.s);
+if(C.onair){send('edit',false)}else showStill();
+(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{if(!C.onair)showStill()});
+}
+}
+</script>
+</body>
+</html>
