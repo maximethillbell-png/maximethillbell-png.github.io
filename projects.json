@@ -5,7 +5,17 @@
     "description": "Pupitre de titrage pour tes lives : conducteur de titres, bouton antenne et sortie à capturer dans OBS.",
     "category": "outil",
     "date": "2026-11-27",
-    "url": "projects/titrage/index.html"
+    "url": "projects/titrage/index.html",
+    "icon": "assets/icons/titrage.svg",
+    "accent": "#ff5a4f",
+    "tagline": "Tes titres en direct, prêts pour OBS.",
+    "features": [
+      "Conducteur de titres et bouton antenne",
+      "Sortie 1920×1080 à capturer dans OBS ou vMix",
+      "Styles, polices et animations réglables"
+    ],
+    "shot": "assets/shots/titrage.jpg",
+    "featured": true
   },
   {
     "title": "Générateur de stinger",
@@ -13,7 +23,17 @@
     "description": "Crée des transitions stinger pour tes lives, avec prévisu en boucle et timeline.",
     "category": "outil",
     "date": "2026-11-27",
-    "url": "projects/stinger/index.html"
+    "url": "projects/stinger/index.html",
+    "icon": "assets/icons/stinger.svg",
+    "accent": "#ff8a3d",
+    "tagline": "Des transitions de live sur mesure.",
+    "features": [
+      "Prévisu en boucle sur un faux programme",
+      "Timeline des phases et point de transition OBS",
+      "Export avec transparence"
+    ],
+    "shot": "assets/shots/stinger.jpg",
+    "featured": true
   },
   {
     "title": "Dofusdle",
@@ -21,7 +41,17 @@
     "description": "Devine le mob de Dofus du jour à la Wordle — 410 mobs, indices, stats & séries.",
     "category": "jeu",
     "date": "2026-07-24",
-    "url": "projects/dofusdle/index.html"
+    "url": "projects/dofusdle/index.html",
+    "icon": "assets/icons/dofusdle.svg",
+    "accent": "#7fd35a",
+    "tagline": "Le mob de Dofus du jour, à deviner.",
+    "features": [
+      "410 mobs, indices progressifs",
+      "Modes Classique, Hardcore, Complet et Sorts",
+      "Stats et séries sauvegardées"
+    ],
+    "shot": "assets/shots/dofusdle.jpg",
+    "featured": true
   },
   {
     "title": "MaxPlay",
@@ -29,7 +59,16 @@
     "description": "Lecteur vidéo local (Electron + mpv), interface soignée.",
     "category": "app",
     "date": "2026-07-23",
-    "url": "projects/maxplay/index.html"
+    "url": "projects/maxplay/index.html",
+    "icon": "assets/icons/maxplay.svg",
+    "accent": "#7b6cff",
+    "tagline": "Un lecteur vidéo local, rapide et propre.",
+    "features": [
+      "Moteur mpv, lit tout",
+      "Interface soignée sur Electron",
+      "Builds Windows et Linux"
+    ],
+    "featured": true
   },
   {
     "title": "PNG Converter",
@@ -37,7 +76,17 @@
     "description": "N'importe quelle image → PNG. Glisser-déposer ou coller (Ctrl+V), dans le navigateur.",
     "category": "outil",
     "date": "2026-07-24",
-    "url": "projects/png-converter/index.html"
+    "url": "projects/png-converter/index.html",
+    "icon": "assets/icons/png-converter.svg",
+    "accent": "#ff7a5c",
+    "tagline": "N’importe quelle image devient un PNG.",
+    "features": [
+      "Glisser-déposer ou Ctrl+V",
+      "Plusieurs images d’un coup",
+      "Rien ne quitte ton navigateur"
+    ],
+    "shot": "assets/shots/png-converter.jpg",
+    "featured": true
   },
   {
     "title": "PDF Organizer",
@@ -45,7 +94,17 @@
     "description": "Réorganiser, fusionner et trier des PDF, directement dans le navigateur.",
     "category": "outil",
     "date": "2026-07-23",
-    "url": "projects/pdf-organizer/app.html"
+    "url": "projects/pdf-organizer/app.html",
+    "icon": "assets/icons/pdf-organizer.svg",
+    "accent": "#8a6cff",
+    "tagline": "Trie, fusionne et réordonne tes PDF.",
+    "features": [
+      "Pages groupées par fichier",
+      "Glisser pour réordonner",
+      "Export en un seul PDF, sans serveur"
+    ],
+    "shot": "assets/shots/pdf-organizer.jpg",
+    "featured": true
   },
   {
     "title": "Video Downloader",
@@ -53,7 +112,15 @@
     "description": "Télécharger vidéo/audio depuis YouTube, TikTok, X… (yt-dlp).",
     "category": "outil",
     "date": "2026-07-23",
-    "url": "projects/ytdl/index.html"
+    "url": "projects/ytdl/index.html",
+    "icon": "assets/icons/ytdl.svg",
+    "accent": "#2f9cf0",
+    "tagline": "Récupère vidéo ou audio en un clic.",
+    "features": [
+      "YouTube, TikTok, X et des centaines d’autres",
+      "Choix du format et de la qualité",
+      "yt-dlp installé automatiquement"
+    ]
   },
   {
     "title": "ImgViewer",
@@ -61,7 +128,15 @@
     "description": "Visionneuse d'image flottante, toujours au-dessus, coller au presse-papier.",
     "category": "outil",
     "date": "2026-07-23",
-    "url": "projects/imgviewer/index.html"
+    "url": "projects/imgviewer/index.html",
+    "icon": "assets/icons/imgviewer.svg",
+    "accent": "#d64fc0",
+    "tagline": "Une image toujours au-dessus de tout.",
+    "features": [
+      "Coller depuis le presse-papier",
+      "Fenêtre sans bordure, épinglée",
+      "Opacité réglable"
+    ]
   },
   {
     "title": "Keyboard Cleaner",
@@ -69,7 +144,14 @@
     "description": "Désactive le clavier le temps de le nettoyer tranquillement.",
     "category": "outil",
     "date": "2026-07-23",
-    "url": "projects/keyboard-cleaner/index.html"
+    "url": "projects/keyboard-cleaner/index.html",
+    "icon": "assets/icons/keyboard-cleaner.svg",
+    "accent": "#3fc1b0",
+    "tagline": "Nettoie ton clavier sans rien taper.",
+    "features": [
+      "Bloque le clavier le temps du ménage",
+      "Se déverrouille à la souris"
+    ]
   },
   {
     "title": "YouTube Clean Subscriptions",
@@ -77,7 +159,14 @@
     "description": "Extension Chrome : nettoie la page Abonnements (Shorts, sections « Pertinentes »).",
     "category": "extension",
     "date": "2026-07-23",
-    "url": "projects/youtube-clean-subs/index.html"
+    "url": "projects/youtube-clean-subs/index.html",
+    "icon": "assets/icons/youtube-clean-subs.svg",
+    "accent": "#f78a3a",
+    "tagline": "Des abonnements YouTube sans le bruit.",
+    "features": [
+      "Masque les Shorts",
+      "Retire les sections « Pertinentes »"
+    ]
   },
   {
     "title": "Bienvenue dans le Cabinet",
@@ -85,6 +174,12 @@
     "description": "Comment ça marche, et comment on ajoute des trucs ici.",
     "category": "meta",
     "date": "2026-07-22",
-    "url": "projects/bienvenue/index.html"
+    "url": "projects/bienvenue/index.html",
+    "icon": "assets/icons/cabinet.svg",
+    "accent": "#5b6be0",
+    "tagline": "Comment le Cabinet fonctionne.",
+    "features": [
+      "Ajouter un projet en deux étapes"
+    ]
   }
 ]
