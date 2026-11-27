@@ -1,5 +1,13 @@
 [
   {
+    "title": "Générateur de stinger",
+    "emoji": "🎞️",
+    "description": "Crée des transitions stinger pour tes lives, avec prévisu en boucle et timeline.",
+    "category": "outil",
+    "date": "2026-11-27",
+    "url": "projects/stinger/index.html"
+  },
+  {
     "title": "Dofusdle",
     "emoji": "🐲",
     "description": "Devine le mob de Dofus du jour à la Wordle — 410 mobs, indices, stats & séries.",
